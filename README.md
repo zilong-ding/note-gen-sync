@@ -4,9 +4,8 @@
 
 ![Blue_Peacock_Closeup_2017_Animal_HD_Wallpaper_1600x1200.jpg](/assets/a8870685-022f-4299-bb49-739861aaf483.jpg)
 
-![Figure_1.png](/assets/aeeddc8a-cf8f-4aea-800c-8422a95b36ec.png)
-
 ![Screenshot from 2025-08-17 14-44-30.png](/assets/4ed956ad-3240-4747-ab55-453ce65902a2.png)
+
 
 ![Figure_1.png](/assets/b07eda3d-1ee6-4218-b644-57c7bc27a54f.png)
 
