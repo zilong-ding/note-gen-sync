@@ -1,0 +1,98 @@
+{
+  "markDescModel": "",
+  "promptList": [
+    {
+      "content": "请你扮演一个笔记软件的智能助手，可以参考记录内容，使用 markdown 语法，回答用户的问题。",
+      "id": "0",
+      "isDefault": true,
+      "title": "写作助手"
+    }
+  ],
+  "jsdelivr": false,
+  "darkMode": "system",
+  "shortcuts": [
+    {
+      "key": "openWindow",
+      "value": "CommandOrControl+Shift+W"
+    },
+    {
+      "key": "quickRecordText",
+      "value": "CommandOrControl+Shift+T"
+    }
+  ],
+  "templateList": [
+    {
+      "content": "整理成一篇详细完整的笔记。\n满足以下格式要求：\n- 如果是代码，必须完整保留，不要随意生成。\n- 文字复制的内容尽量不要修改，只处理格式化后的内容。",
+      "id": "0",
+      "range": "all",
+      "status": true,
+      "title": "笔记"
+    },
+    {
+      "content": "最近一周的记录整理成一篇周报，将每条记录形成一句总结，每条不超过50字。",
+      "id": "1",
+      "range": "week",
+      "status": true,
+      "title": "周报"
+    }
+  ],
+  "gitlabUsername": "",
+  "githubUsername": "zilong-ding",
+  "giteeAccessToken": "",
+  "currentTagId": 1,
+  "previewTheme": "github",
+  "picgo": {
+    "url": "http://127.0.0.1:36677"
+  },
+  "assetsPath": "assets",
+  "autoSync": "disabled",
+  "useImageRepo": true,
+  "version": "0.20.2",
+  "chatLanguage": "中文",
+  "activeFilePath": "README.md",
+  "lastSettingPage": "file",
+  "giteeAutoSync": "disabled",
+  "collapsibleList": [
+    "assets"
+  ],
+  "codeTheme": "github",
+  "autoUpdate": true,
+  "currentAi": "85785c53-a972-4bed-94ab-f982e16dc61e",
+  "mainImageHosting": "github",
+  "imageMethodModel": "",
+  "language": "简体中文",
+  "gitlabAccessToken": "",
+  "primaryModel": "",
+  "placeholderModel": "",
+  "tesseractList": "eng,chi_sim",
+  "primaryImageMethod": "ocr",
+  "gitlabAutoSync": "disabled",
+  "currentPage": "/core/article",
+  "rerankingModel": "",
+  "workspacePath": "/home/dzl/note-gen",
+  "currentPromptId": "0",
+  "primaryBackupMethod": "github",
+  "translateModel": "",
+  "audioModel": "",
+  "embeddingModel": "",
+  "githubImageAccessToken": "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",
+  "gitlabInstanceType": "gitlab.com",
+  "accessToken": "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",
+  "workspaceHistory": [
+    "/home/dzl/note-gen"
+  ],
+  "gitlabCustomUrl": "",
+  "aiModelList": [
+    {
+      "baseURL": "",
+      "key": "85785c53-a972-4bed-94ab-f982e16dc61e",
+      "model": "",
+      "modelType": "chat",
+      "temperature": 0.7,
+      "title": "自定义",
+      "topP": 1
+    }
+  ],
+  "note_locale": "中文",
+  "githubImageUsername": "zilong-ding"
+}
