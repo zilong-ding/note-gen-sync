@@ -175,3 +175,18 @@ GPT(Generative Pre-trained Transformer)则更像一个“创造者”或“生�
 2.归一化(Normalizing):这些分数会被转换成权重，通常使用Softmax函数。这样做的好处是，所有权重加起来等于1，而且越重要的词权重越高，不重要的词权重越低，这就像给每个词分配了不同等级的关注度。 
 
 3.加权求和(Weighted Sum):最后，模型会将所有词的原始信息（也叫“值”）与它们对应的权重相乘，然后相加。这样得到的最终表示，就包含了所有词的信息，但重点突出了那些权重高的、更重要的词。
+
+注意力机制通过让模型能够“回头看”句子中的所有词，并给它们分配不同的权重，彻底解决了这个问题。它让模型在处理长句子时，不再“短视”，而是拥有了“全局视野”，能更好地理解整个句子的语境和含义。
+
+
+### BERT 
+
+Bidirectional Encoder Representations from Transformers,直译过来就是“来自 Transformer的双向编码表示”。 
+
+双向(Bidirectional):这是BERT最大的特点。 
+
+编码器(Encoder):表明它擅长理解文本。 
+
+来自Transformer(from Transformers):说明它的底层架构是Transformer。 
+
+BERT的创新之处在于，它采用了双向的训练方式。它在训练时，会随机遮盖(msk)掉句子中一部分词，然后让模型根据被遮盖词的前后所有词来预测它。除了“完形填空”(Masked Language Model))这个主要任务外，BERT还有另一个辅助任务：下一句预测(Next Sentence Prediction)
