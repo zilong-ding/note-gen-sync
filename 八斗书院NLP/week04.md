@@ -28,6 +28,7 @@ Seq2Seq也是编码器-解码器结构的雏形。
 
 Transformer是一种基于注意力机制的编码器-解码器结构，具有很好的并行性能，同时利用注意力机制很好地解决了长序列的长程依赖问题。
 
+![2025-09-02_14-35.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/f1b3364c-49da-41f9-9f23-76f87508d9bb.png)![2025-09-02_14-35_1.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/6018e64f-e5fe-4beb-858e-456a11737722.png)
 
 
 
