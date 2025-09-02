@@ -122,7 +122,9 @@ BERT由多层Transformer编码器组成，这意味着在编码过程中，每�
 
 #### BERT分支模型
 
+![2025-09-02_15-08.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0f529534-c8f2-4d35-ac70-b8dfdd8cc218.jpeg)
 
 
+![2025-09-02_15-09.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/6b9a0529-8f15-4632-929a-7daa2ab0a4b9.jpeg)
 
 ## HuggingFace：现在人工智能和大模型的关键社区
