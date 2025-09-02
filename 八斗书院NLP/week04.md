@@ -15,4 +15,3 @@ Transformer的提出解决了上面两个问题，它使用了Attention机制，
 ## BERT：判别式模型 vs 生成式模型
 
 ## HuggingFace：现在人工智能和大模型的关键社区
-
