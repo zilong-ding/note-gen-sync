@@ -40,6 +40,10 @@ $$
 {\mathrm{Atention}}{\big(}Q,K,V{\big)}={\mathrm{Sofimax}}{\Bigg(}{\frac{Q K^{T}}{\sqrt{d_{k}}}}{\Bigg)}V
 $$
 
+$$
+Q = XW
+$$
+
 ### 组成的层
 
 ### 使用案例
