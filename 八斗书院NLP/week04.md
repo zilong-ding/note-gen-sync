@@ -144,7 +144,7 @@ BERT由多层Transformer编码器组成，这意味着在编码过程中，每�
 ## HuggingFace：现在人工智能和大模型的关键社区
 
 
-## 压测工具
+## 压测工具ApacheBench
 
 ApacheBench(ab)是一个命令行工具，用于测试Apache HTTP服务器的性能。尽管它最初是为Apache
 服务器设计的，但实际上它可以测试任何HTTP服务器。它能够模拟对服务器的并发请求，并提供关于服务器响应时间、吞吐量和请求失败率等关键性能指标。
@@ -158,3 +158,5 @@ ApacheBench(ab)是一个命令行工具，用于测试Apache HTTP服务器的性
 -p postfile:指定包含POST数据的文件。用于测试POST请求。
 
 -T content--type:为POST数据指定Content-Type。
+
+https://httpd.apache.orq/docs/current/programs/ab.html
