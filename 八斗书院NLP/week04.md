@@ -37,7 +37,7 @@ Transformer是一种基于注意力机制的编码器-解码器结构，具有�
 多头注意力层接收输入词嵌入与位置编码之和，并进行多头注意力的计算。注意力机制中的Q、K、V的来源不同。以机器翻译为例，Q来源于目标输出，而K和V来源于输入信息。与之相对，自注意力机制的Q、K、V均来源于同一个输入X。
 
 $$
-{\mathrm{Atention}}{\big(}Q,K,V{\big)}={\mathrm{Sofimax}}{\Bigg(}{\frac{Q K^{\dagger}}{\sqrt{d_{k}}}}{\Bigg)}
+{\mathrm{Atention}}{\big(}Q,K,V{\big)}={\mathrm{Sofimax}}{\Bigg(}{\frac{Q K^{T}}{\sqrt{d_{k}}}}{\Bigg)}V
 $$
 
 ### 组成的层
