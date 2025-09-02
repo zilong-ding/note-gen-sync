@@ -20,6 +20,8 @@ Seq2Seq(Sequence-to-Sequence)将自然语言处理中的任务（如文本摘要
 
 Seq2Seq也是编码器-解码器结构的雏形。
 
+![2025-09-02_14-32.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/ef6876d8-f362-44a0-a53e-38ac3b60ab79.png)
+
 
 ### 组成的层
 
