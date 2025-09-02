@@ -127,4 +127,17 @@ BERT由多层Transformer编码器组成，这意味着在编码过程中，每�
 
 ![2025-09-02_15-09.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/6b9a0529-8f15-4632-929a-7daa2ab0a4b9.jpeg)
 
+
+#### BERT模型总结
+
+预训练阶段：BERT采用了无监督的预训练策略，通过在大规模语料库上进行预训练，学习通用的语言表示。模型在两个任务上进行预训川练： Masked Language Model(MLM):随机遮蔽输入文本中的一些词，然后预测这些被遮蔽的词。 Next Sentence Prediction(NSP):预测两个相邻句子是否是原文中相邻的句子。微调阶段：在具体任务上进行有监督的微调，例如文本分类、命名实体识别等。 
+
+优点：模型精度高，且泛化性较好； 
+
+缺点：模型复杂度较高； 
+
+
+
+
+
 ## HuggingFace：现在人工智能和大模型的关键社区
