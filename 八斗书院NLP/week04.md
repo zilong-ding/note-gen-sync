@@ -74,20 +74,17 @@ BERT是之前最流行的方向，统治了所有NLP领域中的判别任务，�
 
 ![2025-09-02_14-55.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/3eb765af-d609-47bc-ac96-d3d050b580e5.png)
 
-
 #### 生成式预训练语言模型GPT
 
 OpenAl公司在2018年提出的GPT(Generative Pre-Training)模型是典型的生成式预训练语言模型之一。GPT-2由多层Transformer组成的单向语言模型，主要可以分为输入层，编码层和输出层三部分。
 
 ![2025-09-02_14-57.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/cd833afa-5b13-4ddb-b730-c57126c21d44.png)
 
-
 #### 掩码预训练语言模型BERT
 
 2018年Devlin等人提出了掩码预训练语言模型BERT(Bidirectional Encoder Representation from Transformers)。BERT利用掩码机制构造了基于上下文预测中间词的预训练任务，相较于传统的语言模型建模方法，BERT能进一步挖掘上下文所带来的丰富语义。
 
 ![2025-09-02_14-58.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/d69e3899-9a08-464d-b84f-f38f9c64aa6d.png)
-
 
 ### BERT模型组成
 
@@ -99,16 +96,13 @@ BERT由多层Transformer编码器组成，这意味着在编码过程中，每�
 
 ![2025-09-02_15-01.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/afa60005-f70f-4a98-8e45-72fcdad644de.jpeg)
 
-
 在预训练时，模型的最后有两个输出层MLM和NSP,分别对应了两个不同的预训练任务：掩码语言模型(Masked Language Modeling,MLM)和下一句预测(Next Sentence Prediction,NSP)
 
 ![2025-09-02_15-03.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/db6db784-96fc-4181-aeaf-52f7b02e77a9.jpeg)
 
-
 #### BERT微调
 
 ![2025-09-02_15-05.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/1a8f353b-db41-41aa-8ba2-e47e8f6d9d1a.jpeg)
-
 
 ![2025-09-02_15-07.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/8dc6975a-233d-488f-a4ce-962484c741f6.jpeg)
 
@@ -124,9 +118,7 @@ BERT由多层Transformer编码器组成，这意味着在编码过程中，每�
 
 ![2025-09-02_15-08.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0f529534-c8f2-4d35-ac70-b8dfdd8cc218.jpeg)
 
-
 ![2025-09-02_15-09.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/6b9a0529-8f15-4632-929a-7daa2ab0a4b9.jpeg)
-
 
 #### BERT模型总结
 
@@ -134,15 +126,11 @@ BERT由多层Transformer编码器组成，这意味着在编码过程中，每�
 
 优点：模型精度高，且泛化性较好； 
 
-缺点：模型复杂度较高； 
+缺点：模型复杂度较高；
 
 ![2025-09-02_15-10.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/c5ed5082-52ac-46aa-af0b-5185d0e5792f.jpeg)
 
-
-
-
 ## HuggingFace：现在人工智能和大模型的关键社区
-
 
 ## 压测工具ApacheBench
 
@@ -160,3 +148,7 @@ ApacheBench(ab)是一个命令行工具，用于测试Apache HTTP服务器的性
 -T content--type:为POST数据指定Content-Type。
 
 https://httpd.apache.orq/docs/current/programs/ab.html
+
+
+
+## 专业名词
