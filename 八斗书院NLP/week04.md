@@ -102,8 +102,12 @@ BERT由多层Transformer编码器组成，这意味着在编码过程中，每�
 
 在预训练时，模型的最后有两个输出层MLM和NSP,分别对应了两个不同的预训练任务：掩码语言模型(Masked Language Modeling,MLM)和下一句预测(Next Sentence Prediction,NSP)
 
+![2025-09-02_15-03.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/db6db784-96fc-4181-aeaf-52f7b02e77a9.jpeg)
 
 
+#### BERT微调
+
+![2025-09-02_15-05.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/1a8f353b-db41-41aa-8ba2-e47e8f6d9d1a.jpeg)
 
 
 
