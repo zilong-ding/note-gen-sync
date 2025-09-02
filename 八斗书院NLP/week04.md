@@ -229,3 +229,11 @@ Transformer的位置编码不是简单的数字。它是一种与词嵌入(word 
 ### Softmax 
 
 Softmax主要作用是把一串普通的数字，转换成一串所有数字加起来等于1的概率。
+
+![2025-09-02_16-07.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/4a7e8599-99a9-45b4-a8cd-afac1e31db79.jpeg)
+
+### torch.bmm
+
+批量矩阵乘法(Batch Matrix Multiplication)。 torch.bmm用于对批次中的每个样本独立地执行矩阵乘法，而不需要编写循环。
+
+https://docs.pytorch.org/docs/stable/generated/torch.bmm.html
