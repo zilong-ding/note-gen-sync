@@ -66,6 +66,10 @@ $$
 
 每个分量都是正弦或者余弦函数，并且整体的位置编码具有远程衰减性质，具备位置信息；
 
+![2025-09-02_14-47.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/5e0fa038-d4e5-49b1-97fe-910ea43f7d32.png)
+
+
+
 
 ### 组成的层
 
