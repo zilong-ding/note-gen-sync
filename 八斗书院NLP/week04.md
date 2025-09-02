@@ -48,6 +48,9 @@ $$
 
 
 
+$$
+\mathrm{MultiHead}\big(Q,K,V\big)=\mathrm{Concat}\big(\mathrm{head}_{1},\cdots,\mathrm{head}_{b}\big)\boldsymbol{W}^{O}\\\mathrm{head}_{i}=\mathrm{Attention}\big(QW_{i}^{Q},KW_{i}^{\kappa},VW_{i}^{\nu}\big)
+$$
 
 
 
