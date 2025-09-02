@@ -190,3 +190,8 @@ Bidirectional Encoder Representations from Transformers,直译过来就是“来
 来自Transformer(from Transformers):说明它的底层架构是Transformer。 
 
 BERT的创新之处在于，它采用了双向的训练方式。它在训练时，会随机遮盖(msk)掉句子中一部分词，然后让模型根据被遮盖词的前后所有词来预测它。除了“完形填空”(Masked Language Model))这个主要任务外，BERT还有另一个辅助任务：下一句预测(Next Sentence Prediction)
+
+![2025-09-02_15-52.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/843a2cb4-1086-4c6f-871f-6a4fdf5be046.jpeg)
+
+
+BERT首先在海量的文本数据上进行“预训练”，学习通用的语言知识。之后，我们可以用少量的特定任务数据对它进行“微调”，让它胜任具体的任务，如**情感分析**、**问答系统**、**命名实体识别**等。
