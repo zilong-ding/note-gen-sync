@@ -66,13 +66,18 @@ $$
 
 ### 语言模型
 
-语言模型是一种文字游戏
+#### 语言模型是一种文字游戏
 
 现阶段所有的NLP模型都不能理解这个世界，只是依赖已有的数据集进行概率计算。而在目前的"猜概率"游戏环境下，基于大型语言模型(LLM，LargeLanguageModel)演进出了最主流的两个方向：BERT和GPT。
 
 BERT是之前最流行的方向，统治了所有NLP领域中的判别任务，并在自然语言理解类任务中发挥出色。而最初GPT则较为薄弱，在GPT3.0发布前，GPT方向一直是弱于BERT的。
 
+![2025-09-02_14-55.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/3eb765af-d609-47bc-ac96-d3d050b580e5.png)
 
+
+#### 生成式预训练语言模型GPT
+
+OpenAl公司在2018年提出的GPT(Generative Pre-Training)模型是典型的生成式预训练语言模型之一。GPT-2由多层Transformer组成的单向语言模型，主要可以分为输入层，编码层和输出层三部分。
 
 
 
