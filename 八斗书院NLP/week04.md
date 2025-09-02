@@ -97,7 +97,10 @@ BERT由多层Transformer编码器组成，这意味着在编码过程中，每�
 
 掩码语言模型的训练对于输入形式没有要求，可以是一句话也可以一段文本，甚至可以是整个篇章，但是下一句预测则需要输入为两个句子，因此BERT在预训练阶段的输入形式统一为两段文字的拼接，这与其他预训练模型相比有较大区别。
 
+![2025-09-02_15-01.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/afa60005-f70f-4a98-8e45-72fcdad644de.jpeg)
 
+
+在预训练时，模型的最后有两个输出层MLM和NSP,分别对应了两个不同的预训练任务：掩码语言模型(Masked Language Modeling,MLM)和下一句预测(Next Sentence Prediction,NSP)
 
 
 
