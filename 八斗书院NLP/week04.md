@@ -56,10 +56,15 @@ $$
 Transformer编码器的输入是词嵌入与位置编码之和。将输入序列转化成词嵌入的方法是从一张查询表(Lookup Table)中获取每个词元(Token)对应的向量表示。但如果仅使用词嵌入作为Transformer的注意力机制的输入，则在计算词元之间的相关度时并未考虑它们的位置信息。原始的Transformer采用了正余弦位置编码。
 
 $$
-\mathrm{PE}_{(\mathrm{pos},2i)}=\sin\left(\mathrm{pos}/10000^{2i/d_{\mathrm{mobl}}}\right)\\\mathrm{PE}_{(\mathrm{pos},2i+1)}=\cos\left(\mathrm{pos}/10000^{2i/d_{\mathrm{mod}}}\right)
+\mathrm{PE}_{(\mathrm{pos},2i)}=\sin\left(\mathrm{pos}/10000^{2i/d_{\mathrm{model}}}\right)\\\mathrm{PE}_{(\mathrm{pos},2i+1)}=\cos\left(\mathrm{pos}/10000^{2i/d_{\mathrm{model}}}\right)
 $$
 
 
+通过计算得出各个位置每个维度上的信息，而非通过训练学习到
+
+输入长度不受最大长度的限制，可以计算到比训练数据更长的位置，具有一定的外推性；
+
+每个分量都是正弦或者余弦函数，并且整体的位置编码具有远程衰减性质，具备位置信息；
 
 
 ### 组成的层
