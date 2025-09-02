@@ -79,6 +79,16 @@ BERT是之前最流行的方向，统治了所有NLP领域中的判别任务，�
 
 OpenAl公司在2018年提出的GPT(Generative Pre-Training)模型是典型的生成式预训练语言模型之一。GPT-2由多层Transformer组成的单向语言模型，主要可以分为输入层，编码层和输出层三部分。
 
+![2025-09-02_14-57.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/cd833afa-5b13-4ddb-b730-c57126c21d44.png)
+
+
+#### 掩码预训练语言模型BERT
+
+2018年Devlin等人提出了掩码预训练语言模型BERT(Bidirectional Encoder Representation from Transformers)。BERT利用掩码机制构造了基于上下文预测中间词的预训练任务，相较于传统的语言模型建模方法，BERT能进一步挖掘上下文所带来的丰富语义。
+
+
+
+
 
 
 
