@@ -237,3 +237,7 @@ Softmax主要作用是把一串普通的数字，转换成一串所有数字加�
 批量矩阵乘法(Batch Matrix Multiplication)。 torch.bmm用于对批次中的每个样本独立地执行矩阵乘法，而不需要编写循环。
 
 https://docs.pytorch.org/docs/stable/generated/torch.bmm.html
+
+### ·残差结构
+
+在深度神经网络中，信息需要一层一层地向前传递。当网络层数很深时，就像信息要走一条非常长的路。在这个过程中，可能会出现梯度消失的问题，导致信息越来越弱，甚至丢失。这会让模型很难训练，效果也会变差。残差结构的核心思想就是为信息传递提供一条捷径(shortcut)。
