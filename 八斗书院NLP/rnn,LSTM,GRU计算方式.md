@@ -133,6 +133,9 @@ $$
 \begin{aligned}&N=\text{batch size}\\&L=\text{sequence length}\\&D=2\text{ if bidirectional=True otherwise 1}\end{aligned}
 $$
 
+$$
+\begin{aligned}&H_{in}=\mathrm{input_size}\\&H_{cell}=\mathrm{hidden_size}\\&H_{out}=\mathrm{proj_size~if~proj_size>0~otherwise~hidden_size}\end{aligned}
+$$
 
 
 
