@@ -4,6 +4,8 @@
 
 `torch.nn.RNN(input_size, hidden_size, num_layers=1, nonlinearity='tanh', bias=True, batch_first=False, dropout=0.0, bidirectional=False, device=None, dtype=None)`
 
+![](https://pic1.zhimg.com/v2-10c3e2dcbbaba8bb4c41bd1bbdb7590c_1440w.jpg)
+
 ![](https://pic2.zhimg.com/v2-8abf977157000e6dad8589ec60ed6c3f_1440w.jpg)
 
 $$
@@ -87,6 +89,8 @@ output, hn = rnn(input, h0)
 ## LSTM计算方式
 
 `torch.nn.LSTM(input_size, hidden_size, num_layers=1, bias=True, batch_first=False, dropout=0.0, bidirectional=False, proj_size=0, device=None, dtype=None)`
+
+![2025-09-03_09-51.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/a1ef56e1-618f-4fdb-a44d-dd7fdb463614.jpeg)
 
 $$
 \begin{aligned}&i_{t}=\sigma(W_{ii}x_{t}+b_{ii}+W_{hi}h_{t-1}+b_{hi})\\&f_{t}=\sigma(W_{if}x_{t}+b_{if}+W_{hf}h_{t-1}+b_{hf})\\&g_{t}=\tanh(W_{ig}x_{t}+b_{ig}+W_{hg}h_{t-1}+b_{hg})\\&o_{t}=\sigma(W_{io}x_{t}+b_{io}+W_{ho}h_{t-1}+b_{ho})\\&c_{t}=f_{t}\odot c_{t-1}+i_{t}\odot g_{t}\\&h_{t}=o_{t}\odot\tanh(c_{t})\end{aligned}
