@@ -218,6 +218,8 @@ output, (hn, cn) = rnn(input, (h0, c0))
 
 `torch.nn.GRU(input_size, hidden_size, num_layers=1, bias=True, batch_first=False, dropout=0.0, bidirectional=False, device=None, dtype=None)`
 
+![2025-09-03_09-52.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/297cb48e-f7f5-479b-ad25-b15850f0bab9.jpeg)
+
 $$
 \begin{aligned}&r_{t}=\sigma(W_{ir}x_{t}+b_{ir}+W_{hr}h_{(t-1)}+b_{hr})\\&z_{t}=\sigma(W_{iz}x_{t}+b_{iz}+W_{hz}h_{(t-1)}+b_{hz})\\&n_{t}=\mathrm{tanh}(W_{in}x_{t}+b_{in}+r_{t}\odot(W_{hn}h_{(t-1)}+b_{hn}))\\&h_{t}=(1-z_{t})\odot n_{t}+z_{t}\odot h_{(t-1)}\end{aligned}
 $$
