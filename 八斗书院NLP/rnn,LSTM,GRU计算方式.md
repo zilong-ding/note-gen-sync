@@ -37,6 +37,18 @@ def forward(x, h_0=None):
     return output, h_t
 ```
 
+参数
+input_size—输入x中预期特征的数量
+hidden_size-隐藏状态h的特征数量
+num_layers-循环层数。，设置意味着将两个rnn堆叠在一起形成一个堆叠RNN，第二个RNN接受第一个RNN的输出并计算最终结果。默认值:1 num_layers = 2
+非线性-要使用的非线性。两者皆可。默认值:“双曲正切“relu双曲正切”
+bias-如果，则该层不使用bias权重b_ih和b_hh。默认值:虚假的真
+batch_first-If，则输入和输出张量提供为（batch,seq,feature），而不是(seq，
+批处理功能)。请注意，这不适用于隐藏状态或单元状态。请参阅输入/输出部分
+详情如下。默认值:真的假的
+drop -如果非零，则在除最后一层之外的每个RNN层的输出上引入一个Dropout层；
+退学概率等于。默认值:0辍学
+变成了一个双向RNN。默认值:真的假的
 
 
 
