@@ -193,6 +193,7 @@ bias\_hh\_l[k]\_reverse：反向传播方向中，第 k 层的隐藏层到隐藏
 weight\_hr\_l[k]\_reverse：反向传播方向中，第 k 层的可学习投影权重，结构与 `weight_hr_l[k]` 类似。
 仅在 `bidirectional=True` 且指定了 proj\_size>0 时存在。
 
+
 ## GRU计算方式
 
 `torch.nn.GRU(input_size, hidden_size, num_layers=1, bias=True, batch_first=False, dropout=0.0, bidirectional=False, device=None, dtype=None)`
@@ -246,3 +247,10 @@ weight_ih_I[k-第kh层的可学习输入-隐藏权重(W_irlW_izlW_in),当k=0时�
 *bias_ih[-第k执层的可学习输入-隐藏偏差(b irb izb in),形状为(3 hidden_size)*
 
 *bias_hh_l[k-第kh层的可学习隐藏-隐藏偏差(b hrlb_hzlb hn),形状为(3*hidden_.size)
+
+```python
+rnn = nn.GRU(10, 20, 2)
+input = torch.randn(5, 3, 10)
+h0 = torch.randn(2, 3, 20)
+output, hn = rnn(input, h0)
+```
