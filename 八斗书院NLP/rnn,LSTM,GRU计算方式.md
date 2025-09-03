@@ -224,3 +224,9 @@ bidirectional-如果为True,则成为双向GRU。默认值： False
 input:对于未批处理输入，形状为(L,Hm)的张量；当batch_first:=False时，形状为(L,W,Hn),当batch first:=True时，形状为(N,L,Hn),包含输入序列的特征。输入也可以是填充后的可变长度序列。详情请参见torch.nn.utils.rnn.pack_padded_sequence()或 torch.nn.utils.rnn.pack sequence()o。
 
 h0:形状为(D*num_layers,Hot)或(D*num layers,N,Hout)的张量，包含输入序列的初始隐藏状态。如果未提供，则默认为零。
+
+其中：
+
+$$
+\begin{aligned}&N=\text{batch size}\\&L=\text{sequence length}\\&D=2\text{ if bidirectional=True otherwise 1}\\&H_{in}=\text{input size}\\&H_{out}=\text{hidden size}\end{aligned}
+$$
