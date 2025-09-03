@@ -194,3 +194,5 @@ weight\_hr\_l[k]\_reverse：反向传播方向中，第 k 层的可学习投影�
 仅在 `bidirectional=True` 且指定了 proj\_size>0 时存在。
 
 ## GRU计算方式
+
+`torch.nn.GRU(input_size, hidden_size, num_layers=1, bias=True, batch_first=False, dropout=0.0, bidirectional=False, device=None, dtype=None)`
