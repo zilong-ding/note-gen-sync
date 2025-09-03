@@ -27,3 +27,8 @@ $$
 $$
 TF_w=\frac{\text{在某一类中词条}w\text{出现的次数}}{\text{该类中所有的词条数目 }}
 $$
+
+
+其中 **ni,j** 是该词在文件 **dj** 中出现的次数，分母则是文件 dj 中所有词汇出现的次数总和；
+
+### **IDF是逆向文件频率(Inverse Document Frequency)**
