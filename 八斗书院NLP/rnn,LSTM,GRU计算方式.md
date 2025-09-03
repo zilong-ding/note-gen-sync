@@ -6,6 +6,9 @@ $$
 h_t=\tanh(x_tW_{ih}^T+b_{ih}+h_{t-1}W_{hh}^T+b_{hh})
 $$
 
+```python
+torch.nn.RNN(input_size, hidden_size, num_layers=1, nonlinearity='tanh', bias=True, batch_first=False, dropout=0.0, bidirectional=False, device=None, dtype=None**)**[](https://docs.pytorch.org/docs/2.4/_modules/torch/nn/modules/rnn.html#RNN)
+```
 
 
 ## LSTM计算方式
