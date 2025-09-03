@@ -48,7 +48,6 @@ def forward(x, h_0=None):
   dropout。默认为：0
   ·bidirectional-如果为True,则成为双向RNN。默认为：False
 
-
 输入：input,,hx
 ·input:形状为(L,Hin)的张量（用于无批次输入），形状为(L,N,Hn)当batch_first=:False时，或形状为(N,L,Him)当batch_first=True时，包含输入序列的特征。输入也可以是填充的可变长度序列。有关详细信息，请参阅torch.nn.utils.rnn,pack padded sequence()或torch.nn.utils.rnn.pack_sequence()
 
@@ -76,8 +75,6 @@ bias ih I[k-第k层的可学习输入-隐藏偏置，形状为hidden_size)
 
 bias_hh[k-第k层的可学习隐藏-隐藏偏置，形状为hidden_size)
 
-
-
 ## LSTM计算方式
 
 `torch.nn.LSTM(input_size, hidden_size, num_layers=1, bias=True, batch_first=False, dropout=0.0, bidirectional=False, proj_size=0, device=None, dtype=None)`
@@ -85,8 +82,6 @@ bias_hh[k-第k层的可学习隐藏-隐藏偏置，形状为hidden_size)
 $$
 \begin{aligned}&i_{t}=\sigma(W_{ii}x_{t}+b_{ii}+W_{hi}h_{t-1}+b_{hi})\\&f_{t}=\sigma(W_{if}x_{t}+b_{if}+W_{hf}h_{t-1}+b_{hf})\\&g_{t}=\tanh(W_{ig}x_{t}+b_{ig}+W_{hg}h_{t-1}+b_{hg})\\&o_{t}=\sigma(W_{io}x_{t}+b_{io}+W_{ho}h_{t-1}+b_{ho})\\&c_{t}=f_{t}\odot c_{t-1}+i_{t}\odot g_{t}\\&h_{t}=o_{t}\odot\tanh(c_{t})\end{aligned}
 $$
-
-
 
 在时间步 t，ht 表示隐藏状态，Ct 表示细胞状态，xt 表示时间步 t 的输入，ht−1 表示上一时间步（t−1）的隐藏状态，或在初始时刻 t=0 时的初始隐藏状态。it、ft、gt、ot 分别表示输入门、遗忘门、细胞门和输出门。σ 是 sigmoid 激活函数，⊙ 表示哈达玛积（逐元素相乘）。
 
@@ -118,7 +113,6 @@ $$
 
 > proj_size-如果>0，则将使用具有相应大小的投影的LSTM。默认为0。
 
-
 输入：input,.(h0,cO)
 
 > input:形状为(L,Hn)的张量，用于未批处理的输入；当batch_first=False时，形状为(L,N,Hm),或者当batch_first=True时，形状为(N,L,Hm),其中包含输入序列的特征。输入也可以是打包的可变长度序列。有关详细信息，请参阅torch.nn.utils.rnn.pack_padded_sequence()或torch.nn.utils.rnn.pack_sequence()
@@ -137,7 +131,6 @@ $$
 \begin{aligned}&H_{in}=\mathrm{input_size}\\&H_{cell}=\mathrm{hidden_size}\\&H_{out}=\mathrm{proj_size~if~proj_size>0~otherwise~hidden_size}\end{aligned}
 $$
 
-
 输出：output,(hn,cn) 
 
 > output:形状为(L,D*Hot)的张量，用于未批处理的输入；当batch first=False时，形状为(L,N,D*Hot),或者当batch_first=True时，形状为(N,L,D*Hout),包含LSTM最后-个时间步的输出特征ht)。如果输入是torch.nn.utils.rnn.PackedSequence,则输出也将是打包序列。当 bidirectional=:True时，output将包含每个时间步的前向和后向隐藏状态的连接。
@@ -146,60 +139,58 @@ $$
 
 > cn:形状为(D*num_layers,.Hce)的张量，用于未批处理的输入；当batch_first=False时，形状为(D*num_layers,N,Hceu)的张量，用于批处理的输入，包含序列中每个元素的最终单元状态。当 bidirectional=True时，Gn将分别包含最终前向和后向单元状态的连接。
 
-**参数：**
+参数：
 
-**weight\_ih\_l[k]**：第 k 层的可学习输入到隐藏层权重（对应输入门、遗忘门、细胞门、输出门，即 **W**ii****,**W**i**f****,**W**i**g****,**W**i**o** ），其形状为：
+weight\_ih\_l[k]：第 k 层的可学习输入到隐藏层权重（对应输入门、遗忘门、细胞门、输出门，即 Wii,Wif,Wig,Wio ），其形状为：
 
-当 **k**=**0** 时：**(**4**×**hidden_size**,**input_size**)** ；
+当 k=0 时：(4×hidden_size,input_size) ；
 
-* 当 **k**>**0** 时：**(**4**×**hidden\_size**,**num\_directions**×**hidden\_size**)** ；
-* 若指定了 **proj\_size**>**0** 且 **k**>**0** ：形状为 **(**4**×**hidden\_size**,**num\_directions**×**proj\_size**)** 。
-
----
-
-**weight\_hh\_l[k]**：第 k 层的可学习隐藏层到隐藏层权重（即 **W**hi****,**W**h**f****,**W**h**g****,**W**h**o** ），其形状为：
-
-* **(**4**×**hidden\_size**,**hidden\_size**)** ；
-* 若指定了 **proj\_size**>**0** ，则形状为 **(**4**×**hidden\_size**,**proj\_size**)** 。
+* 当 k>0 时：(4×hidden\_size,num\_directions×hidden\_size) ；
+* 若指定了 proj\_size>0 且 k>0 ：形状为 (4×hidden\_size,num\_directions×proj\_size) 。
 
 ---
 
-**bias\_ih\_l[k]**：第 k 层的可学习输入到隐藏层偏置（即 **b**ii****,**b**i**f****,**b**i**g****,**b**i**o** ），形状为 **(**4**×**hidden\_size**)** 。
+weight\_hh\_l[k]：第 k 层的可学习隐藏层到隐藏层权重（即 Whi,Whf,Whg,Who ），其形状为：
+
+* (4×hidden\_size,hidden\_size) ；
+* 若指定了 proj\_size>0 ，则形状为 (4×hidden\_size,proj\_size) 。
 
 ---
 
-**bias\_hh\_l[k]**：第 k 层的可学习隐藏层到隐藏层偏置（即 **b**hi****,**b**h**f****,**b**h**g****,**b**h**o** ），形状为 **(**4**×**hidden\_size**)**。
+bias\_ih\_l[k]：第 k 层的可学习输入到隐藏层偏置（即 bii,bif,big,bio ），形状为 (4×hidden\_size) 。
 
 ---
 
-**weight\_hr\_l[k]**：第 k 层的可学习投影权重，形状为 **(**proj\_size**,**hidden\_size**)** 。
-仅在指定了 **proj\_size**>**0** 时存在。
+bias\_hh\_l[k]：第 k 层的可学习隐藏层到隐藏层偏置（即 bhi,bhf,bhg,bho ），形状为 (4×hidden\_size)。
 
 ---
 
-**weight\_ih\_l[k]\_reverse**：反向传播方向中，第 k 层的输入到隐藏层权重，结构与 `weight_ih_l[k]` 类似。
+weight\_hr\_l[k]：第 k 层的可学习投影权重，形状为 (proj\_size,hidden\_size) 。
+仅在指定了 proj\_size>0 时存在。
+
+---
+
+weight\_ih\_l[k]\_reverse：反向传播方向中，第 k 层的输入到隐藏层权重，结构与 `weight_ih_l[k]` 类似。
 仅在 `bidirectional=True` 时存在。
 
 ---
 
-**weight\_hh\_l[k]\_reverse**：反向传播方向中，第 k 层的隐藏层到隐藏层权重，结构与 `weight_hh_l[k]` 类似。
+weight\_hh\_l[k]\_reverse：反向传播方向中，第 k 层的隐藏层到隐藏层权重，结构与 `weight_hh_l[k]` 类似。
 仅在 `bidirectional=True` 时存在。
 
 ---
 
-**bias\_ih\_l[k]\_reverse**：反向传播方向中，第 k 层的输入到隐藏层偏置，结构与 `bias_ih_l[k]` 类似。
+bias\_ih\_l[k]\_reverse：反向传播方向中，第 k 层的输入到隐藏层偏置，结构与 `bias_ih_l[k]` 类似。
 仅在 `bidirectional=True` 时存在。
 
 ---
 
-**bias\_hh\_l[k]\_reverse**：反向传播方向中，第 k 层的隐藏层到隐藏层偏置，结构与 `bias_hh_l[k]` 类似。
+bias\_hh\_l[k]\_reverse：反向传播方向中，第 k 层的隐藏层到隐藏层偏置，结构与 `bias_hh_l[k]` 类似。
 仅在 `bidirectional=True` 时存在。
 
 ---
 
-**weight\_hr\_l[k]\_reverse**：反向传播方向中，第 k 层的可学习投影权重，结构与 `weight_hr_l[k]` 类似。
-仅在 `bidirectional=True` 且指定了 **proj\_size**>**0** 时存在。
-
-
+weight\_hr\_l[k]\_reverse：反向传播方向中，第 k 层的可学习投影权重，结构与 `weight_hr_l[k]` 类似。
+仅在 `bidirectional=True` 且指定了 proj\_size>0 时存在。
 
 ## GRU计算方式
