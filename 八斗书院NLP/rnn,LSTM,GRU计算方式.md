@@ -75,6 +75,12 @@ bias ih I[k-第k层的可学习输入-隐藏偏置，形状为hidden_size)
 
 bias_hh[k-第k层的可学习隐藏-隐藏偏置，形状为hidden_size)
 
+```
+rnn = nn.RNN(10, 20, 2)
+input = torch.randn(5, 3, 10)
+h0 = torch.randn(2, 3, 20)
+output, hn = rnn(input, h0)
+```
 
 ## LSTM计算方式
 
