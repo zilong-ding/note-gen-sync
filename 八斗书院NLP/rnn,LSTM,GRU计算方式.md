@@ -62,6 +62,11 @@ $$
 \begin{aligned}&N=\text{batch size}\\&L=\text{sequence length}\\&D=2\text{ if bidirectional=True otherwise 1}\\&H_{in}=\text{input size}\\&H_{out}=\text{hidden size}\end{aligned}
 $$
 
+输出：output,hn
+
+output:形状为(L,D*Hot)的张量（用于无批次输入），或形状为(L,N,D*Hout)当batch_first:=False时，或形状为(W,L,D*Hout)当batch_first=True时，包含从RNN最后一层在每个t的输出特征ht)。如果输入是torch.nn.utils.rnn.PackedSequence,则输出也将是打包序列。
+
+hn:形状为(D*num _layers,Hot)的张量（用于无批次输入），或形状为D*num_layers,N,Hout)的张量（用于批次中的每个元素）包含最终隐藏状态。
 
 ## LSTM计算方式
 
