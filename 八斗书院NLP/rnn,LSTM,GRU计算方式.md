@@ -236,3 +236,13 @@ $$
 output:对于未批处理输入，形状为（L,D*Hout）的张量；当batch_first=False时，形状为（L,N，D*Hout），当batch_first=True时，形状为（N，L,D*Hout），包含GRU最后一层在每个t的输出特征 (h_t)。如果输入是 torch.nn.utils.rnn.PackedSequence，则输出也将是打包序列。*
 
 *h_n:形状为（D*num_layers,Hout）或（D*num_layers,N,Hout）的张量，包含输入序列的最终隐藏状态。
+
+变量：
+
+weight_ih_I[k-第kh层的可学习输入-隐藏权重(W_irlW_izlW_in),当k=0时，形状为(3*hidden_size, input_size)。否则，形状为(3*hidden_size,num_directions*hidden_size)*
+
+*weight_hh_I[-第kh层的可学习隐藏-隐藏权重(W_hrW_hzW_hn),形状为(3 hidden_size, hidden_size)*
+
+*bias_ih[-第k执层的可学习输入-隐藏偏差(b irb izb in),形状为(3 hidden_size)*
+
+*bias_hh_l[k-第kh层的可学习隐藏-隐藏偏差(b hrlb_hzlb hn),形状为(3*hidden_.size)
