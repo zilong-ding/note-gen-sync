@@ -4,6 +4,8 @@
 
 `torch.nn.RNN(input_size, hidden_size, num_layers=1, nonlinearity='tanh', bias=True, batch_first=False, dropout=0.0, bidirectional=False, device=None, dtype=None)`
 
+![](https://pic2.zhimg.com/v2-8abf977157000e6dad8589ec60ed6c3f_1440w.jpg)
+
 $$
 h_t=\tanh(x_tW_{ih}^T+b_{ih}+h_{t-1}W_{hh}^T+b_{hh})
 $$
