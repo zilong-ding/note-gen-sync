@@ -68,6 +68,18 @@ output:形状为(L,D*Hot)的张量（用于无批次输入），或形状为(L,N
 
 hn:形状为(D*num _layers,Hot)的张量（用于无批次输入），或形状为D*num_layers,N,Hout)的张量（用于批次中的每个元素）包含最终隐藏状态。
 
+变量：
+
+weight ih[k]-第k层的可学习输入-隐藏权重，对于k=O,形状为hidden size,input size)。否则，形状(hidden size,num_directions hidden_size)
+
+weight_hh[k-第k层的可学习隐藏-隐藏权重，形状为hidden_size,.hidden_size)
+
+bias ih I[k-第k层的可学习输入-隐藏偏置，形状为hidden_size)
+
+bias_hh[k-第k层的可学习隐藏-隐藏偏置，形状为hidden_size)
+
+
+
 ## LSTM计算方式
 
 
