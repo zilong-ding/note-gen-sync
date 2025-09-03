@@ -98,6 +98,8 @@ $$
 \begin{aligned}&i_{t}=\sigma(W_{ii}x_{t}+b_{ii}+W_{hi}h_{t-1}+b_{hi})\\&f_{t}=\sigma(W_{if}x_{t}+b_{if}+W_{hf}h_{t-1}+b_{hf})\\&g_{t}=\tanh(W_{ig}x_{t}+b_{ig}+W_{hg}h_{t-1}+b_{hg})\\&o_{t}=\sigma(W_{io}x_{t}+b_{io}+W_{ho}h_{t-1}+b_{ho})\\&c_{t}=f_{t}\odot c_{t-1}+i_{t}\odot g_{t}\\&h_{t}=o_{t}\odot\tanh(c_{t})\end{aligned}
 $$
 
+![2025-09-03_14-03.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/7b853d12-80e7-4a5a-8f10-62f83931a85d.jpeg)
+
 在时间步 t，ht 表示隐藏状态，Ct 表示细胞状态，xt 表示时间步 t 的输入，ht−1 表示上一时间步（t−1）的隐藏状态，或在初始时刻 t=0 时的初始隐藏状态。it、ft、gt、ot 分别表示输入门、遗忘门、细胞门和输出门。σ 是 sigmoid 激活函数，⊙ 表示哈达玛积（逐元素相乘）。
 
 在多层 LSTM 中，第 l 层的输入是前一层隐藏状态乘以一个 dropout 掩码，其中每个元素是一个伯努利随机变量，以概率 p 为 0（即 dropout 概率为 p）。
