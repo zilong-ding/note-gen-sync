@@ -129,6 +129,9 @@ c_0:形状为(D*num layers,.Hce)的张量，用于未批处理的输入；当bat
 
 其中
 
+$$
+\begin{aligned}&N=\text{batch size}\\&L=\text{sequence length}\\&D=2\text{ if bidirectional=True otherwise 1}\\&H_{in}=\text{input_size}\\&H_{cell}=\text{hidden_size}\\&H_{out}=\text{proj_size if proj_size >0 otherwise hidden_size}\end{aligned}
+$$
 
 
 
