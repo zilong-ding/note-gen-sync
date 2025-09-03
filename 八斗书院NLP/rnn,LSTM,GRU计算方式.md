@@ -230,3 +230,9 @@ h0:形状为(D*num_layers,Hot)或(D*num layers,N,Hout)的张量，包含输入�
 $$
 \begin{aligned}&N=\text{batch size}\\&L=\text{sequence length}\\&D=2\text{ if bidirectional=True otherwise 1}\\&H_{in}=\text{input size}\\&H_{out}=\text{hidden size}\end{aligned}
 $$
+
+输出：output,h_n
+
+output:对于未批处理输入，形状为（L,D*Hout）的张量；当batch_first=False时，形状为（L,N，D*Hout），当batch_first=True时，形状为（N，L,D*Hout），包含GRU最后一层在每个t的输出特征 (h_t)。如果输入是 torch.nn.utils.rnn.PackedSequence，则输出也将是打包序列。*
+
+*h_n:形状为（D*num_layers,Hout）或（D*num_layers,N,Hout）的张量，包含输入序列的最终隐藏状态。
