@@ -218,3 +218,9 @@ batch_first-如果为True,则输入和输出张量以batch,seq,feature)形式提
 dropout-如果非零，则在除最后一层之外的每个GRU层的输出上引入一个Dropout层，dropout概率等于 dropout。默认值：0
 
 bidirectional-如果为True,则成为双向GRU。默认值： False
+
+输入：input,hO
+
+input:对于未批处理输入，形状为(L,Hm)的张量；当batch_first:=False时，形状为(L,W,Hn),当batch first:=True时，形状为(N,L,Hn),包含输入序列的特征。输入也可以是填充后的可变长度序列。详情请参见torch.nn.utils.rnn.pack_padded_sequence()或 torch.nn.utils.rnn.pack sequence()o。
+
+h0:形状为(D*num_layers,Hot)或(D*num layers,N,Hout)的张量，包含输入序列的初始隐藏状态。如果未提供，则默认为零。
