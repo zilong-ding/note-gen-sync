@@ -2,6 +2,9 @@
 
 ## RNN计算方式
 
+$$
+h_t=\tanh(x_tW_{ih}^T+b_{ih}+h_{t-1}W_{hh}^T+b_{hh})
+$$
 
 
 
