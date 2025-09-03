@@ -82,6 +82,7 @@ bias_hh[k-第k层的可学习隐藏-隐藏偏置，形状为hidden_size)
 
 ## LSTM计算方式
 
+`**`
 
 
 ## GRU计算方式
