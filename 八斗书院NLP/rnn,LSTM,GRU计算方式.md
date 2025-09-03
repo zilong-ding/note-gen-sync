@@ -146,6 +146,59 @@ $$
 
 > cn:形状为(D*num_layers,.Hce)的张量，用于未批处理的输入；当batch_first=False时，形状为(D*num_layers,N,Hceu)的张量，用于批处理的输入，包含序列中每个元素的最终单元状态。当 bidirectional=True时，Gn将分别包含最终前向和后向单元状态的连接。
 
+**参数：**
+
+**weight\_ih\_l[k]**：第 k 层的可学习输入到隐藏层权重（对应输入门、遗忘门、细胞门、输出门，即 **W**ii****,**W**i**f****,**W**i**g****,**W**i**o** ），其形状为：
+
+当 **k**=**0** 时：**(**4**×**hidden_size**,**input_size**)** ；
+
+* 当 **k**>**0** 时：**(**4**×**hidden\_size**,**num\_directions**×**hidden\_size**)** ；
+* 若指定了 **proj\_size**>**0** 且 **k**>**0** ：形状为 **(**4**×**hidden\_size**,**num\_directions**×**proj\_size**)** 。
+
+---
+
+**weight\_hh\_l[k]**：第 k 层的可学习隐藏层到隐藏层权重（即 **W**hi****,**W**h**f****,**W**h**g****,**W**h**o** ），其形状为：
+
+* **(**4**×**hidden\_size**,**hidden\_size**)** ；
+* 若指定了 **proj\_size**>**0** ，则形状为 **(**4**×**hidden\_size**,**proj\_size**)** 。
+
+---
+
+**bias\_ih\_l[k]**：第 k 层的可学习输入到隐藏层偏置（即 **b**ii****,**b**i**f****,**b**i**g****,**b**i**o** ），形状为 **(**4**×**hidden\_size**)** 。
+
+---
+
+**bias\_hh\_l[k]**：第 k 层的可学习隐藏层到隐藏层偏置（即 **b**hi****,**b**h**f****,**b**h**g****,**b**h**o** ），形状为 **(**4**×**hidden\_size**)**。
+
+---
+
+**weight\_hr\_l[k]**：第 k 层的可学习投影权重，形状为 **(**proj\_size**,**hidden\_size**)** 。
+仅在指定了 **proj\_size**>**0** 时存在。
+
+---
+
+**weight\_ih\_l[k]\_reverse**：反向传播方向中，第 k 层的输入到隐藏层权重，结构与 `weight_ih_l[k]` 类似。
+仅在 `bidirectional=True` 时存在。
+
+---
+
+**weight\_hh\_l[k]\_reverse**：反向传播方向中，第 k 层的隐藏层到隐藏层权重，结构与 `weight_hh_l[k]` 类似。
+仅在 `bidirectional=True` 时存在。
+
+---
+
+**bias\_ih\_l[k]\_reverse**：反向传播方向中，第 k 层的输入到隐藏层偏置，结构与 `bias_ih_l[k]` 类似。
+仅在 `bidirectional=True` 时存在。
+
+---
+
+**bias\_hh\_l[k]\_reverse**：反向传播方向中，第 k 层的隐藏层到隐藏层偏置，结构与 `bias_hh_l[k]` 类似。
+仅在 `bidirectional=True` 时存在。
+
+---
+
+**weight\_hr\_l[k]\_reverse**：反向传播方向中，第 k 层的可学习投影权重，结构与 `weight_hr_l[k]` 类似。
+仅在 `bidirectional=True` 且指定了 **proj\_size**>**0** 时存在。
 
 
 
