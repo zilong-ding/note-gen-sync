@@ -75,6 +75,7 @@ bias ih I[k-第k层的可学习输入-隐藏偏置，形状为hidden_size)
 
 bias_hh[k-第k层的可学习隐藏-隐藏偏置，形状为hidden_size)
 
+
 ## LSTM计算方式
 
 `torch.nn.LSTM(input_size, hidden_size, num_layers=1, bias=True, batch_first=False, dropout=0.0, bidirectional=False, proj_size=0, device=None, dtype=None)`
@@ -193,6 +194,13 @@ bias\_hh\_l[k]\_reverse：反向传播方向中，第 k 层的隐藏层到隐藏
 weight\_hr\_l[k]\_reverse：反向传播方向中，第 k 层的可学习投影权重，结构与 `weight_hr_l[k]` 类似。
 仅在 `bidirectional=True` 且指定了 proj\_size>0 时存在。
 
+```python
+rnn = nn.LSTM(10, 20, 2)
+input = torch.randn(5, 3, 10)
+h0 = torch.randn(2, 3, 20)
+c0 = torch.randn(2, 3, 20)
+output, (hn, cn) = rnn(input, (h0, c0))
+```
 
 ## GRU计算方式
 
