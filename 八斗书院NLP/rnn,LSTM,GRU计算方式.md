@@ -88,6 +88,35 @@ $$
 
 
 
+在时间步 t，ht 表示隐藏状态，Ct 表示细胞状态，xt 表示时间步 t 的输入，ht−1 表示上一时间步（t−1）的隐藏状态，或在初始时刻 t=0 时的初始隐藏状态。it、ft、gt、ot 分别表示输入门、遗忘门、细胞门和输出门。σ 是 sigmoid 激活函数，⊙ 表示哈达玛积（逐元素相乘）。
+
+在多层 LSTM 中，第 l 层的输入是前一层隐藏状态乘以一个 dropout 掩码，其中每个元素是一个伯努利随机变量，以概率 p 为 0（即 dropout 概率为 p）。
+
+如果指定了 proj\_size > 0，则将使用带有投影的 LSTM（LSTM with projections），这会对 LSTM 单元做如下修改：
+
+第一，ht 的维度将从 hidden\_size 改变为 proj\_size（相应地，权重矩阵 Whi 的维度也会改变）。
+
+第二，每一层输出的隐藏状态将乘以一个可学习的投影矩阵：ht = Whr · ht，其中 Whr 是投影矩阵。
+
+需要注意的是，由于这一修改，LSTM 网络的输出形状也会随之改变。关于所有变量的精确维度，请参见下文的“输入/输出”部分。
+
+更多细节可参考论文：[https://arxiv.org/abs/1402.1128。](https://arxiv.org/abs/1402.1128%E3%80%82)
+
+参数：
+
+> input_size-输入x中预期特征的数量
+
+> hidden size-隐藏状态h中的特征数量·num_layers-循环层数。例如，设置num_layers=2意味着将两个LSTM堆叠在一起形成一个“堆叠 LSTM”,第二个LSTM接收第一个LSTM的输出来计算最终结果。默认为1。
+
+> bias-如果为False,则该层不使用偏置权重bh和bhh。默认为True o
+
+> batch_first-如果为True,则输入和输出张量将提供为(batch,seq,feature),而不是(seq,batch,feature)o请注意，这不适用于隐藏状态或单元状态。有关详细信息，请参阅下面的“输入/输出"部分。默认为False。
+
+> dropout-如果非零，则在除最后一层外的每个LSTM层的输出上引入Dropout层，dropout概率等于 dropout。默认为O。
+
+> bidirectional-如果为True,则变为双向LSTM。默认为False。
+
+> proj_size-如果>0，则将使用具有相应大小的投影的LSTM。默认为0。
 
 
 
