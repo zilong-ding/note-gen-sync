@@ -202,3 +202,19 @@ $$
 $$
 
 其中，ht是时间t的隐藏状态，xt是时间t的输入，九(t-1)是时间t1的层隐藏状态或时间0的初始隐藏状态，rt、 t、nt分别是重置门、更新门和新门。o是sigmoid函数，⊙是阿达玛积(Hadamard product)。
+
+在多层GRU中，第l层≥2)的输入x四是前一层的隐藏状态h-1)乘以dropout-,其中每个d-)都是一个伯努利随机变量，其取值为0的概率等于dropout。
+
+参数：
+
+input_size-输入X中预期特征的数量
+
+hidden size-隐藏状态h中的特征数量·num_layers-循环层的数量。例如，设置 num_layers=2意味着将两个GRU堆叠在一起形成一个堆叠 GRU,其中第二个GRU接收第一个GRU的输出并计算最终结果。默认值：1
+
+bias-如果为False,则层不使用偏差权重bh和bhh。默认值：True
+
+batch_first-如果为True,则输入和输出张量以batch,seq,feature)形式提供，而不是(seq,batch, feature)。请注意，这不适用于隐藏状态或单元状态。有关详细信息，请参阅下面的输入/输出部分。默认值： False
+
+dropout-如果非零，则在除最后一层之外的每个GRU层的输出上引入一个Dropout层，dropout概率等于 dropout。默认值：0
+
+bidirectional-如果为True,则成为双向GRU。默认值： False
