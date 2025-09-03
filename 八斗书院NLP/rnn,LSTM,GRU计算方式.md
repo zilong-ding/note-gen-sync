@@ -121,11 +121,11 @@ $$
 
 输入：input,.(h0,cO)
 
-input:形状为(L,Hn)的张量，用于未批处理的输入；当batch_first=False时，形状为(L,N,Hm),或者当batch_first=True时，形状为(N,L,Hm),其中包含输入序列的特征。输入也可以是打包的可变长度序列。有关详细信息，请参阅torch.nn.utils.rnn.pack_padded_sequence()或torch.nn.utils.rnn.pack_sequence()
+> input:形状为(L,Hn)的张量，用于未批处理的输入；当batch_first=False时，形状为(L,N,Hm),或者当batch_first=True时，形状为(N,L,Hm),其中包含输入序列的特征。输入也可以是打包的可变长度序列。有关详细信息，请参阅torch.nn.utils.rnn.pack_padded_sequence()或torch.nn.utils.rnn.pack_sequence()
 
-h0:形状为(D*num_layers,Hot)的张量，用于未批处理的输入；当batch first:=False时，形状为(D*num_layers,N,Hout)的张量，用于批处理的输入，包含输入序列的初始隐藏状态。如果未提供 h0,c0),则默认为零。
+> h0:形状为(D*num_layers,Hot)的张量，用于未批处理的输入；当batch first:=False时，形状为(D*num_layers,N,Hout)的张量，用于批处理的输入，包含输入序列的初始隐藏状态。如果未提供 h0,c0),则默认为零。
 
-c_0:形状为(D*num layers,.Hce)的张量，用于未批处理的输入；当batch_first=False时，形状为(D*num layers,N,Hcen)的张量，用于批处理的输入，包含输入序列的初始单元状态。如果未提供 h0,c0),则默认为零
+> c_0:形状为(D*num layers,.Hce)的张量，用于未批处理的输入；当batch_first=False时，形状为(D*num layers,N,Hcen)的张量，用于批处理的输入，包含输入序列的初始单元状态。如果未提供 h0,c0),则默认为零
 
 其中
 
@@ -138,6 +138,13 @@ $$
 $$
 
 
+输出：output,(hn,cn) 
+
+> output:形状为(L,D*Hot)的张量，用于未批处理的输入；当batch first=False时，形状为(L,N,D*Hot),或者当batch_first=True时，形状为(N,L,D*Hout),包含LSTM最后-个时间步的输出特征ht)。如果输入是torch.nn.utils.rnn.PackedSequence,则输出也将是打包序列。当 bidirectional=:True时，output将包含每个时间步的前向和后向隐藏状态的连接。
+
+> hn:形状为(D*num_layers,Hot)的张量，用于未批处理的输入；当batch_first=False时，形状为(D*num_layers,N,Hot)的张量，用于批处理的输入，包含序列中每个元素的最终隐藏状态。当 bidirectional=True时，hn将分别包含最终前向和后向隐藏状态的连接。
+
+> cn:形状为(D*num_layers,.Hce)的张量，用于未批处理的输入；当batch_first=False时，形状为(D*num_layers,N,Hceu)的张量，用于批处理的输入，包含序列中每个元素的最终单元状态。当 bidirectional=True时，Gn将分别包含最终前向和后向单元状态的连接。
 
 
 
