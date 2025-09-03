@@ -80,7 +80,7 @@ bias_hh[k-第k层的可学习隐藏-隐藏偏置，形状为hidden_size)
 
 ## LSTM计算方式
 
-`**`
+`torch.nn.LSTM(input_size, hidden_size, num_layers=1, bias=True, batch_first=False, dropout=0.0, bidirectional=False, proj_size=0, device=None, dtype=None)`
 
 
 ## GRU计算方式
