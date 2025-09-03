@@ -37,16 +37,18 @@ def forward(x, h_0=None):
     return output, h_t
 ```
 
-参数
-·input_size-输入x中的预期特征数
-·hidden_size-隐藏状态h中的特征数量
-·num_layers-循环层数。例如，设置意味着将两个RNN堆叠在一起以形成堆叠rNN,第二个RNN接收第一个RNN的输出，并且计算最终结果。默认值：1 num_layers=2
-·非线性-要使用的非线性。可以是或。违约：'tanh''relu''tanh
-·bias-如果，则该层不使用偏置权重b_h和b_hh。违约：False True
-·batch_first-如果，则提供输入和输出张量as (batch,seq,feature),而不是(seq,batch,feature),。请注意，这不适用于隐藏状态或单元格状态。请参阅有关详细信息，请参阅下面的输入/
-输出部分。违约：True False
-·dropout-如果不为零，则在每个RNN层除最后一层外，丢弃概率等于。默认值：0 dropout
-·双向-如果成为双向RNN。违约：True False
+* 参数：
+  ·input_size-输入X中预期特征的数量
+  ·hidden size-隐藏状态h中的特征数量
+  ·num_layers-循环层数。例如，设置num_layers:=2表示将两个RNN堆叠在一起形成一个堆叠RNW,第二
+  个RNN接收第一个RNN的输出并计算最终结果。默认为：1
+  ·nonlinearity-使用的非线性函数。可以是"tanh或"relu'。默认为："tanh
+  ·bias-如果为False,则该层不使用偏置权重bh和bhh。默认为：True
+  ·batch_first-如果为True,则输入和输出张量提供为(batch,seq,feature),而不是(seg,batch,feature)。请
+  注意，这不适用于隐藏状态或单元状态。有关详细信息，请参阅下面的输入/输出部分。默认为：False
+  ·dropout-如果非零，则在除最后一层外的每个RNN层的输出上引入Dropout层，dropout概率等于
+  dropout。默认为：0
+  ·bidirectional-如果为True,则成为双向RNN。默认为：False
 
 
 
