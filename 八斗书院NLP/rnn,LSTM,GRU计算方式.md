@@ -222,6 +222,7 @@ output, (hn, cn) = rnn(input, (h0, c0))
 
 `torch.nn.GRU(input_size, hidden_size, num_layers=1, bias=True, batch_first=False, dropout=0.0, bidirectional=False, device=None, dtype=None)`
 
+
 ![2025-09-03_09-52.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/297cb48e-f7f5-479b-ad25-b15850f0bab9.jpeg)
 
 $$
