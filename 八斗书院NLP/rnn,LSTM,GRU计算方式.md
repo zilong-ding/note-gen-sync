@@ -90,6 +90,8 @@ output, hn = rnn(input, h0)
 
 `torch.nn.LSTM(input_size, hidden_size, num_layers=1, bias=True, batch_first=False, dropout=0.0, bidirectional=False, proj_size=0, device=None, dtype=None)`
 
+![2025-09-03_13-59.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/79ed9af2-6cfa-41b4-bcbd-cbdb8794b3ab.jpeg)
+
 ![2025-09-03_09-51.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/a1ef56e1-618f-4fdb-a44d-dd7fdb463614.jpeg)
 
 $$
