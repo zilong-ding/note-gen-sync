@@ -121,9 +121,13 @@ $$
 
 输入：input,.(h0,cO)
 
-input:形状为(L,Hn)的张量，用于未批处理的输入；当batch_first=False时，形状为(L,N,Hm),或者当batch_first=True时，形状为(N,L,Hm),其中包含输入序列的特征。输入也可以是打包的可变长度序列。有关详细信息，请参阅torch.nn.utils.rnn.pack_padded_sequence()或torch.nn.utils.rnn.pack_sequence()o·h0:形状为(D*num_layers,Hot)的张量，用于未批处理的输入；当batch first:=False时，形状为(D*num_layers,N,Hout)的张量，用于批处理的输入，包含输入序列的初始隐藏状态。如果未提供 h0,c0),则默认为零。
+input:形状为(L,Hn)的张量，用于未批处理的输入；当batch_first=False时，形状为(L,N,Hm),或者当batch_first=True时，形状为(N,L,Hm),其中包含输入序列的特征。输入也可以是打包的可变长度序列。有关详细信息，请参阅torch.nn.utils.rnn.pack_padded_sequence()或torch.nn.utils.rnn.pack_sequence()
 
-c_0:形状为(D*num layers,.Hce)的张量，用于未批处理的输入；当batch_first=False时，形状为(D*num layers,N,Hcen)的张量，用于批处理的输入，包含输入序列的初始单元状态。如果未提供 h0,c0),则默认为零。其中
+h0:形状为(D*num_layers,Hot)的张量，用于未批处理的输入；当batch first:=False时，形状为(D*num_layers,N,Hout)的张量，用于批处理的输入，包含输入序列的初始隐藏状态。如果未提供 h0,c0),则默认为零。
+
+c_0:形状为(D*num layers,.Hce)的张量，用于未批处理的输入；当batch_first=False时，形状为(D*num layers,N,Hcen)的张量，用于批处理的输入，包含输入序列的初始单元状态。如果未提供 h0,c0),则默认为零
+
+其中
 
 
 
