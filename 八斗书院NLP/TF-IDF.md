@@ -65,6 +65,9 @@ $$
 
 注：  TF-IDF算法非常容易理解，并且很容易实现，但是其简单结构并没有考虑词语的语义信息，无法处理一词多义与一义多词的情况。
 
+$$
+TF_{i,j}\times IDF_{i}=\frac{n_{i,j}}{\sum_{k}n_{k,j}}\times\log\frac{|D|}{\left|\left\{j:t_{i}\in d_{j}\right\}\right|}
+$$
 
 ## TF-IDF算法的不足
 
