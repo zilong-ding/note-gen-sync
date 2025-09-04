@@ -148,6 +148,14 @@ from pydantic import BaseModel, Field
 from typing import Dict, List, Any, Union, Optional
 ```
 
+BaseModel: pydantic 的核心类，所有数据模型都继承自它，用于定义结构化数据。
+Field: 用于对字段添加额外信息，如默认值、描述、约束等。
+Dict, List, Any, Union, Optional: 来自 typing 模块，用于类型注解：
+
+* Optional[str] 等价于 Union[str, None]，表示该字段可为空（即可以是 str 或 None）。
+  Union[A, B] 表示字段可以是 A 类型或 B 类型。
+  List[str] 表示字符串列表。
+  Any 表示任意类型（不推荐过度使用，会失去类型安全）。
 
 
 
