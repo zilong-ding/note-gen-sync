@@ -167,7 +167,23 @@ class TextClassifyRequest(BaseModel):
     request_text: Union[str, List[str]] = Field(..., description="请求文本、字符串或列表")
 ```
 
+#### `request_id: Optional[str] = Field(..., description="请求id, 方便调试")`
 
+* 类型：`Optional[str]` → 可以是字符串，也可以是 `None`（即这个字段不是必须传的）。
+* `Field(..., ...)`：
+  * 第一个 `...` 表示这个字段是**必填项**（即使类型是 `Optional`，但如果不传值，也会报错）。
+  * `description`：字段描述，会在 API 文档（如 Swagger）中显示。
+* 用途：客户端传一个请求 ID，便于服务端日志追踪和调试。
+
+> ⚠️ 注意：`Optional[str]` + `...` 意味着：**可以传 null，但不能不传字段**。
+> 如果你想让字段完全可选（可不传），应写成：`request_id: Optional[str] = None`
+
+#### `request_text: Union[str, List[str]] = Field(..., description="请求文本、字符串或列表")`
+
+* 类型：可以是一个字符串，也可以是一个字符串列表。
+  * 比如：`"今天天气真好"` 或 `["今天天气真好", "我很开心"]`
+* 必填字段（因为用了 `...`）
+* 用途：表示要进行分类的文本内容，支持单条或批量输入。
 
 
 
