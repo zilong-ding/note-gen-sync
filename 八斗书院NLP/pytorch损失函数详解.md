@@ -141,6 +141,25 @@ BCELoss=-\frac{1}{n}\sum_{i=1}^{n}[y_{i}\log(\hat{y}_{i})+(1-y_{i})\log(1-\hat{y
 $$
 
 
+```python
+def test_bce_loss():
+    # 模型输出（已通过sigmoid处理）
+    y_pred = torch.tensor([[0.7], [0.2], [0.9], [0.7]])
+    # 真实标签（0或1）
+    y_true = torch.tensor([[1], [0], [1], [0]], dtype=torch.float)
+  
+    # 方法1：使用BCELoss
+    bce_loss = nn.BCELoss()
+    loss1 = bce_loss(y_pred, y_true)
+  
+    # 方法2：使用functional接口
+    loss2 = nn.functional.binary_cross_entropy(y_pred, y_true)
+  
+    print(f'BCELoss: {loss1.item()}')  # 输出：BCELoss: 0.47234177589416504
+    print(f'Functional BCELoss: {loss2.item()}')  # 输出：Functional BCELoss: 0.47234177589416504
+ 
+test_bce_loss()
+```
 
 
 
