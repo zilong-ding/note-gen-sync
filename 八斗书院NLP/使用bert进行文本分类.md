@@ -28,7 +28,6 @@ from transformers import BertTokenizer, BertForSequenceClassification, Trainer, 
 from datasets import Dataset
 ```
 
-
 ```python
 # 加载数据集
 dataset_path = "waimai_10k.csv"
@@ -38,7 +37,6 @@ dataset_df = pd.read_csv(dataset_path, sep=",", header=None)[1:]
 print(dataset_df.shape)
 print(dataset_df.head())
 ```
-
 
 ```python
 # 初始化 LabelEncoder，用于将文本标签转换为数字标签
@@ -58,12 +56,10 @@ x_train, x_test, train_labels, test_labels = train_test_split(
 )
 ```
 
-
 ```python
 # 从预训练模型加载分词器和模型
 tokenizer = BertTokenizer.from_pretrained('./bert-base-chinese')
 model = BertForSequenceClassification.from_pretrained('./bert-base-chinese', num_labels=2)
-
 ```
 
 ```python
@@ -74,7 +70,6 @@ model = BertForSequenceClassification.from_pretrained('./bert-base-chinese', num
 train_encodings = tokenizer(x_train, truncation=True, padding=True, max_length=64)
 test_encodings = tokenizer(x_test, truncation=True, padding=True, max_length=64)
 ```
-
 
 ```python
 # 将编码后的数据和标签转换为 Hugging Face `datasets` 库的 Dataset 对象
@@ -92,7 +87,6 @@ test_dataset = Dataset.from_dict({
 print(train_dataset.shape)
 ```
 
-
 ```python
 # 定义用于计算评估指标的函数
 def compute_metrics(eval_pred):
@@ -103,7 +97,6 @@ def compute_metrics(eval_pred):
     # 计算预测准确率并返回一个字典
     return {'accuracy': (predictions == labels).mean()}
 ```
-
 
 ```python
 # 配置训练参数
@@ -138,7 +131,6 @@ trainer.save_model("best")
 print("Done")
 ```
 
-
 ## fastapi部署
 
 ### 数据接口定义
@@ -167,7 +159,7 @@ class TextClassifyRequest(BaseModel):
     request_text: Union[str, List[str]] = Field(..., description="请求文本、字符串或列表")
 ```
 
-#### `request_id: Optional[str] = Field(..., description="请求id, 方便调试")`
+ `request_id: Optional[str] = Field(..., description="请求id, 方便调试")`
 
 * 类型：`Optional[str]` → 可以是字符串，也可以是 `None`（即这个字段不是必须传的）。
 * `Field(..., ...)`：
@@ -178,14 +170,12 @@ class TextClassifyRequest(BaseModel):
 > ⚠️ 注意：`Optional[str]` + `...` 意味着：**可以传 null，但不能不传字段**。
 > 如果你想让字段完全可选（可不传），应写成：`request_id: Optional[str] = None`
 
-#### `request_text: Union[str, List[str]] = Field(..., description="请求文本、字符串或列表")`
+ `request_text: Union[str, List[str]] = Field(..., description="请求文本、字符串或列表")`
 
 * 类型：可以是一个字符串，也可以是一个字符串列表。
   * 比如：`"今天天气真好"` 或 `["今天天气真好", "我很开心"]`
 * 必填字段（因为用了 `...`）
 * 用途：表示要进行分类的文本内容，支持单条或批量输入。
 
-
-
-
 ### 推理函数
+
