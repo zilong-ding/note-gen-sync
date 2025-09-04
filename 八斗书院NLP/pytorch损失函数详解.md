@@ -188,7 +188,14 @@ loss = bce_with_logits_loss(logits, y_true)
 
 NLLLoss适用于分类任务，直接计算对数似然的负值。其公式如下：
 
+$$
+\text{NLLLoss}=-\sum_{i=1}^Ny_i\log\hat{y}_i
+$$
 
+
+**应用场景**：
+
+* 分类任务，尤其是简单任务或训练速度较快时。
 
 
 
