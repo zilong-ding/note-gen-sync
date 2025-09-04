@@ -10,8 +10,6 @@
 分类任务：预测离散类别（如图片分类、垃圾邮件识别）
 其他任务：如生成任务、序列标注等
 
-
-
 ## 二、常用损失函数及实现
 
 ### 均方误差损失（MSELoss）
@@ -81,8 +79,6 @@ print(f'L1 Loss: {loss.item()}')  # 输出：L1 Loss: 0.25
 * 适用于存在异常值的回归场景
 
 
-
-
 ### 交叉熵损失（CrossEntropyLoss）
 
 交叉熵损失是多分类任务的标准损失函数，在 **PyTorch** 中内置了 Softmax 操作，直接作用于模型输出的 logits。
@@ -115,7 +111,6 @@ def test_cross_entropy():
 test_cross_entropy()
 ```
 
-
 **计算过程解析**：
 
 1. 对 logits 应用 Softmax 得到概率分布
@@ -128,8 +123,6 @@ test_cross_entropy()
 * 适用于多分类任务（类别互斥）
 * 标签格式为类别索引（非 one-hot 编码）
 
-
-
 ### 二元交叉熵损失（BCELoss）
 
 二元交叉熵损失用于二分类任务，需要配合 Sigmoid 激活函数使用，确保输入值在 (0,1) 范围内。
@@ -139,7 +132,6 @@ test_cross_entropy()
 $$
 BCELoss=-\frac{1}{n}\sum_{i=1}^{n}[y_{i}\log(\hat{y}_{i})+(1-y_{i})\log(1-\hat{y}_{i})]
 $$
-
 
 ```python
 def test_bce_loss():
@@ -170,9 +162,6 @@ logits = torch.tensor([[0.8], [-0.5], [1.2], [0.6]])
 bce_with_logits_loss = nn.BCEWithLogitsLoss()
 loss = bce_with_logits_loss(logits, y_true)
 ```
-
-
-
 
 ## 损失函数选择指南
 
