@@ -143,6 +143,10 @@ print("Done")
 
 ### 数据接口定义
 
+```python
+from pydantic import BaseModel, Field
+from typing import Dict, List, Any, Union, Optional
+```
 
 
 
