@@ -100,6 +100,20 @@ $$
 
 为经过 Softmax 处理的预测概率。
 
+```python
+def test_cross_entropy():
+    # 模型输出的logits（未经过softmax）
+    logits = torch.tensor([[1.5, 2.0, 0.5], [0.5, 1.0, 1.5]])
+    # 真实标签（类别索引）
+    labels = torch.tensor([1, 2])  # 第一个样本属于类别1，第二个样本属于类别2
+  
+    # 初始化交叉熵损失函数
+    criterion = nn.CrossEntropyLoss()
+    loss = criterion(logits, labels)
+    print(f'Cross Entropy Loss: {loss.item()}')  # 输出：Cross Entropy Loss: 0.6422222256660461
+ 
+test_cross_entropy()
+```
 
 
 
