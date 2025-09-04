@@ -6,6 +6,11 @@ nn.Embedding是PyTorch中的一个常用模块，其主要作用是将输入的�
 
 `torch.nn.Embedding(num_embeddings, embedding_dim, padding_idx=None, max_norm=None, norm_type=2.0, scale_grad_by_freq=False, sparse=False, _weight=None, _freeze=False, device=None, dtype=None)`
 
+参数说明：
+
+> num_embeddings ：字典中词的个数
+> embedding_dim：embedding的维度
+> padding_idx（索引指定填充）：如果给定，则遇到padding_idx中的索引，则将其位置填0（0是默认值，事实上随便填充什么值都可以）
 
 
 ## Transformer:为什么现在BERT和GPT采用这种结构
