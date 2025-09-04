@@ -177,9 +177,8 @@ class TextClassifyRequest(BaseModel):
 * 必填字段（因为用了 `...`）
 * 用途：表示要进行分类的文本内容，支持单条或批量输入。
 
-
 ```python
-# 
+# 响应模型
 class TextClassifyResponse(BaseModel):
     """
     接口返回格式
