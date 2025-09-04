@@ -220,7 +220,9 @@ output = loss_fn(log_softmax_output, target)
 print(output)
 ```
 
+### 三元组损失（Triplet Margin Loss）
 
+三元组损失用于嵌入学习，通过最小化锚点和正样本之间的距离，同时最大化锚点和负样本之间的距离。其公式如下：
 
 
 
