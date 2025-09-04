@@ -275,6 +275,7 @@ class NewsDataset(Dataset):
 核心函数
 
 ```python
+# 定义一个函数，输入可以是单个字符串或字符串列表，输出是对应的分类结果（字符串或字符串列表）。
 def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]:
     classify_result: Union[str, List[str]] = None
 
