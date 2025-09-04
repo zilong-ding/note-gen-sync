@@ -82,6 +82,9 @@ print(f'L1 Loss: {loss.item()}')  # 输出：L1 Loss: 0.25
 
 Smooth L1损失结合了L1和L2损失的优点，当误差小于阈值时使用平方项，否则使用绝对项。其公式如下：
 
+$$
+\text{SmoothLLoss}=\begin{cases}0.5\times(y_i-\hat{y}_i)^2/\beta,&\text{if }|y_i-\hat{y}_i|<\beta\\|y_i-\hat{y}_i|-0.5\times\beta,&\text{otherwise}\end{cases}
+$$
 
 
 
