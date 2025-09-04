@@ -20,6 +20,17 @@
 
 数学公式：
 
+$$
+MSE=\frac{1}{n}\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}
+$$
+
+
+其中，![y_i](https://latex.csdn.net/eq?y_i)
+
+为真实值，![\hat{y}_i](https://latex.csdn.net/eq?%5Chat%7By%7D_i)
+
+为预测值，n为样本数量。
+
 
 ### 平均绝对误差损失
 
