@@ -2,6 +2,12 @@
 
 ## nn.Embbeding
 
+nn.Embedding是PyTorch中的一个常用模块，其主要作用是将输入的整数序列转换为密集向量表示。在自然语言处理（NLP）任务中，可以将每个单词表示成一个向量，从而方便进行下一步的计算和处理。
+
+`torch.nn.Embedding(num_embeddings, embedding_dim, padding_idx=None, max_norm=None, norm_type=2.0, scale_grad_by_freq=False, sparse=False, _weight=None, _freeze=False, device=None, dtype=None)`
+
+
+
 ## Transformer:为什么现在BERT和GPT采用这种结构
 
 RNN(或者LSTM、GRU等)的计算限制为是顺序的，也就是RNN相关算法只能从左向右或从右向左依次计算：
