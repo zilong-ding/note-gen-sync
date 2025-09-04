@@ -295,7 +295,7 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 # 构建测试数据集和数据加载器
     test_dataset = NewsDataset(test_encoding, [0] * len(request_text))
     test_dataloader = DataLoader(test_dataset, batch_size=16, shuffle=False)
-
+# 模型推理
     model.eval()
     pred = []
     for batch in test_dataloader:
