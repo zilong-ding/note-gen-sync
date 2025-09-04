@@ -240,3 +240,20 @@ tokenizer = AutoTokenizer.from_pretrained(BERT_MODEL_PERTRAINED_PATH)
 model = BertForSequenceClassification.from_pretrained(BERT_MODEL_PERTRAINED_PATH, num_labels=2)
 model.to(device)
 ```
+
+自定义datasets类
+
+```python
+class NewsDataset(Dataset):
+    def __init__(self, encodings, labels):
+        self.encodings = encodings
+        self.labels = labels
+
+    def __getitem__(self, idx):
+        item = {key: torch.tensor(val[idx]) for key, val in self.encodings.items()}
+        item['labels'] = torch.tensor(int(self.labels[idx]))
+        return item
+
+    def __len__(self):
+        return len(self.labels)
+```
