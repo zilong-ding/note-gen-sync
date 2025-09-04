@@ -61,6 +61,21 @@ print(f'MSE Loss: {loss.item()}')  # 输出：MSE Loss: 0.0833333358168602
 
 数学公式：
 
+$$
+MAE=\frac{1}{n}\sum_{i=1}^{n}|y_{i}-\hat{y}_{i}|
+$$
+
+```python
+# 初始化L1损失函数
+l1_loss = nn.L1Loss()
+ 
+# 计算损失
+loss = l1_loss(y_pred, y_true)
+print(f'L1 Loss: {loss.item()}')  # 输出：L1 Loss: 0.25
+```
+
+
+
 
 
 ### 交叉熵损失（CrossEntropyLoss）
