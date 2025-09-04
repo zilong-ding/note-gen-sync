@@ -311,3 +311,16 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
     classify_result = [CATEGORY_NAME[x] for x in pred]
     return classify_result
 ```
+
+模型推理部分
+
+* `model.eval()`: 切换到评估模式（关闭 dropout、batch norm 使用固定统计量）。
+* `with torch.no_grad()`: 停止梯度计算，节省内存，加快推理速度。
+* `input_ids`, `attention_mask`, `labels` 移动到设备上（GPU/CPU）。
+* `outputs = model(...)`:
+  * 返回一个元组，`outputs[0]` 是 loss（因为提供了 labels），`outputs[1]` 是 logits。
+  * 我们只需要 `logits`（未归一化的分类得分）。
+* `logits.detach().cpu().numpy()`:
+  * 从计算图中分离 → 移动到 CPU → 转为 NumPy 数组。
+* `np.argmax(..., axis=1)`: 找出每条样本得分最高的类别索引。
+* `pred += list(...)`：将当前 batch 的预测结果加入总列表。
