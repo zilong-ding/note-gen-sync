@@ -137,3 +137,6 @@ trainer.evaluate()
 trainer.save_model("best")
 print("Done")
 ```
+
+
+## fastapi部署
