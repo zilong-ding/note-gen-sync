@@ -91,3 +91,15 @@ test_dataset = Dataset.from_dict({
 
 print(train_dataset.shape)
 ```
+
+
+```
+# 定义用于计算评估指标的函数
+def compute_metrics(eval_pred):
+    # eval_pred 是一个元组，包含模型预测的 logits 和真实的标签
+    logits, labels = eval_pred
+    # 找到 logits 中最大值的索引，即预测的类别
+    predictions = np.argmax(logits, axis=-1)
+    # 计算预测准确率并返回一个字典
+    return {'accuracy': (predictions == labels).mean()}
+```
