@@ -270,3 +270,37 @@ class NewsDataset(Dataset):
 * `__len__()`: 返回样本数量。
 
 > 💡 注意：测试时 `labels` 设为 `[0]*len(request_text)` 是合理的，因为我们只关心预测结果，不参与损失计算。
+
+
+核心函数
+
+```python
+def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]:
+    classify_result: Union[str, List[str]] = None
+
+    if isinstance(request_text, str):
+        request_text = [request_text]
+    elif isinstance(request_text, list):
+        pass
+    else:
+        raise Exception("格式不支持")
+
+    test_encoding = tokenizer(list(request_text), truncation=True, padding=True, max_length=30)
+    test_dataset = NewsDataset(test_encoding, [0] * len(request_text))
+    test_dataloader = DataLoader(test_dataset, batch_size=16, shuffle=False)
+
+    model.eval()
+    pred = []
+    for batch in test_dataloader:
+        with torch.no_grad():
+            input_ids = batch['input_ids'].to(device)
+            attention_mask = batch['attention_mask'].to(device)
+            labels = batch['labels'].to(device)
+            outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+        logits = outputs[1]
+        logits = logits.detach().cpu().numpy()
+        pred += list(np.argmax(logits, axis=1).flatten())
+
+    classify_result = [CATEGORY_NAME[x] for x in pred]
+    return classify_result
+```
