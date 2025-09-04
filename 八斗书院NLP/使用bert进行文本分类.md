@@ -285,7 +285,11 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
         pass
     else:
         raise Exception("格式不支持")
-
+# 分词与编码
+# 参数说明：
+#    truncation=True: 超过最大长度时截断。
+#    padding=True: 自动补全到 batch 中最长序列长度（用于 batch 推理）。
+#    max_length=30: 最多保留 30 个 token（包含 [CLS], [SEP]）。
     test_encoding = tokenizer(list(request_text), truncation=True, padding=True, max_length=30)
     test_dataset = NewsDataset(test_encoding, [0] * len(request_text))
     test_dataloader = DataLoader(test_dataset, batch_size=16, shuffle=False)
