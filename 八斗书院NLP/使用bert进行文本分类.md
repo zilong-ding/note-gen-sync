@@ -324,3 +324,6 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
   * 从计算图中分离 → 移动到 CPU → 转为 NumPy 数组。
 * `np.argmax(..., axis=1)`: 找出每条样本得分最高的类别索引。
 * `pred += list(...)`：将当前 batch 的预测结果加入总列表。
+
+
+## 这里为什么要构建测试数据集和数据加载器？
