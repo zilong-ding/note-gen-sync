@@ -78,6 +78,10 @@ print(f'L1 Loss: {loss.item()}')  # 输出：L1 Loss: 0.25
 * 梯度在零点处不连续，可能影响收敛速度
 * 适用于存在异常值的回归场景
 
+### 平滑L1损失（Smooth L1 Loss）
+
+
+
 
 ### 交叉熵损失（CrossEntropyLoss）
 
