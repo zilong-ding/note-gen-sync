@@ -38,3 +38,22 @@ dataset_df = pd.read_csv(dataset_path, sep=",", header=None)[1:]
 print(dataset_df.shape)
 print(dataset_df.head())
 ```
+
+
+```python
+# 初始化 LabelEncoder，用于将文本标签转换为数字标签
+lbl = LabelEncoder()
+# 拟合数据并转换前500个标签，得到数字标签
+labels = lbl.fit_transform(dataset_df[0].values[:])
+texts = list(dataset_df[1].values[:])
+
+print(len(texts))
+
+# 分割数据为训练集和测试集
+x_train, x_test, train_labels, test_labels = train_test_split(
+    texts,             # 文本数据
+    labels,            # 对应的数字标签
+    test_size=0.2,     # 测试集比例为20%
+    stratify=labels    # 确保训练集和测试集的标签分布一致
+)
+```
