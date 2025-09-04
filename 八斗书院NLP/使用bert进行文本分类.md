@@ -190,6 +190,33 @@ class TextClassifyResponse(BaseModel):
     error_msg: str = Field(..., description="异常信息")
 ```
 
+`request_id: Optional[str] = Field(...)`
+
+* 返回客户端传入的 `request_id`，方便对应请求与响应。
+* 仍是可为空的字符串，且为必填字段（必须返回，但值可以是 `null`）。
+
+`request_text: Union[str, List[str]] = Field(...)`
+
+* 回显客户端传入的原始文本，便于核对。
+* 类型与请求一致。
+
+`classify_result: Union[str, List[str]] = Field(...)`
+
+* 分类结果，如果输入是字符串，输出就是单个分类标签（如 `"负面"`）；
+* 如果输入是列表，输出也应是对应的标签列表（如 `["负面", "正面"]`）。
+* 类型与 `request_text` 对应。
+
+`classify_time: float = Field(...)`
+
+* 类型：浮点数（单位：秒）
+* 表示模型完成分类所花费的时间，用于性能监控或前端展示。
+* 例如：`0.123` 表示耗时 123 毫秒。
+
+`error_msg: str = Field(...)`
+
+* 错误信息字段。
+* 即使成功，也建议返回空字符串 `""` 或 `"success"`。
+* 如果出错，填充错误描述，如 `"模型加载失败"`。
 
 
 
