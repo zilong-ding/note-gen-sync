@@ -89,7 +89,16 @@ print(f'L1 Loss: {loss.item()}')  # 输出：L1 Loss: 0.25
 
 数学公式：
 
+$$
+CrossEntropyLoss=-\sum_{i=1}^{C}y_{i}\log(\hat{y}_{i})
+$$
 
+
+其中，C为类别数，![y_i](https://latex.csdn.net/eq?y_i)
+
+为真实标签的 one-hot 编码，![\hat{y}_i](https://latex.csdn.net/eq?%5Chat%7By%7D_i)
+
+为经过 Softmax 处理的预测概率。
 
 
 
