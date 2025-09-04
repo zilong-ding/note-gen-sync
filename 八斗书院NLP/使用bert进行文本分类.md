@@ -74,3 +74,20 @@ model = BertForSequenceClassification.from_pretrained('./bert-base-chinese', num
 train_encodings = tokenizer(x_train, truncation=True, padding=True, max_length=64)
 test_encodings = tokenizer(x_test, truncation=True, padding=True, max_length=64)
 ```
+
+
+```python
+# 将编码后的数据和标签转换为 Hugging Face `datasets` 库的 Dataset 对象
+train_dataset = Dataset.from_dict({
+    'input_ids': train_encodings['input_ids'],           # 文本的token ID
+    'attention_mask': train_encodings['attention_mask'], # 注意力掩码
+    'labels': train_labels                               # 对应的标签
+})
+test_dataset = Dataset.from_dict({
+    'input_ids': test_encodings['input_ids'],
+    'attention_mask': test_encodings['attention_mask'],
+    'labels': test_labels
+})
+
+print(train_dataset.shape)
+```
