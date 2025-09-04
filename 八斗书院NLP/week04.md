@@ -1,5 +1,7 @@
 # AI大模型应用：NLP与大模型
 
+## nn.Embbeding
+
 ## Transformer:为什么现在BERT和GPT采用这种结构
 
 RNN(或者LSTM、GRU等)的计算限制为是顺序的，也就是RNN相关算法只能从左向右或从右向左依次计算：
@@ -149,8 +151,6 @@ ApacheBench(ab)是一个命令行工具，用于测试Apache HTTP服务器的性
 
 https://httpd.apache.orq/docs/current/programs/ab.html
 
-
-
 ## 专业名词
 
 ### 语言模型的发展
@@ -162,7 +162,6 @@ Transformer的出现，就像给这个学生配上了“全局视野”。它最
 BERT的“B”代表双向(Bidirectional)。这意味着BERT在理解一个词时，不仅会看它前面的词，还会看它后面的词。
 
 GPT(Generative Pre-trained Transformer)则更像一个“创造者”或“生成者”。它是一个单向的模型，从左到右地预测下一个词。它的训练方式是给定一句话的前半部分，然后让它预测并生成后面的内容。
-
 
 ### 注意力机制(Attention Mechanism)
 
@@ -178,7 +177,6 @@ GPT(Generative Pre-trained Transformer)则更像一个“创造者”或“生�
 
 注意力机制通过让模型能够“回头看”句子中的所有词，并给它们分配不同的权重，彻底解决了这个问题。它让模型在处理长句子时，不再“短视”，而是拥有了“全局视野”，能更好地理解整个句子的语境和含义。
 
-
 ### BERT 
 
 Bidirectional Encoder Representations from Transformers,直译过来就是“来自 Transformer的双向编码表示”。 
@@ -193,7 +191,6 @@ BERT的创新之处在于，它采用了双向的训练方式。它在训练时�
 
 ![2025-09-02_15-52.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/843a2cb4-1086-4c6f-871f-6a4fdf5be046.jpeg)
 
-
 BERT首先在海量的文本数据上进行“预训练”，学习通用的语言知识。之后，我们可以用少量的特定任务数据对它进行“微调”，让它胜任具体的任务，如**情感分析**、**问答系统**、**命名实体识别**等。
 
 ### 分词器 
@@ -201,7 +198,6 @@ BERT首先在海量的文本数据上进行“预训练”，学习通用的语�
 tokenizer将原始文本转换为模型能够处理的数字序列。像BERT和GPT这样的Transformer模型，都只能处理数字，模型根本不认识这些汉字。分词器的作用，就是把这个句子拆解并转换成一串数字，比如[101,23,45,67,102]。然后，这些数字才能被输入到模型中进行计算。
 
 ![2025-09-02_15-56.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/a54aae54-b487-4e2f-94d6-5c0d6cf5527b.jpeg)
-
 
 1.分词（Tokenization）分词器会把一句话分解成一个个独立的“词元”（Token)。
 
@@ -220,7 +216,6 @@ tokenizer将原始文本转换为模型能够处理的数字序列。像BERT和G
 3.映射到ID（Token toID）分词器内部有一个巨大的“词汇表”（Vocabulary)，它将每个词元映射到一个唯一的整数ID。
 
 4.生成注意力掩码（AttentionMask）在上面的步骤2中，我们用[PAD]填充了句子。但模型需要知道哪些是真正的词，哪些是填充物。
-
 
 ### ·位置编码 
 
@@ -244,7 +239,6 @@ https://docs.pytorch.org/docs/stable/generated/torch.bmm.html
 
 ![2025-09-02_16-09.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/698e147c-9290-4715-8f3e-742e6f4ed483.jpeg)
 
-
 解决梯度消失问题：当梯度在反向传播时，可以通过这条捷径直接传递到前面的层，避免了信息在多层计算中逐渐衰减。这让训练更深的网络变得可能。 
 
 保留原始信息：它确保了每一层的输出都包含了原始输入的信息。这就像在学习新知识时，不仅要吸收新的内容，还要不断回顾旧的知识，这样才能学得更扎实。
@@ -254,7 +248,6 @@ https://docs.pytorch.org/docs/stable/generated/torch.bmm.html
 卷积层用于处理图像、视频等矩阵输入。卷积核很小，但它能捕捉到局部区域的特征。比如，一个卷积核可能专门用来识别照片中的“边缘”，另一个用来识别“角点”。这个卷积核在移动时，它的权重参数是共享的。这意味着，如果用一个卷积核来识别照片左上角的边缘，也可以用同一个卷积核来识别照片右下角的边缘。这种特性大大减少了模型需要学习的参数量，让模型更高效。
 
 ![2025-09-02_16-10.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/98be0b07-e39d-409a-b8f2-f2c76c5ade85.jpeg)
-
 
 ### Trainer 
 
