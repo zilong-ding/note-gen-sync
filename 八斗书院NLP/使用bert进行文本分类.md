@@ -278,7 +278,7 @@ class NewsDataset(Dataset):
 # 定义一个函数，输入可以是单个字符串或字符串列表，输出是对应的分类结果（字符串或字符串列表）。
 def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]:
     classify_result: Union[str, List[str]] = None
-# 输入格式统一化
+#   输入格式统一化
     if isinstance(request_text, str):
         request_text = [request_text]
     elif isinstance(request_text, list):
@@ -292,10 +292,10 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 #    max_length=30: 最多保留 30 个 token（包含 [CLS], [SEP]）。
     test_encoding = tokenizer(list(request_text), truncation=True, padding=True, max_length=30)
   
-# 构建测试数据集和数据加载器
+#   构建测试数据集和数据加载器
     test_dataset = NewsDataset(test_encoding, [0] * len(request_text))
     test_dataloader = DataLoader(test_dataset, batch_size=16, shuffle=False)
-# 模型推理
+#   模型推理
     model.eval()
     pred = []
     for batch in test_dataloader:
@@ -307,7 +307,7 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
         logits = outputs[1]
         logits = logits.detach().cpu().numpy()
         pred += list(np.argmax(logits, axis=1).flatten())
-
+#   映射类别名称
     classify_result = [CATEGORY_NAME[x] for x in pred]
     return classify_result
 ```
