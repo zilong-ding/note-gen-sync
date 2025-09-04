@@ -136,6 +136,9 @@ test_cross_entropy()
 
 数学公式：
 
+$$
+BCELoss=-\frac{1}{n}\sum_{i=1}^{n}[y_{i}\log(\hat{y}_{i})+(1-y_{i})\log(1-\hat{y}_{i})]
+$$
 
 
 
