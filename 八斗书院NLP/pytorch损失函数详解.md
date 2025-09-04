@@ -184,7 +184,15 @@ bce_with_logits_loss = nn.BCEWithLogitsLoss()
 loss = bce_with_logits_loss(logits, y_true)
 ```
 
-## 损失函数选择指南
+### 负对数似然损失（Negative Log-Likelihood Loss, NLLLoss）
+
+NLLLoss适用于分类任务，直接计算对数似然的负值。其公式如下：
+
+
+
+
+
+损失函数选择指南
 
 
 | 任务类型            | 推荐损失函数              | 特点                                 |
