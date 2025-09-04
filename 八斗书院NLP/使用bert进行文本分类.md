@@ -335,18 +335,7 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 3. **利用 PyTorch 的自动批处理和设备搬运机制**
 4. **保证代码结构清晰、可维护、可扩展**
 
-
-
-
-|  |  |
-| - | - |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-
-## ✅ 总结：为什么要构建测试数据集和数据加载器？
+### ✅ 总结：为什么要构建测试数据集和数据加载器？
 
 
 |                 |                           |
@@ -357,3 +346,13 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 | ✅ 自动 padding | 不用手动对齐序列长度      |
 | ✅ 易于维护     | 结构清晰，便于扩展和调试  |
 | ✅ 工程最佳实践 | 工业级项目的标准做法      |
+
+
+
+| 1 |  |
+| - | - |
+|   |  |
+|   |  |
+|   |  |
+|   |  |
+|   |  |
