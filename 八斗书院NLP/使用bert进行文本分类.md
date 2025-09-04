@@ -27,3 +27,14 @@ import torch
 from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
 from datasets import Dataset
 ```
+
+
+```python
+# 加载数据集
+dataset_path = "waimai_10k.csv"
+
+dataset_df = pd.read_csv(dataset_path, sep=",", header=None)[1:]
+
+print(dataset_df.shape)
+print(dataset_df.head())
+```
