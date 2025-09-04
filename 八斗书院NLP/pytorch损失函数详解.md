@@ -80,6 +80,12 @@ print(f'L1 Loss: {loss.item()}')  # 输出：L1 Loss: 0.25
 
 ### 平滑L1损失（Smooth L1 Loss）
 
+Smooth L1损失结合了L1和L2损失的优点，当误差小于阈值时使用平方项，否则使用绝对项。其公式如下：
+
+
+
+
+
 
 
 
