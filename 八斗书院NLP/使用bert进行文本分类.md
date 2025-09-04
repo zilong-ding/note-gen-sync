@@ -291,6 +291,8 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 #    padding=True: 自动补全到 batch 中最长序列长度（用于 batch 推理）。
 #    max_length=30: 最多保留 30 个 token（包含 [CLS], [SEP]）。
     test_encoding = tokenizer(list(request_text), truncation=True, padding=True, max_length=30)
+  
+# 构建测试数据集和数据加载器
     test_dataset = NewsDataset(test_encoding, [0] * len(request_text))
     test_dataloader = DataLoader(test_dataset, batch_size=16, shuffle=False)
 
