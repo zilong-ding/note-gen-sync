@@ -31,6 +31,23 @@ $$
 
 为预测值，n为样本数量。
 
+```python
+import torch
+import torch.nn as nn
+ 
+# 初始化MSE损失函数
+mse_loss = nn.MSELoss()
+ 
+# 示例数据
+y_true = torch.tensor([3.0, 5.0, 2.5])  # 真实值
+y_pred = torch.tensor([2.5, 5.0, 3.0])  # 预测值
+ 
+# 计算损失
+loss = mse_loss(y_pred, y_true)
+print(f'MSE Loss: {loss.item()}')  # 输出：MSE Loss: 0.0833333358168602
+```
+
+
 
 ### 平均绝对误差损失
 
