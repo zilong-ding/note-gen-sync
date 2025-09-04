@@ -234,14 +234,13 @@ $$
 
 * 排序任务，如人脸验证和搜索检索。
 
-
 嵌入学习（Embedding Learning）是一种将复杂、高维数据（如文本、图像或声音）转换为低维、稠密向量表示的技术。这些向量能够捕捉数据之间的内在联系，如相似性，使得相似的数据点在向量空间中彼此接近。嵌入学习通常涉及无监督或半监督的学习过程，模型在大量未标记的数据上进行预训练，以学习数据的基本特征和结构。预训练的嵌入可以被进一步微调，以适应特定的下游任务，如分类、聚类或推荐系统。
 
 排序任务（Learning to Rank，LTR）是机器学习中的一个重要任务，尤其在信息检索、推荐系统和广告排序等领域有着广泛的应用。排序任务的目标是将数据按照一定的标准进行排序，以满足特定的需求，如将最相关的文档排在搜索结果的前面，或者将最符合用户兴趣的商品推荐给用户。
 
 <iframe id="aswift_5" name="aswift_5" browsingtopics="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="916" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-4340231068438843&output=html&h=280&adk=637260312&adf=4274663820&pi=t.aa~a.2347235066~i.170~rp.4&w=916&fwrn=4&fwrnh=100&lmt=1756970179&num_ads=1&rafmt=1&armr=3&sem=mc&pwprc=2244349787&ad_type=text_image&format=916x280&url=https%3A%2F%2Fjishuzhan.net%2Farticle%2F1909306269229449217&fwr=0&pra=3&rh=200&rw=915&rpe=1&resp_fmts=3&wgl=1&fa=27&uach=WyJMaW51eCIsIjYuMTQuMCIsIng4NiIsIiIsIjEzOS4wLjM0MDUuMTI1IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdDtBPUJyYW5kIiwiOTkuMC4wLjAiXSxbIk1pY3Jvc29mdCBFZGdlIiwiMTM5LjAuMzQwNS4xMjUiXSxbIkNocm9taXVtIiwiMTM5LjAuNzI1OC4xNTUiXV0sMF0.&abgtt=6&dt=1756970140504&bpp=1&bdt=3526&idt=1&shv=r20250903&mjsv=m202509020101&ptt=9&saldr=aa&abxe=1&cookie=ID%3D3fa32f74630b17f4%3AT%3D1756970139%3ART%3D1756970139%3AS%3DALNI_MZHGGg7FsRS9SBfy1wI9s6Hr0L02g&gpic=UID%3D000011127e4535ee%3AT%3D1756970139%3ART%3D1756970139%3AS%3DALNI_MYvzD3nxcwi1Omrt7YFKE7tEE4H6A&eo_id_str=ID%3Df67e67839b20849f%3AT%3D1756970139%3ART%3D1756970139%3AS%3DAA-AfjZjV72LFSYVikRHrHycIgI8&prev_fmts=0x0%2C308x250%2C308x250%2C674x280%2C605x280&nras=4&correlator=5099568063629&frm=20&pv=1&u_tz=480&u_his=2&u_h=1080&u_w=1920&u_ah=1052&u_aw=1920&u_cd=24&u_sd=1&dmc=8&adx=491&ady=6347&biw=1897&bih=938&scr_x=0&scr_y=2602&eid=31094367%2C42532524%2C95362655%2C95369636%2C95369802%2C95370331%2C95370343%2C31094473&oid=2&psts=AOrYGskMjdXy0JxxO5VvhVyQujyUy2gYvXdnyMS8H5gnx6G35ncM9OJJPni95gpRVN9LSNWB1Pc_YlCKKOK2X7suAN-BBy8e6tPFW4okQgd8M2vKrak&pvsid=5980779720325596&tmod=1226655176&uas=0&nvt=1&ref=https%3A%2F%2Fwww.bing.com%2F&fc=1408&brdim=0%2C28%2C0%2C28%2C1920%2C28%2C1920%2C1052%2C1912%2C938&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=128&bc=31&bz=1&td=1&tdf=2&psd=W251bGwsbnVsbCxudWxsLDNd&nt=1&ifi=6&uci=a!6&btvi=3&fsb=1&dtd=38916" data-google-container-id="a!6" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CJeruPvHvo8DFVFRwgUd0XgO7w" data-load-complete="true"></iframe>
 
-`TripletMarginLoss` 是一种用于嵌入学习和排序任务的损失函数。它通过优化锚点和正样本之间的距离与锚点和负样本之间的距离的差值，使得相似样本的嵌入更接近，不相似样本的嵌入更远离。这种损失函数在人脸识别、图像检索、推荐系统等任务中被广泛应用，能够有效提高模型的嵌入质量，使得模型在处理相似性匹配和排序问题时表现更优。
+`TripletMarginLoss` 是一种用于嵌入学习和排序任务的损失函数。它通过优化锚点和正样本之间的距离与锚点和负样本之间的距离的差值，使得相似样本的嵌入更接近，不相似样本的嵌入更远离。这种损失函数在**人脸识别、图像检索、推荐系统**等任务中被广泛应用，能够有效提高模型的嵌入质量，使得模型在处理相似性匹配和排序问题时表现更优。
 
 
 
