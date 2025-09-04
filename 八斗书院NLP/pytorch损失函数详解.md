@@ -175,3 +175,12 @@ loss = bce_with_logits_loss(logits, y_true)
 
 
 ## 损失函数选择指南
+
+
+| 任务类型            | 推荐损失函数              | 特点                                 |
+| ------------------- | ------------------------- | ------------------------------------ |
+| 回归任务            | MSELoSS                   | 对异常值敏感，适用于大多数回归场景   |
+| 回归任务 (含异常值) | L1Loss                    | 对异常值稳健，梯度不连续             |
+| 多分类任务          | CrossEntropyLoss          | 内置 Softmax，处理互斥类别           |
+| 二分类任务          | BCELoss/BCEWithLogitsLoss | 配合 Sigmoid 使用，输出概率值        |
+| 多标签分类          | BCEWithLogitsLoss         | 每个类别独立判断，可同时属于多个类别 |
