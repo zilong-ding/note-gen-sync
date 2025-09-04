@@ -257,3 +257,16 @@ class NewsDataset(Dataset):
     def __len__(self):
         return len(self.labels)
 ```
+
+
+这是 PyTorch 的标准数据集封装类，用于将文本编码和标签打包供 `DataLoader` 使用。
+
+方法详解：
+
+* `__init__`: 接收 `encodings`（tokenize 后的结果）和 `labels`（标签列表）。
+* `__getitem__(idx)`:
+  * 把每个样本的 `input_ids`, `attention_mask` 等转为 `torch.tensor`。
+  * 同时把标签也转为 tensor（虽然是测试集，但为了统一输入格式仍需提供 `labels`）。
+* `__len__()`: 返回样本数量。
+
+> 💡 注意：测试时 `labels` 设为 `[0]*len(request_text)` 是合理的，因为我们只关心预测结果，不参与损失计算。
