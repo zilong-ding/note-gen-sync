@@ -159,7 +159,7 @@ class TextClassifyRequest(BaseModel):
     request_text: Union[str, List[str]] = Field(..., description="请求文本、字符串或列表")
 ```
 
- `request_id: Optional[str] = Field(..., description="请求id, 方便调试")`
+`request_id: Optional[str] = Field(..., description="请求id, 方便调试")`
 
 * 类型：`Optional[str]` → 可以是字符串，也可以是 `None`（即这个字段不是必须传的）。
 * `Field(..., ...)`：
@@ -178,6 +178,19 @@ class TextClassifyRequest(BaseModel):
 * 用途：表示要进行分类的文本内容，支持单条或批量输入。
 
 
+```python
+# 
+class TextClassifyResponse(BaseModel):
+    """
+    接口返回格式
+    """
+    request_id: Optional[str] = Field(..., description="请求id")
+    request_text: Union[str, List[str]] = Field(..., description="请求文本、字符串或列表")
+    classify_result: Union[str, List[str]] = Field(..., description="分类结果")
+    classify_time: float = Field(..., description="分类耗时")
+    error_msg: str = Field(..., description="异常信息")
+```
+
 
 
 
@@ -185,4 +198,3 @@ class TextClassifyRequest(BaseModel):
 
 
 ### 推理函数
-
