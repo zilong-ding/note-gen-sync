@@ -220,7 +220,23 @@ class TextClassifyResponse(BaseModel):
 
 
 
-
-
-
 ### 推理函数
+
+```python
+# 导入依赖和初始化配置
+from typing import Union, List
+import os
+import numpy as np
+import pandas as pd
+import torch
+from torch.utils.data import Dataset, DataLoader
+
+from transformers import AutoTokenizer, AutoModelForMaskedLM, BertForSequenceClassification
+
+from config import BERT_MODEL_PERTRAINED_PATH, BERT_MODEL_PKL_PATH, CATEGORY_NAME
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+tokenizer = AutoTokenizer.from_pretrained(BERT_MODEL_PERTRAINED_PATH)
+model = BertForSequenceClassification.from_pretrained(BERT_MODEL_PERTRAINED_PATH, num_labels=2)
+model.to(device)
+```
