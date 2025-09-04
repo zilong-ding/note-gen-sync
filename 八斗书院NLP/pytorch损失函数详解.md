@@ -161,7 +161,15 @@ def test_bce_loss():
 test_bce_loss()
 ```
 
+**变种：BCEWithLogitsLoss**
+对于未经过 Sigmoid 处理的 logits，推荐使用`BCEWithLogitsLoss`，它内部会自动应用 Sigmoid，数值稳定性更好：
 
+```python
+# 对于logits输入（未经过sigmoid）
+logits = torch.tensor([[0.8], [-0.5], [1.2], [0.6]])
+bce_with_logits_loss = nn.BCEWithLogitsLoss()
+loss = bce_with_logits_loss(logits, y_true)
+```
 
 
 
