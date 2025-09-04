@@ -74,11 +74,29 @@ loss = l1_loss(y_pred, y_true)
 print(f'L1 Loss: {loss.item()}')  # 输出：L1 Loss: 0.25
 ```
 
+**特点**：
+
+* 对异常值更稳健
+* 梯度在零点处不连续，可能影响收敛速度
+* 适用于存在异常值的回归场景
 
 
 
 
 ### 交叉熵损失（CrossEntropyLoss）
+
+交叉熵损失是多分类任务的标准损失函数，在 **PyTorch** 中内置了 Softmax 操作，直接作用于模型输出的 logits。
+
+数学公式：
+
+
+
+
+
+
+
+
+
 
 
 
