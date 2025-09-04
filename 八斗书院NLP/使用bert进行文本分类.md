@@ -65,3 +65,12 @@ tokenizer = BertTokenizer.from_pretrained('./bert-base-chinese')
 model = BertForSequenceClassification.from_pretrained('./bert-base-chinese', num_labels=2)
 
 ```
+
+```python
+# 使用分词器对训练集和测试集的文本进行编码
+# truncation=True：如果文本过长则截断
+# padding=True：对齐所有序列长度，填充到最长
+# max_length=64：最大序列长度
+train_encodings = tokenizer(x_train, truncation=True, padding=True, max_length=64)
+test_encodings = tokenizer(x_test, truncation=True, padding=True, max_length=64)
+```
