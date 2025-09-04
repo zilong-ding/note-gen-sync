@@ -327,3 +327,10 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 
 
 ## 这里为什么要构建测试数据集和数据加载器？
+
+**构建 `Dataset` + `DataLoader` 是为了：**
+
+1. **统一训练与推理的数据流程**
+2. **支持批量推理（batch inference），提升效率**
+3. **利用 PyTorch 的自动批处理和设备搬运机制**
+4. **保证代码结构清晰、可维护、可扩展**
