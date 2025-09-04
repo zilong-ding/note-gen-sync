@@ -57,3 +57,11 @@ x_train, x_test, train_labels, test_labels = train_test_split(
     stratify=labels    # 确保训练集和测试集的标签分布一致
 )
 ```
+
+
+```python
+# 从预训练模型加载分词器和模型
+tokenizer = BertTokenizer.from_pretrained('./bert-base-chinese')
+model = BertForSequenceClassification.from_pretrained('./bert-base-chinese', num_labels=2)
+
+```
