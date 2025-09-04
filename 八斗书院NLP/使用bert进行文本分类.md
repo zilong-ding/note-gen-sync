@@ -278,7 +278,7 @@ class NewsDataset(Dataset):
 # 定义一个函数，输入可以是单个字符串或字符串列表，输出是对应的分类结果（字符串或字符串列表）。
 def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]:
     classify_result: Union[str, List[str]] = None
-
+# 输入格式统一化
     if isinstance(request_text, str):
         request_text = [request_text]
     elif isinstance(request_text, list):
