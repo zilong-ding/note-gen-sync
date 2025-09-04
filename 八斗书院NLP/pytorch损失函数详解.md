@@ -86,10 +86,18 @@ $$
 \text{SmoothLLoss}=\begin{cases}0.5\times(y_i-\hat{y}_i)^2/\beta,&\text{if }|y_i-\hat{y}_i|<\beta\\|y_i-\hat{y}_i|-0.5\times\beta,&\text{otherwise}\end{cases}
 $$
 
+其中，β 是控制阈值的参数。
 
+**应用场景**：
 
+* 回归任务，尤其是特征值较大时。
+* 对异常值的鲁棒性较好。
 
-
+```python
+loss_fn = nn.SmoothL1Loss(beta=1.0)
+output = loss_fn(input, target)
+print(output)
+```
 
 
 ### 交叉熵损失（CrossEntropyLoss）
