@@ -157,6 +157,18 @@ Dict, List, Any, Union, Optional: 来自 typing 模块，用于类型注解：
   List[str] 表示字符串列表。
   Any 表示任意类型（不推荐过度使用，会失去类型安全）。
 
+```python
+# 请求模型
+class TextClassifyRequest(BaseModel):
+    """
+    请求格式
+    """
+    request_id: Optional[str] = Field(..., description="请求id, 方便调试")
+    request_text: Union[str, List[str]] = Field(..., description="请求文本、字符串或列表")
+```
+
+
+
 
 
 
