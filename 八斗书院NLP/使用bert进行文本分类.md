@@ -218,8 +218,6 @@ class TextClassifyResponse(BaseModel):
 * 即使成功，也建议返回空字符串 `""` 或 `"success"`。
 * 如果出错，填充错误描述，如 `"模型加载失败"`。
 
-
-
 ### 推理函数
 
 ```python
@@ -258,7 +256,6 @@ class NewsDataset(Dataset):
         return len(self.labels)
 ```
 
-
 这是 PyTorch 的标准数据集封装类，用于将文本编码和标签打包供 `DataLoader` 使用。
 
 方法详解：
@@ -270,7 +267,6 @@ class NewsDataset(Dataset):
 * `__len__()`: 返回样本数量。
 
 > 💡 注意：测试时 `labels` 设为 `[0]*len(request_text)` 是合理的，因为我们只关心预测结果，不参与损失计算。
-
 
 核心函数
 
@@ -325,7 +321,6 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 * `np.argmax(..., axis=1)`: 找出每条样本得分最高的类别索引。
 * `pred += list(...)`：将当前 batch 的预测结果加入总列表。
 
-
 ## 这里为什么要构建测试数据集和数据加载器？
 
 **构建 `Dataset` + `DataLoader` 是为了：**
@@ -337,8 +332,7 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 
 ### ✅ 总结：为什么要构建测试数据集和数据加载器？
 
-
-|                 |                           |
+|      原因           |               说明            |
 | --------------- | ------------------------- |
 | ✅ 批量推理     | 提升 GPU 利用率，加快速度 |
 | ✅ 内存友好     | 避免一次性加载全部数据    |
@@ -347,12 +341,3 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 | ✅ 易于维护     | 结构清晰，便于扩展和调试  |
 | ✅ 工程最佳实践 | 工业级项目的标准做法      |
 
-
-
-| 1 |  |
-| - | - |
-|   |  |
-|   |  |
-|   |  |
-|   |  |
-|   |  |
