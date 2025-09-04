@@ -14,3 +14,16 @@ label,review
 ```
 
 ## bert微调
+
+```python
+# 导入必要的库
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+
+import torch
+from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
+from datasets import Dataset
+```
