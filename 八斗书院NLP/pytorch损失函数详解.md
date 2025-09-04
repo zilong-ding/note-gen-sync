@@ -197,6 +197,28 @@ $$
 
 * 分类任务，尤其是简单任务或训练速度较快时。
 
+```python
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+# 创建一个 3x5 的张量，表示 3 个样本，每个样本有 5 个特征
+input = torch.randn(3, 5, requires_grad=True)
+
+# 创建一个大小为 3 的张量，表示每个样本的类别索引（0 到 4）
+target = torch.tensor([1, 0, 4])
+
+# 定义负对数似然损失函数
+loss_fn = nn.NLLLoss()
+
+# 应用 LogSoftmax 函数到输入张量
+log_softmax_output = F.log_softmax(input, dim=1)
+
+# 计算损失
+output = loss_fn(log_softmax_output, target)
+
+print(output)
+```
 
 
 损失函数选择指南
