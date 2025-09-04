@@ -93,7 +93,7 @@ print(train_dataset.shape)
 ```
 
 
-```
+```python
 # 定义用于计算评估指标的函数
 def compute_metrics(eval_pred):
     # eval_pred 是一个元组，包含模型预测的 logits 和真实的标签
@@ -102,4 +102,38 @@ def compute_metrics(eval_pred):
     predictions = np.argmax(logits, axis=-1)
     # 计算预测准确率并返回一个字典
     return {'accuracy': (predictions == labels).mean()}
+```
+
+
+```python
+# 配置训练参数
+training_args = TrainingArguments(
+    output_dir='./results',              # 训练输出目录，用于保存模型和状态
+    num_train_epochs=8,                  # 训练的总轮数
+    per_device_train_batch_size=32,      # 训练时每个设备（GPU/CPU）的批次大小
+    per_device_eval_batch_size=32,       # 评估时每个设备的批次大小
+    warmup_steps=500,                    # 学习率预热的步数，有助于稳定训练
+    weight_decay=0.01,                   # 权重衰减，用于防止过拟合
+    logging_dir='./logs',                # 日志存储目录
+    logging_steps=100,                   # 每隔100步记录一次日志
+    eval_strategy="epoch",               # 每训练完一个 epoch 进行一次评估
+    save_strategy="best",               # 每训练完一个 epoch 保存一次模型
+    load_best_model_at_end=True,         # 训练结束后加载效果最好的模型
+)
+
+# 实例化 Trainer
+trainer = Trainer(
+    model=model,                         # 要训练的模型
+    args=training_args,                  # 训练参数
+    train_dataset=train_dataset,         # 训练数据集
+    eval_dataset=test_dataset,           # 评估数据集
+    compute_metrics=compute_metrics,     # 用于计算评估指标的函数
+)
+
+# 开始训练模型
+trainer.train()
+# 在测试集上进行最终评估
+trainer.evaluate()
+trainer.save_model("best")
+print("Done")
 ```
