@@ -109,3 +109,20 @@ $$
 | dk           | 每个头中 Key 和 Query 的维度 | dk= d_model /h       | 64                       |
 | dv           | 每个头中 Value 的维度        | dv=d model /h        | 64                       |
 | Q,K,V (单头) | 单个注意力头的矩阵维度       | oatchsze,s或(asize e | (batchsiz,sg leng 1      |
+
+### **Q, K, V 的最终维度**
+
+在多头注意力的具体实现中，我们通常讨论的是**单个头**的 `Q`, `K`, `V` 矩阵的维度。
+
+* **输入**：假设我们有一个批次的输入序列，其形状为 `(batch_size, sequence_length, d_model)`。
+* **线性投影**：这个输入会分别乘以三个不同的权重矩阵 `W^Q`, `W^K`, `W^V`。
+  * `W^Q` 的维度是 `(d_model, d_k)`。
+  * `W^K` 的维度是 `(d_model, d_k)`。
+  * `W^V` 的维度是 `(d_model, d_v)`。
+* **输出维度**：
+  * 经过线性投影后，对于**单个注意力头**，`Q`, `K`, `V` 矩阵的维度都是：
+    * `(batch_size, sequence_length, d_k)` 对于 `Q` 和 `K`
+    * `(batch_size, sequence_length, d_v)` 对于 `V`
+  * 在论文的Base模型中，这具体为 `(batch_size, sequence_length, 64)`。
+
+**注意**：在实际的代码实现中，为了效率，通常会一次性计算所有 `h` 个头。因此，权重矩阵的维度会是 `(d_model, h * d_k)`，投影后的 `Q`, `K`, `V` 矩阵的总维度为 `(batch_size, sequence_length, h * d_k)`，然后通过 `reshape` 或 `split` 操作将它们分到 `h` 个头上。
