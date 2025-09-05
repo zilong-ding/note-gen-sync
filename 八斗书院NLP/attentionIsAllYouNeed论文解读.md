@@ -110,7 +110,7 @@ $$
 | dv           | 每个头中 Value 的维度        | dv=d model /h        | 64                       |
 | Q,K,V (单头) | 单个注意力头的矩阵维度       | oatchsze,s或(asize e | (batchsiz,sg leng 1      |
 
-### **Q, K, V 的最终维度**
+### Q, K, V 的最终维度
 
 在多头注意力的具体实现中，我们通常讨论的是**单个头**的 `Q`, `K`, `V` 矩阵的维度。
 
@@ -167,3 +167,20 @@ $$
 $$
 \mathrm{MultiHead}(Q,K,V)=\mathrm{Concat}(\mathrm{head}_{1},...,\mathrm{head}_{\mathrm{h}})W^{O}\\\mathrm{where~head}_{\mathrm{i}}=\mathrm{Attention}(QW_{i}^{Q},KW_{i}^{K},VW_{i}^{V})
 $$
+
+
+### 自注意力在模型中的三种应用 (Applications in the Model)
+
+论文在3.2.3节详细说明了多头注意力如何在Transformer的编码器和解码器中被具体应用。
+
+1. **编码器中的自注意力 (Encoder Self-Attention)**：
+   * **Query, Key, Value来源**：三者都来自**同一个地方**——即编码器前一层的输出。
+   * **作用**：允许输入序列中的**每一个位置**都能关注到序列中的**所有其他位置**。这使得模型能够建立单词之间的全局依赖关系，例如，理解一个代词指代的是哪个名词。
+2. **解码器中的自注意力 (Decoder Self-Attention)**：
+   * **特殊限制**：为了保证解码过程的**自回归（Auto-regressive）**特性（即在生成第 `i` 个词时，不能看到第 `i` 个及之后的词），这里引入了**掩码（Masking）**。
+   * **实现方式**：在计算 `softmax(QKᵀ / √dk)` 之前，将所有“非法连接”（即未来位置的Key）所对应的分数设置为一个非常大的负数（如 `-∞`）。经过 `softmax` 后，这些位置的权重会变为0。
+   * **作用**：确保在预测位置 `i` 的输出时，模型只能依赖于位置 `1` 到 `i-1` 的已知输出。
+3. **编码器-解码器注意力 (Encoder-Decoder Attention)**：
+   * **Query来源**：来自**解码器**的前一层输出。
+   * **Key和Value来源**：来自**编码器**的最终输出。
+   * **作用**：这是连接编码器和解码器的桥梁。它允许解码器在生成目标语言的每一个词时，都能“关注”到源语言输入序列中所有相关的部分。例如，在翻译“making”这个词时，模型可以关注到源句中的“registration or voting process”。
