@@ -410,3 +410,5 @@ Transformer学习笔记一：Positional Encoding（位置编码） - 猛猿的�
 https://zhuanlan.zhihu.com/p/454482273
 
 ![2025-09-05_19-31.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/59ed555d-26f1-4816-a6fa-0b6644972510.jpeg)
+
+## 自注意力的优势
