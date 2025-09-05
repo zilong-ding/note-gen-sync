@@ -405,3 +405,8 @@ FFN是Transformer残差网络结构中的关键一环。
 * **有效性**：虽然可学习编码效果相当，但正弦/余弦编码因其优雅的数学性质和理论上的鲁棒性而被选为标准方案。
 
 ### 知乎大佬解释
+
+Transformer学习笔记一：Positional Encoding（位置编码） - 猛猿的文章 - 知乎
+https://zhuanlan.zhihu.com/p/454482273
+
+![2025-09-05_19-31.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/59ed555d-26f1-4816-a6fa-0b6644972510.jpeg)
