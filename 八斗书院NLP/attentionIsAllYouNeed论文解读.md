@@ -163,3 +163,7 @@ $$
   * `d_v = 512 / 8 = 64`
 
 通过将 `d_model` 等分为 `h` 份，每个头的计算复杂度大大降低，从而保证了多头注意力的总计算量与单头注意力相当。
+
+$$
+\mathrm{MultiHead}(Q,K,V)=\mathrm{Concat}(\mathrm{head}_{1},...,\mathrm{head}_{\mathrm{h}})W^{O}\\\mathrm{where~head}_{\mathrm{i}}=\mathrm{Attention}(QW_{i}^{Q},KW_{i}^{K},VW_{i}^{V})
+$$
