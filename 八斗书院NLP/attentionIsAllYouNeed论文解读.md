@@ -468,3 +468,10 @@ https://zhuanlan.zhihu.com/p/454482273
     * 经过 `L` 层卷积，感受野大小约为 `L*(k-1) + 1`。
     * 要覆盖整个长度 `n` 的序列，需要 `L ≈ n/k` 层（如果使用普通卷积）。
   * **论文中的 `O(log_k(n))`**：这个更优的 `O(log_k(n))` 路径长度通常是通过\*\*空洞卷积（Dilated Convolution）\*\*实现的，如ByteNet和WaveNet。空洞卷积通过在卷积核中引入“空洞”来指数级地扩大感受野。例如，第一层空洞为1，第二层空洞为2，第三层空洞为4... 这样，经过 `L` 层后，感受野可以达到 `O(k^L)`。因此，要覆盖长度 `n`，只需要 `L = O(log_k(n))` 层。
+
+
+### 大佬解释
+
+https://tobiaslee.top/2018/12/13/Start-from-Transformer/
+
+![2025-09-05_19-40.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/1e1bdeee-816f-4b33-a28b-727179b35fab.jpeg)
