@@ -300,5 +300,49 @@ FFN是Transformer残差网络结构中的关键一环。
 
 简单来说，如果不乘以这个系数，位置编码的作用就会大打折扣；乘上这个系数后，虽然嵌入向量变大了，但整个系统的方差被设计得更加合理和稳定，从而保证了位置信息的有效性。
 
+---
+
+
 
 ### 知乎回答
+
+作者：王四喜
+链接：https://www.zhihu.com/question/415263284/answer/2010360549
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+大家说得比较多的是Q x K那里的除，乘的那里问的很少，但其实这个乘并不是[Transformer](https://zhida.zhihu.com/search?content_id=395602114&content_type=Answer&match_order=1&q=Transformer&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NTcyNDM3MDEsInEiOiJUcmFuc2Zvcm1lciIsInpoaWRhX3NvdXJjZSI6ImVudGl0eSIsImNvbnRlbnRfaWQiOjM5NTYwMjExNCwiY29udGVudF90eXBlIjoiQW5zd2VyIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ.EajSCIWQPSiGsew90uQXBfaL_qQclwVt8UZjgYfflVU&zhida_source=entity)做的事情，我觉得是所有word embedding都需要做的事情。关于解释增大Embedding防止被position淹没，那么为什么是** **dmodel**\\sqrt{d\_{model}}** 呢，以下是个人理解：
+
+Embedding=(One−hot)⋅W**Embedding = (One-hot)\\cdot W**
+
+**以Xavier初始化的W\~N(0, 1/n)**
+
+得到的Embedding相当于是从W里面抽出来的d\_model个样本。
+
+那么Elements of Embedding就是正态总体Elements of W中的子样。
+
+正态总体的子样的均值和方差分别满足：
+
+X¯∼N(μ,σ2/n)**\\bar{X}\\sim N(\\mu, \\sigma^{2}/n)**
+
+(n−1)⋅S2/σ2∼χ2(n−1)**(n-1)\\cdot S^{2}/\\sigma^{2}\\sim\\chi^{2}(n-1)**
+
+所以有：
+
+E(X¯)=0**E(\\bar{X})=0**
+
+E(S2)=1/n**E(S^{2})=1/n**
+
+所以有
+
+Embedding∼N(0,1/dmodel)**Embedding\\sim N(0, 1/d\_{model})**
+
+所以这里的乘是为了把Embedding调整到N(0, 1)，至于为什么调整，应该就是BN、LN那套
+
+也许是，平滑损失曲面，加快收敛，加入噪声，过拟合，blabla
+
+前面说的是使用Xavier初始化的w矩阵，如果在[He初始化](https://zhida.zhihu.com/search?content_id=395602114&content_type=Answer&match_order=1&q=He%E5%88%9D%E5%A7%8B%E5%8C%96&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NTcyNDM3MDEsInEiOiJIZeWIneWni-WMliIsInpoaWRhX3NvdXJjZSI6ImVudGl0eSIsImNvbnRlbnRfaWQiOjM5NTYwMjExNCwiY29udGVudF90eXBlIjoiQW5zd2VyIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ.G94G9_vgoAcxoyVRnCKG6qwxHQvIFzXcv5LovG5UjqI&zhida_source=entity)下，w\~N(0,2/n)，那么scale系数就应该是：d/2**\\sqrt{d/2}**
+
+如果直接初始化w\~N(0,1)，然后后续使用NTK参数化的方式调整输出二阶矩的话，scale系数就是1，NTK系数为** **1/d**1/\\sqrt{d}**
+
+---
