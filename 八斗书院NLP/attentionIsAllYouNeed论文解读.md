@@ -126,3 +126,40 @@ $$
   * 在论文的Base模型中，这具体为 `(batch_size, sequence_length, 64)`。
 
 **注意**：在实际的代码实现中，为了效率，通常会一次性计算所有 `h` 个头。因此，权重矩阵的维度会是 `(d_model, h * d_k)`，投影后的 `Q`, `K`, `V` 矩阵的总维度为 `(batch_size, sequence_length, h * d_k)`，然后通过 `reshape` 或 `split` 操作将它们分到 `h` 个头上。
+
+
+### 核心维度：`d_model`
+
+这是整个Transformer模型的“主干”维度，也称为**模型维度（Model Dimension）**。
+
+* **定义**：`d_model` 是模型中所有向量的标准大小。这包括：
+  * 词嵌入（Word Embeddings）和位置编码（Positional Encodings）的维度。
+  * 编码器和解码器每一层的输入和输出的维度。
+  * 残差连接和层归一化操作的维度。
+* **论文中的取值**：在论文的“Base”模型中，`d_model = 512`。
+
+---
+
+### 多头注意力的拆分：`d_k`, `d_v` 和 `h`
+
+为了实现多头注意力，模型会将 `d_model` 维度的空间**线性投影**到 `h` 个不同的、更低维度的子空间中，每个子空间对应一个“头”（head）。
+
+* `h` (Number of Heads)：注意力头的数量。
+  * 论文中的取值：`h = 8`（对于Base模型）。
+* **`d_k` (Key/Query Dimension)**：每个头中键（Key）**和**查询（Query）向量的维度。
+* **`d_v` (Value Dimension)**：每个头中值（Value）向量的维度。
+
+论文在 **3.2.2 节 "Multi-Head Attention"** 中明确指出：
+
+> "In this work we employ h= 8 parallel attention layers, or heads. For each of these we use **dk= dv= dmodel/h= 64**."
+
+这意味着：
+
+* **计算公式**：
+  * `d_k = d_model / h`
+  * `d_v = d_model / h`
+* **论文中的取值**：
+  * `d_k = 512 / 8 = 64`
+  * `d_v = 512 / 8 = 64`
+
+通过将 `d_model` 等分为 `h` 份，每个头的计算复杂度大大降低，从而保证了多头注意力的总计算量与单头注意力相当。
