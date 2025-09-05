@@ -33,3 +33,7 @@ RNN,LSTM,GRU是当时比较序列建模，语言建模和机器翻译中最先�
   * 注意力函数会计算查询（Query）与每一个键（Key）的“相似度”或“匹配度”。
   * 这些相似度被归一化成**权重（Weights）**。
   * 最终的输出是所有“值（Values）”的**加权和**，权重就是刚才计算出来的相似度。
+
+$$
+\mathrm{Attention}(Q,K,V)=\mathrm{softmax}(\frac{QK^T}{\sqrt{d_k}})V
+$$
