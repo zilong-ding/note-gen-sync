@@ -23,3 +23,5 @@ RNN,LSTM,GRU是当时比较序列建模，语言建模和机器翻译中最先�
 3. 解码器利用其隐藏表示和编码器的隐藏表示，通过注意力机制，预测下一个词。
 4. 解码器的最终输出 → **Linear + Softmax** → **Output Probabilities**。
 5. 将 `Output Probabilities` 与真实的下一个词进行比较，优化模型。
+
+## 注意力
