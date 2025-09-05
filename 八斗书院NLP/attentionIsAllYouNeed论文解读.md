@@ -475,3 +475,7 @@ https://zhuanlan.zhihu.com/p/454482273
 https://tobiaslee.top/2018/12/13/Start-from-Transformer/
 
 ![2025-09-05_19-40.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/1e1bdeee-816f-4b33-a28b-727179b35fab.jpeg)
+
+
+Transformer/CNN/RNN的对比（时间复杂度，序列操作数，最大路径长度） - Gordon Lee的文章 - 知乎
+https://zhuanlan.zhihu.com/p/264749298
