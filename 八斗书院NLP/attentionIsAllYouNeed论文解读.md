@@ -477,6 +477,7 @@ https://tobiaslee.top/2018/12/13/Start-from-Transformer/
 ![2025-09-05_19-40.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/1e1bdeee-816f-4b33-a28b-727179b35fab.jpeg)
 
 
+![2025-09-05_19-46.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/5b40fde4-942f-4de3-81da-93a455c0ea57.jpeg)
 
 Transformer/CNN/RNN的对比（时间复杂度，序列操作数，最大路径长度） - Gordon Lee的文章 - 知乎
 https://zhuanlan.zhihu.com/p/264749298
@@ -485,3 +486,12 @@ https://zhuanlan.zhihu.com/p/264749298
 
 
 ![2025-09-05_19-45.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/f2bf234b-e2c2-4179-9f26-ab73c726593f.jpeg)
+
+## 三种正则化方法
+
+
+| 正则化方法      | 应用位置                                                                     | 主要目的                                                                                     |
+| --------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| 残差Dropout     | 差连接与层归一化之间；<br />以及嵌入层输出                                   | 每个子层（自注意力、FFN）输出后，<br />残防止模型对特定神经元路径的过拟合， <br />提高鲁棒性 |
+| 标签平滑        | 损失函数的计算中，<br />软化目标标签                                         | 防止模型预测过于自信，<br />提高泛化能力 和翻译质量                                          |
+| 位置编码Dropout | 嵌入向量与位置编码向量相加后的<br />总和上扰动位置信息，使模型对位置变化更具 | 鲁棒性                                                                                       |
