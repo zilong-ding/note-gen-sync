@@ -39,3 +39,10 @@ RNN,LSTM,GRU是当时比较序列建模，语言建模和机器翻译中最先�
 $$
 \mathrm{Attention}(Q,K,V)=\mathrm{softmax}(\frac{QK^T}{\sqrt{d_k}})V
 $$
+
+* **公式化表达**： 论文将其描述为：
+
+  > 输出（Output） = 以权重为系数，对值（Values）进行的加权和。 其中，分配给每个值的权重是通过查询（Query）与对应键（Key）的兼容性函数（compatibility function）计算得出的。
+  >
+
+  这个通用框架非常灵活，不同的“兼容性函数”就定义了不同类型的注意力。
