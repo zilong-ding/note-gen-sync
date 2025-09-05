@@ -304,7 +304,7 @@ FFN是Transformer残差网络结构中的关键一环。
 
 
 
-### 知乎回答
+### 知乎大佬解释
 
 作者：王四喜
 链接：https://www.zhihu.com/question/415263284/answer/2010360549
