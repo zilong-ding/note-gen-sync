@@ -105,3 +105,10 @@ ChatGPT整体过程可以分为三个阶段：
 通过扩展参数规模、数据规模和计算算力，大语言模型的能力会出现显著提升
 
 参数规模（𝑁）、数据规模（𝐷） 和计算算力（𝐶）之间的幂律关系
+
+![图片7.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/dadfce45-3c18-4e60-8bb0-8801779fe39a.jpeg)
+
+
+$$
+L(N)=\quad\left(\frac{N_{c}}{N}\right)^{\alpha_{N}},\quad\alpha_{N}\sim0.076,N_{c}\sim8.8\times10^{13}\\L(D)=\quad\left(\frac{D_{c}}{D}\right)^{\alpha_{D}},\:\alpha_{D}\sim0.095,D_{c}\sim5.4\times10^{13}\\L(C)=\quad\left(\frac{C_{c}}{C}\right)^{\alpha_{C}},\quad\alpha_{C}\sim0.050,C_{c}\sim3.1\times10^{8}
+$$
