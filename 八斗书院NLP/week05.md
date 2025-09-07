@@ -16,7 +16,7 @@ Sentence-BERT通过对整个句子进行建模，学习句子级别的嵌入表�
 
 Sentence-BERT的表示能够捕捉到句子中的语义信息，使得生成的句子嵌入在一些任务中更易于解释和理解。
 
-![2025-09-07_09-26.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/57b871fe-3a0f-4df9-bf77-ed8a9bd9a779.jpeg)
+![2025-09-07_09-32.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b0348272-e686-4c11-8b16-a6e6f0772625.png)
 
 ## 无监督句子编码
 
