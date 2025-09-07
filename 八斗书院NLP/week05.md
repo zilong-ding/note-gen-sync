@@ -37,7 +37,9 @@ SIF
 
 解码器处理输入的上下文信息，采用自回归生成方式逐步生成输出序列
 
+![2025-09-07_09-54.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/cc5435a1-9f89-4866-9e9c-e841bcdf18cf.jpeg)
 
+![2025-09-07_09-57.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0ea12569-4e0c-4026-b858-931925140283.jpeg)
 
 
 
