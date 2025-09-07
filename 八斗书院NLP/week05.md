@@ -29,7 +29,12 @@ IDF-Weighted Mean Pooling(基于逆文档频率的均值池化)
 SIF
 
 
+
+
 ### 解码器模型
+
+
+
 
 
 
