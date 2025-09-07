@@ -53,3 +53,7 @@ SIF
 
 
 ## 大语言模型
+
+定义：通常是指具有超大规模参数的预训练语言模型
+架构：主要为 Transformer解码器架构
+训练：预训练（base model）、后训练（instruct model）
