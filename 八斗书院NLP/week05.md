@@ -33,6 +33,9 @@ SIF
 
 ### 解码器模型
 
+![2025-09-07_09-52.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/803f142a-eb3e-47e7-9f24-2f0c5dedf7d9.jpeg)
+
+解码器处理输入的上下文信息，采用自回归生成方式逐步生成输出序列
 
 
 
