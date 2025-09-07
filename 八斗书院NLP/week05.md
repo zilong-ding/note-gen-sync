@@ -41,6 +41,7 @@ SIF
 
 ![2025-09-07_09-57.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0ea12569-4e0c-4026-b858-931925140283.jpeg)
 
+### 大模型是新的解决范式
 
 
 
