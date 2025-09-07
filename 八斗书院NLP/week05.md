@@ -73,3 +73,13 @@ ChatGPT整体过程可以分为三个阶段：
 > 第二阶段是**指令微调（Instruct Tuning）**，通过给定指令进行微调的方式使得模型具备完成各类任务的能力；
 
 > 第三个阶段是**类人对齐**，加入更多人工提示词，并利用有监督微调并结合基于强化学习的方式，使得模型输出更贴合人类需求。
+
+![图片4.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/7958468e-ce17-4f96-a23e-061f47c4d3f6.jpeg)
+
+
+#### 指令微调
+
+以BERT为代表的预训练语言模型需要根据任务数据进行微调（Fine-tuning），这种范式可以应用于参数量在几百万到几亿规模的预训练模型。但是针对数十亿甚至是数百亿规模的大模型，针对每个任务都进行微调的计算开销和时间成本几乎都是不可接受的。因此，研究人员们提出了指令微调（Instruction Finetuning）方案，将大量各类型任务，统一为生成式自然语言理解框架，并构造训练语料进行微调。
+
+> 例如，可以将情感倾向分析任务，通过如下指令，将贬义和褒义的分类问题转换到生成式自然语言理解框架：
+> For each snippet of text, label the sentiment of the text as positive or negative.Text: this film seems thirsty for reflection, itself taking on adolescent qualities.Label: [positive / negative]
