@@ -57,3 +57,7 @@ SIF
 定义：通常是指具有超大规模参数的预训练语言模型
 架构：主要为 Transformer解码器架构
 训练：预训练（base model）、后训练（instruct model）
+
+![图片2.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/a2c3cdb9-70e1-4a41-9571-c108c56fa247.png)
+
+![图片3.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/bacfb62d-c5ed-4be9-8a28-032f128ac905.png)
