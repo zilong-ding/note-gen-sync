@@ -60,4 +60,12 @@ SIF
 
 ![图片2.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/a2c3cdb9-70e1-4a41-9571-c108c56fa247.png)
 
-![图片3.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/bacfb62d-c5ed-4be9-8a28-032f128ac905.png)
+
+
+
+| 对比方面 | 预训练 (Pre-training)              | 后训练 (Post-training)             |
+| -------- | ---------------------------------- | ---------------------------------- |
+| 核心目标 | 建立模型基础能力                   | 将基座模型适配到具体应用场景       |
+| 数据资源 | 数万亿词元的自然语言文本           | 数十万、数百万到数千万指令数据     |
+| 所需算力 | 耗费百卡、千卡甚至万卡算力数月时间 | 耗费数十卡、数百卡数天到数十天时间 |
+| 使用方式 | 通常为few-shot提示                 | 可以直接进行zero-shot使用          |
