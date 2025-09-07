@@ -83,3 +83,8 @@ ChatGPT整体过程可以分为三个阶段：
 
 > 例如，可以将情感倾向分析任务，通过如下指令，将贬义和褒义的分类问题转换到生成式自然语言理解框架：
 > For each snippet of text, label the sentiment of the text as positive or negative.Text: this film seems thirsty for reflection, itself taking on adolescent qualities.Label: [positive / negative]
+
+
+#### 类人对齐
+
+![2025-09-07_10-33.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/9dd2eb8f-4e02-42e0-95a7-8f3ec8155d74.jpeg)
