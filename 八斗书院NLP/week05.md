@@ -18,6 +18,13 @@ Sentence-BERT的表示能够捕捉到句子中的语义信息，使得生成的�
 
 ![2025-09-07_09-32.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b0348272-e686-4c11-8b16-a6e6f0772625.png)
 
-## 无监督句子编码
+### 无监督句子编码
+
+mean poolong
+
+max pooling
+
+
+
 
 ## 大语言模型
