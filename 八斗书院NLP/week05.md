@@ -24,7 +24,9 @@ mean poolong
 
 max pooling
 
+IDF-Weighted Mean Pooling(基于逆文档频率的均值池化)
 
+SIF
 
 
 ## 大语言模型
