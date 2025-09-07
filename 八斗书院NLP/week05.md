@@ -88,3 +88,11 @@ ChatGPT整体过程可以分为三个阶段：
 #### 类人对齐
 
 ![2025-09-07_10-33.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/9dd2eb8f-4e02-42e0-95a7-8f3ec8155d74.jpeg)
+
+
+大模型预训练：基于Transformer解码器架构，进行下一个词预测
+大模型后训练：
+指令微调（Instruction Tuning） ：使用输入与输出配对的指令数据对于模型进行微调
+人类对齐（Human Alignment） ：将大语言模型与人类的期望、需求以及价值观对齐
+
+![图片5.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/4b9d55b8-4c6d-4eb1-affe-ed44d36279cf.jpeg)
