@@ -96,3 +96,8 @@ ChatGPT整体过程可以分为三个阶段：
 人类对齐（Human Alignment） ：将大语言模型与人类的期望、需求以及价值观对齐
 
 ![图片5.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/4b9d55b8-4c6d-4eb1-affe-ed44d36279cf.jpeg)
+
+![图片6.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/46791ad2-668c-46b4-9a4c-96dfe31d08d6.jpeg)
+
+
+### 扩展定律
