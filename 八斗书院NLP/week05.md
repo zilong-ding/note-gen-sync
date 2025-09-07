@@ -8,6 +8,8 @@ Transformer 模型主要由两个核心部分构成：编码器（Encoder）和�
 
 ![2025-09-07_09-21.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/aa36cdb6-9c76-4eff-859f-440a88621a83.jpeg)
 
+![2025-09-07_09-25.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/9a0eb787-2da2-47fa-b164-db61d4b40ba7.jpeg)
+
 ## Sentence-BERT
 
 ## 无监督句子编码
