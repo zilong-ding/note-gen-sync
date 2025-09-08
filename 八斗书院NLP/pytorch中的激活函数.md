@@ -43,7 +43,7 @@
 
 ## ✅ 3. `LeakyReLU` — `nn.LeakyReLU(negative_slope=0.1)`
 
-
+![2025-09-08_09-54.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/e8177bf5-41f0-419a-958b-a6503b63d773.jpeg)
 
 - **公式**：
   `f(x) = x if x > 0 else 0.1 * x`
@@ -60,6 +60,8 @@
 ---
 
 ## ✅ 4. `PReLU` — `nn.PReLU()`
+
+
 
 - **公式**：`f(x) = x if x > 0 else a * x`，其中 `a` 是可学习参数。
 - **特点**：
