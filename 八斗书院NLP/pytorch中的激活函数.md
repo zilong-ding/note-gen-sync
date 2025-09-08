@@ -6,6 +6,8 @@
 
 ## ✅ 1. `ReLU` — `nn.ReLU()`
 
+![2025-09-08_09-40.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/87feb02c-c2ce-4228-ad0f-b7a60b666ded.jpeg)
+
 - **公式**：`f(x) = max(0, x)`
 - **特点**：
   - 计算简单，收敛快。
