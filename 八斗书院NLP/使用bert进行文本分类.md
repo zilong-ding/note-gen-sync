@@ -4,6 +4,7 @@
 
 数据集地址： http://www.idatascience.cn/dataset-detail?table_id=429
 
+![2025-09-08_09-18.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/dd1ea2ea-0642-4b84-80fd-10af1e17e308.jpeg)
 
 ```
 label,review
@@ -352,7 +353,7 @@ ab -n 100 -c 1 -T "application/json" -p test.json http://localhost:8000/v1/text-
 | -c 1             | 每次并发1个 (串行)           |
 | -T"apliationson" | 告诉服务器请求体是JSON       |
 | -p estson        | 从文件读取JSON数据作为请求体 |
-| http/.           | 目标API地址                  |
+| http//           | 目标API地址                  |
 
 
 
