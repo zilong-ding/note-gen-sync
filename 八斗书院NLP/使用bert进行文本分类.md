@@ -327,8 +327,19 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 echo '{"request_id": "string","request_text": "很快，好吃，味道足，量大"}' > test.json
 ```
 
+```bash
+ab -n 100 -c 1 -T "application/json" -p test.json http://localhost:8000/v1/text-cls/bert
+```
 
 
+| 参数             | 含义                         |
+| ---------------- | ---------------------------- |
+| ab               | Apache 压力测试工具          |
+| -n1000           | 总共发 100个请求             |
+| -c1              | 每次并发1个 (串行)           |
+| -T"apliationson" | 告诉服务器请求体是JSON       |
+| -p estson        | 从文件读取JSON数据作为请求体 |
+| htp/.            | 目标API地址                  |
 
 
 
