@@ -25,6 +25,8 @@
 
 ## ✅ 2. `ReLU6` — `nn.ReLU6()`
 
+![2025-09-08_09-53.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/d147eb7c-de6d-41db-924c-5b28610886ee.jpeg)
+
 - **公式**：`f(x) = min(max(0, x), 6)`
 - **特点**：
   - ReLU 的“截断版”，上限为6。
@@ -40,6 +42,8 @@
 ---
 
 ## ✅ 3. `LeakyReLU` — `nn.LeakyReLU(negative_slope=0.1)`
+
+
 
 - **公式**：
   `f(x) = x if x > 0 else 0.1 * x`
