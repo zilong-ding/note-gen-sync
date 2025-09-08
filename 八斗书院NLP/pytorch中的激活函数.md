@@ -78,7 +78,7 @@
 
 ## ⚠️ 5. `RReLU` — `nn.RReLU()`
 
-
+![2025-09-08_09-56.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/bd91f849-e691-4223-bfdb-61c50981d70d.jpeg)
 
 - **公式**：负斜率在训练时随机采样（如 [0.1, 0.3]），测试时取均值。
 - **特点**：
@@ -94,6 +94,8 @@
 ---
 
 ## ✅ 6. `ELU` — `nn.ELU()`
+
+
 
 - **公式**：
   `f(x) = x if x > 0 else α*(exp(x)-1)`（默认 α=1）
