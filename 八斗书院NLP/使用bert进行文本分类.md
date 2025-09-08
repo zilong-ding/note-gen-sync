@@ -323,6 +323,15 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 
 ### ab压测
 
+ApacheBench(ab)是一个命令行工具，用于测试Apache HTTP服务器的性能。尽管它最初是为Apache服务器设计的，但实际上它可以测试任何HTTP服务器。它能够模拟对服务器的并发请求，并提供关于服务器响应时间、吞吐量和请求失败率等关键性能指标。
+-n requests:指定要发送的请求总数。
+-c concurrency:指定并发请求数。例如，-c10表示同
+时发起10个请求。
+-t timelimit:指定测试的最大时间限制（秒）。
+p postfile:指定包含POST数据的文件。用于测试
+POST请求。
+-T content-type:为POST数据指定Content-Type。
+
 ```bash
 echo '{"request_id": "string","request_text": "很快，好吃，味道足，量大"}' > test.json
 ```
