@@ -335,11 +335,11 @@ ab -n 100 -c 1 -T "application/json" -p test.json http://localhost:8000/v1/text-
 | 参数             | 含义                         |
 | ---------------- | ---------------------------- |
 | ab               | Apache 压力测试工具          |
-| -n1000           | 总共发 100个请求             |
-| -c1              | 每次并发1个 (串行)           |
+| -n 100           | 总共发 100个请求             |
+| -c 1             | 每次并发1个 (串行)           |
 | -T"apliationson" | 告诉服务器请求体是JSON       |
 | -p estson        | 从文件读取JSON数据作为请求体 |
-| htp/.            | 目标API地址                  |
+| http/.           | 目标API地址                  |
 
 
 
