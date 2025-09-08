@@ -112,7 +112,7 @@
 
 ## ✅ 7. `SELU` — `nn.SELU()`
 
-
+![2025-09-08_09-57.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/c6da4225-682f-46a0-833c-283d6be02797.jpeg)
 
 - **公式**：自归一化激活函数，有特定 α, λ 值（≈1.05, 1.67）。
 - **特点**：
@@ -128,6 +128,8 @@
 ---
 
 ## ⚠️ 8. `CELU` — `nn.CELU()`
+
+
 
 - **公式**：`f(x) = max(0, x) + min(0, α*(exp(x/α)-1))`
 - **特点**：
