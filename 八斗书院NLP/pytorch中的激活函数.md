@@ -61,7 +61,7 @@
 
 ## ✅ 4. `PReLU` — `nn.PReLU()`
 
-
+![2025-09-08_09-54_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b90b9ea3-59cd-4d01-90d1-a8b6108549db.jpeg)
 
 - **公式**：`f(x) = x if x > 0 else a * x`，其中 `a` 是可学习参数。
 - **特点**：
@@ -77,6 +77,8 @@
 ---
 
 ## ⚠️ 5. `RReLU` — `nn.RReLU()`
+
+
 
 - **公式**：负斜率在训练时随机采样（如 [0.1, 0.3]），测试时取均值。
 - **特点**：
