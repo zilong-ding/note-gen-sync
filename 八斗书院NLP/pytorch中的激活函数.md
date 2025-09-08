@@ -163,7 +163,7 @@
 
 ## ✅ 10. `Sigmoid` — `nn.Sigmoid()`
 
-
+![2025-09-08_10-01_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/c9dc14a9-2fbd-4f53-8040-c38c1d0c4292.jpeg)
 
 - **公式**：`f(x) = 1 / (1 + exp(-x))`
 - **特点**：
@@ -180,6 +180,8 @@
 
 ## ⚠️ 11. `LogSigmoid` — `nn.LogSigmoid()`
 
+![2025-09-08_10-02.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/ccf0cfa7-7925-41a0-a74f-9abffe806311.jpeg)
+
 - **公式**：`f(x) = log(1 / (1 + exp(-x)))`
 - **特点**：
   - 数值稳定性更好（避免 exp 溢出）。
@@ -192,6 +194,8 @@
 ---
 
 ## ✅ 12. `Tanh` — `nn.Tanh()`
+
+![2025-09-08_10-03.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/6966dde8-77c9-4a81-a5f2-d3e03e3f4d53.jpeg)
 
 - **公式**：`f(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))`
 - **特点**：
@@ -208,6 +212,8 @@
 
 ## ⚠️ 13. `Softplus` — `nn.Softplus()`
 
+![2025-09-08_10-03_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/70741cf8-0bbb-463e-aa29-f5fa5ec7ef60.jpeg)
+
 - **公式**：`f(x) = log(1 + exp(x))`
 - **特点**：
   - ReLU 的平滑近似，处处可导。
@@ -221,6 +227,8 @@
 
 ## ⚠️ 14. `Softsign` — `nn.Softsign()`
 
+![2025-09-08_10-03_2.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/634ceb62-82e3-498d-9fb0-79a2f7ad873c.jpeg)
+
 - **公式**：`f(x) = x / (1 + |x|)`
 - **特点**：
   - 类似 Tanh，但衰减更慢。
@@ -232,6 +240,8 @@
 ---
 
 ## ✅ 15. `SiLU (Swish)` — `nn.SiLU()`
+
+![2025-09-08_10-03_3.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/662b785e-9313-444e-9acd-b20c81dd7f3e.jpeg)
 
 - **公式**：`f(x) = x * sigmoid(x)`
 - **特点**：
@@ -246,6 +256,8 @@
 ---
 
 ## ✅ 16. `Mish` — `nn.Mish()`
+
+![2025-09-08_10-03_4.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/3970564f-28bb-486d-bc55-a7dde8a07f4e.jpeg)
 
 - **公式**：`f(x) = x * tanh(softplus(x)) = x * tanh(ln(1+e^x))`
 - **特点**：
@@ -263,6 +275,8 @@
 
 ## ⚠️ 17. `Hardtanh` — `nn.Hardtanh()`
 
+![2025-09-08_10-04.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/f290d63b-96c5-440c-8ea3-a1069105da37.jpeg)
+
 - **公式**：`f(x) = -1 if x < -1, x if -1<=x<=1, 1 if x>1`
 - **特点**：
   - Tanh 的分段线性近似。
@@ -275,6 +289,8 @@
 ---
 
 ## ✅ 18. `Hardswish` — `nn.Hardswish()`
+
+![2025-09-08_10-04_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/43f7707f-4045-4ccd-9d62-de8d8995c8c9.jpeg)
 
 - **公式**：分段线性近似 Swish，计算更快。
 - **特点**：
@@ -289,6 +305,8 @@
 
 ## ✅ 19. `Hardsigmoid` — `nn.Hardsigmoid()`
 
+![2025-09-08_10-04_2.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/a5a1245f-0426-46c3-9c9c-fe5f73d855ae.jpeg)
+
 - **公式**：Sigmoid 的分段线性近似。
 - **特点**：
   - 计算快，适合移动端。
@@ -302,6 +320,12 @@
 
 ## ⚠️ 20~22. `Hardshrink`, `Softshrink`, `Tanhshrink`
 
+![2025-09-08_10-04_3.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/34c5e60c-2e35-4f99-b859-83478a89b4d5.jpeg)
+
+![2025-09-08_10-04_4.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/1a15df6b-b432-4a2e-aa85-aaaebcd56fe3.jpeg)
+
+![2025-09-08_10-05.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/bfa48252-f315-4fc9-8800-30f6203d95c3.jpeg)
+
 - **共同点**：都是“收缩函数”，用于稀疏化或去噪。
 - **适用场景**：
   - ❗️极少用于 DNN 激活层。
@@ -314,6 +338,8 @@
 
 ## ⚠️ 23. `Threshold` — `nn.Threshold(threshold=0.5, value=0.1)`
 
+![2025-09-08_10-05_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/2acccc08-c7e2-450a-a882-eaa7e7bbb3e2.jpeg)
+
 - **公式**：`f(x) = x if x > threshold else value`
 - **适用场景**：
   - ❗️自定义阈值激活，极少见于现代网络。
@@ -324,6 +350,8 @@
 ---
 
 ## ⚠️ 24. `GLU` — `nn.GLU()`
+
+![2025-09-08_10-05_2.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/05525479-1d2e-4143-942e-e1c9c05a9f86.jpeg)
 
 - **公式**：Gated Linear Unit，`GLU(x) = a ⊗ σ(b)`，其中 x 被分成 a, b 两部分。
 - **特点**：
