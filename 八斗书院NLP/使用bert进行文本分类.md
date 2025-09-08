@@ -321,6 +321,19 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 * `np.argmax(..., axis=1)`: 找出每条样本得分最高的类别索引。
 * `pred += list(...)`：将当前 batch 的预测结果加入总列表。
 
+### ab压测
+
+```bash
+echo '{"request_id": "string","request_text": "很快，好吃，味道足，量大"}' > test.json
+```
+
+
+
+
+
+
+
+
 ## 这里为什么要构建测试数据集和数据加载器？
 
 **构建 `Dataset` + `DataLoader` 是为了：**
@@ -332,7 +345,8 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 
 ### ✅ 总结：为什么要构建测试数据集和数据加载器？
 
-|      原因           |               说明            |
+
+| 原因            | 说明                      |
 | --------------- | ------------------------- |
 | ✅ 批量推理     | 提升 GPU 利用率，加快速度 |
 | ✅ 内存友好     | 避免一次性加载全部数据    |
@@ -340,4 +354,3 @@ def model_for_bert(request_text: Union[str, List[str]]) -> Union[str, List[str]]
 | ✅ 自动 padding | 不用手动对齐序列长度      |
 | ✅ 易于维护     | 结构清晰，便于扩展和调试  |
 | ✅ 工程最佳实践 | 工业级项目的标准做法      |
-
