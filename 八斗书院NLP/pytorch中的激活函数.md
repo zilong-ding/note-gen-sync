@@ -144,7 +144,7 @@
 
 ## ✅ 9. `GELU` — `nn.GELU()`
 
-
+![2025-09-08_10-01.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0f692c30-1779-45da-92c6-4e30718329f6.jpeg)
 
 - **公式**：`f(x) = x * Φ(x)`，其中 Φ 是标准正态累积分布函数。
 - **近似实现**：`0.5 * x * (1 + tanh[√(2/π)(x + 0.044715x³)])`
@@ -162,6 +162,8 @@
 ---
 
 ## ✅ 10. `Sigmoid` — `nn.Sigmoid()`
+
+
 
 - **公式**：`f(x) = 1 / (1 + exp(-x))`
 - **特点**：
