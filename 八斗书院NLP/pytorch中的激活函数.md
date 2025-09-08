@@ -129,7 +129,7 @@
 
 ## ⚠️ 8. `CELU` — `nn.CELU()`
 
-
+![2025-09-08_09-59.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/48b41a40-3e2d-4441-9c20-8533543b2c9a.jpeg)
 
 - **公式**：`f(x) = max(0, x) + min(0, α*(exp(x/α)-1))`
 - **特点**：
@@ -143,6 +143,8 @@
 ---
 
 ## ✅ 9. `GELU` — `nn.GELU()`
+
+
 
 - **公式**：`f(x) = x * Φ(x)`，其中 Φ 是标准正态累积分布函数。
 - **近似实现**：`0.5 * x * (1 + tanh[√(2/π)(x + 0.044715x³)])`
