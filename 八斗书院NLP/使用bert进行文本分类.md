@@ -2,6 +2,9 @@
 
 ## 外卖评论数据集
 
+数据集地址： http://www.idatascience.cn/dataset-detail?table_id=429
+
+
 ```
 label,review
 1,很快，好吃，味道足，量大
