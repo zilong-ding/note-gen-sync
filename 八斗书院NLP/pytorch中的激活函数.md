@@ -95,7 +95,7 @@
 
 ## ✅ 6. `ELU` — `nn.ELU()`
 
-
+![2025-09-08_09-56_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/5392a72a-19f7-49eb-a009-9eb99cfeec6b.jpeg)
 
 - **公式**：
   `f(x) = x if x > 0 else α*(exp(x)-1)`（默认 α=1）
@@ -111,6 +111,8 @@
 ---
 
 ## ✅ 7. `SELU` — `nn.SELU()`
+
+
 
 - **公式**：自归一化激活函数，有特定 α, λ 值（≈1.05, 1.67）。
 - **特点**：
