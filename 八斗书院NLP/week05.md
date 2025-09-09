@@ -142,3 +142,11 @@ DeepSeek-V3
 
 
 ### LLaMA模型的发展历程
+
+![图片11.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/3accc9f5-9358-4b0c-a027-58c6e8864728.jpeg)
+
+LLaMA是Meta于2023年2月发布的模型集合，包含7 B、13 B、33 B和65 B共4个版本。其中LLaMA-13 B在多数数据集上的表现超越了GPT-3并且使用开源语料作为训练语料。而羊驼家族是指一些基于LLaMA模型结合2.1节中涉及方法构建的模型，以下针对Alpace、Vicuna、Koala和Baize 4个羊驼家族成员进行简要介绍。
+
+Alpaca（2023年3月）基于Self-instruct （Wang等，2023b）方法自动构建调优数据集并基于构建的调优数据集监督微调LLaMA。它的优势在于其极低的微调成本以及极少的资源消耗。
+Vicuna（2023年4月）其数据集从ShareGPT收集筛选得来，并在Alpaca的基础上，改进了训练损失函数以适应多轮对话场景，增加了最大上下文长度以提升长文本理解能力。
+Baize（2023年4月）通过Self-Chat的ChatGPT对话数据自动收集的方法，批量生成高质量多轮对话数据集用于调优。同时，在训练阶段应用了低秩适配 （Kow-rank adaptation，LoRA）方法 （Hu等，2022）进一步降低了微调成本。
