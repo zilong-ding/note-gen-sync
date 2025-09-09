@@ -113,7 +113,14 @@ $$
 
 ### GPT的发展里程
 
+![图片9.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/ba902677-08bf-4428-b192-5dd959d748d3.jpeg)
 
+GPT-1（1.1亿参数） Decode-only Transformer架构 ，预训练后针对特定任务微调
+GPT-2 （15亿参数） 将任务形式统一为单词预测，预训练与下游任务一致
+GPT-3 模型规模达到1750亿参数，涌现出上下文学习能力
+InstructGPT 大语言模型与人类价值观对齐 ，提出RLHF算法
+GPT-4 推理能力显著提升，建立可预测的训练框架，可支持多模态信息的大语言模型
+o系列模型 推理任务上能力大幅提升 ，长思维链推理能力
 
 
 
