@@ -158,3 +158,14 @@ Baize（2023年4月）通过Self-Chat的ChatGPT对话数据自动收集的方法
 在中文LLaMA的基础上，进一步通过指令精调提升模型的instruction following能力
 
 ![图片12.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/3c5924d5-8763-4b14-9d1e-52ede9a6a593.jpeg)
+
+
+
+原版LLaMA没有显式使用中文语料进行训练，词表(32K tokens)中仅包含非常少的中文字符。此外由于LLaMA使用了sentencepiece分词器，对于不在词表中的文本会切分为byte-level字符
+
+
+
+处理方法：
+第一步:使用sentencepiece工具在中文预训练语料上训练出20K个单词的中文词表
+第二步:删除上述20K中文词表中包含原版LLaMA词表(32K)的部分
+第三步:在原版LLaMA词表上拼接去􏰁后的中文词表，得到最终词表
