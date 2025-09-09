@@ -1,5 +1,11 @@
 # transformer大模型归一化
 
+当前主流大模型使用的Normalization主要有三类，分别是Layer Norm，[RMS Norm](https://zhida.zhihu.com/search?content_id=225975397&content_type=Article&match_order=1&q=RMS+Norm&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NTc1NzE4NDUsInEiOiJSTVMgTm9ybSIsInpoaWRhX3NvdXJjZSI6ImVudGl0eSIsImNvbnRlbnRfaWQiOjIyNTk3NTM5NywiY29udGVudF90eXBlIjoiQXJ0aWNsZSIsIm1hdGNoX29yZGVyIjoxLCJ6ZF90b2tlbiI6bnVsbH0._QqipVJi_Llfnq61FfFthxIJaqUvoeUGvsMWMD_tsyg&zhida_source=entity)，以及Deep Norm，这里依次介绍他们的异同
 
+在随机优化理论中，学习率往往设置为常数或者逐渐衰减 (decay)，从而保证算法收敛，这种学习率的设置方法也与机器学习里很多任务上的实际经验类似。然而，不管是设置学习率为常数还是使学习率逐渐衰减都不能让Transformer很好地收敛。
+
+在优化Transformer结构时，除了设置初始学习率与它的衰减策略，往往还需要在训练的初始阶段设置一个非常小（接近0）的学习率，让它经过一定的迭代轮数后逐渐增长到初始的学习率，这个过程称作warm-up阶段（学习率预热）。
+
+Warm-up是原始Transformer结构优化时的一个必备学习率调整策略。Transformer结构对于warm-up的超参数（持续轮数、增长方式、初始学习率等）非常敏感，若调整不慎，往往会使得模型无法正常收敛。
 
 ## Post-LN&Pre-LN
