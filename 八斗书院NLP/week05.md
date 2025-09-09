@@ -76,7 +76,6 @@ ChatGPT整体过程可以分为三个阶段：
 
 ![图片4.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/7958468e-ce17-4f96-a23e-061f47c4d3f6.jpeg)
 
-
 #### 指令微调
 
 以BERT为代表的预训练语言模型需要根据任务数据进行微调（Fine-tuning），这种范式可以应用于参数量在几百万到几亿规模的预训练模型。但是针对数十亿甚至是数百亿规模的大模型，针对每个任务都进行微调的计算开销和时间成本几乎都是不可接受的。因此，研究人员们提出了指令微调（Instruction Finetuning）方案，将大量各类型任务，统一为生成式自然语言理解框架，并构造训练语料进行微调。
@@ -84,11 +83,9 @@ ChatGPT整体过程可以分为三个阶段：
 > 例如，可以将情感倾向分析任务，通过如下指令，将贬义和褒义的分类问题转换到生成式自然语言理解框架：
 > For each snippet of text, label the sentiment of the text as positive or negative.Text: this film seems thirsty for reflection, itself taking on adolescent qualities.Label: [positive / negative]
 
-
 #### 类人对齐
 
 ![2025-09-07_10-33.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/9dd2eb8f-4e02-42e0-95a7-8f3ec8155d74.jpeg)
-
 
 大模型预训练：基于Transformer解码器架构，进行下一个词预测
 大模型后训练：
@@ -99,7 +96,6 @@ ChatGPT整体过程可以分为三个阶段：
 
 ![图片6.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/46791ad2-668c-46b4-9a4c-96dfe31d08d6.jpeg)
 
-
 ### 扩展定律（解码器模型）
 
 通过扩展参数规模、数据规模和计算算力，大语言模型的能力会出现显著提升
@@ -108,10 +104,17 @@ ChatGPT整体过程可以分为三个阶段：
 
 ![图片7.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/dadfce45-3c18-4e60-8bb0-8801779fe39a.jpeg)
 
-
 $$
 L(N)=\quad\left(\frac{N_{c}}{N}\right)^{\alpha_{N}},\quad\alpha_{N}\sim0.076,N_{c}\sim8.8\times10^{13}\\L(D)=\quad\left(\frac{D_{c}}{D}\right)^{\alpha_{D}},\:\alpha_{D}\sim0.095,D_{c}\sim5.4\times10^{13}\\L(C)=\quad\left(\frac{C_{c}}{C}\right)^{\alpha_{C}},\quad\alpha_{C}\sim0.050,C_{c}\sim3.1\times10^{8}
 $$
 
-
 ![图片8.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/d86663bb-589e-4e3a-a67a-eb08633c6193.jpeg)
+
+
+### GPT的发展里程
+
+
+
+
+
+### deepseek的发展里程
