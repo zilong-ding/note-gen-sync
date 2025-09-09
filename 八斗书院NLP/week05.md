@@ -176,3 +176,8 @@ Baize（2023年4月）通过Self-Chat的ChatGPT对话数据自动收集的方法
 ![图片15.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/361dac42-01fa-4dd9-9166-aa8225628791.jpeg)
 
 ![图片14.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/1dd30ecc-8835-4ce4-9627-c7d85744c5ea.jpeg)
+
+
+![图片16.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/9fed84b1-5f80-40c9-a474-a8a51cc84795.jpeg)
+
+![图片17.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0fe6c5cf-afcd-4b4f-ac6a-bb21daf1cf92.jpeg)
