@@ -153,3 +153,8 @@ Baize（2023年4月）通过Self-Chat的ChatGPT对话数据自动收集的方法
 
 
 ### 中文LLaMA & Alpaca大模型
+
+中文LLaMA:通用语言模型能力，能够针对输入内容进行续写 中文Alpaca
+在中文LLaMA的基础上，进一步通过指令精调提升模型的instruction following能力
+
+![图片12.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/3c5924d5-8763-4b14-9d1e-52ede9a6a593.jpeg)
