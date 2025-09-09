@@ -18,3 +18,7 @@ Transformer结构的优化非常困难，其具体表现在：
 针对以上问题，论文《On Layer Normalization in the Transformer Architecture》提出了两种Layer Normalization方式并进行了对比。
 
 把Transformer架构中传统的**Add&Norm**做layer normalization的方式叫做Post-LN，并针对Post-LN，模型提出了Pre-LN，即把layer normalization加在残差连接之前，如下图所示：
+
+![2025-09-09_14-36.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/2987a49e-e8a4-4d29-b1ce-b375dd621638.jpeg)
+
+![2025-09-09_14-36_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/01d370cd-f9b3-4ba2-8883-7f03ba612dc3.jpeg)
