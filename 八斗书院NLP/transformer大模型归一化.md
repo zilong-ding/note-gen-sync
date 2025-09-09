@@ -22,3 +22,24 @@ Transformer结构的优化非常困难，其具体表现在：
 ![2025-09-09_14-36.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/2987a49e-e8a4-4d29-b1ce-b375dd621638.jpeg)
 
 ![2025-09-09_14-36_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/01d370cd-f9b3-4ba2-8883-7f03ba612dc3.jpeg)
+
+
+### post-ln特点
+
+原始形式： 这是Vaswani等人（2017）论文中描述的设置。
+潜在的不稳定性： 后归一化面临的主要问题是，残差分支的输出（和
+𝑥
++
+𝑆
+𝑢
+𝑏
+𝐿
+𝑎
+𝑦
+𝑒
+𝑟
+(
+𝑥
+)
+x+SubLayer(x)）在传递给下一层 之前 未经归一化。在深度网络中，激活值的幅度可能在层与层之间显著变化，这可能导致训练初期出现梯度爆炸或梯度消失。
+预热要求： 后归一化配置通常需要仔细的学习率预热阶段（从较小的学习率开始并逐渐增加）。如果没有预热，由于未经归一化的加法，初始梯度可能过大，导致训练发散。
