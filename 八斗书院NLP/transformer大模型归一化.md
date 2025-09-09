@@ -8,4 +8,9 @@
 
 Warm-up是原始Transformer结构优化时的一个必备学习率调整策略。Transformer结构对于warm-up的超参数（持续轮数、增长方式、初始学习率等）非常敏感，若调整不慎，往往会使得模型无法正常收敛。
 
+Transformer结构的优化非常困难，其具体表现在：
+
+> warm-up阶段超参数敏感；
+> 优化过程收敛速度慢。
+
 ## Post-LN&Pre-LN
