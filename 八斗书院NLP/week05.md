@@ -125,3 +125,16 @@ o系列模型 推理任务上能力大幅提升 ，长思维链推理能力
 
 
 ### deepseek的发展里程
+
+![图片10.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/9bbc972d-6349-40fb-a221-f2029282649f.jpeg)
+
+
+
+语言大模型：DeepSeek LLM/V2/V3、Coder/Coder-V2、Math
+多模态大模型：DeepSeek-VL
+推理大模型：DeepSeek-R1
+
+DeepSeek-V3
+671B参数（37B激活），14.8T训练数据
+基于V2的MoE架构，引入了MTP和新的复杂均衡损失
+对于训练效率进行了极致优化，共使用 2.788M H800 GPU时
