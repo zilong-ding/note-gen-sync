@@ -1,5 +1,9 @@
 # ROS2安装和IDE设置
 
+ubuntu24.10
+
+ROS版本 jazzy
+
 ## ROS2安装
 
 ```bash
@@ -11,7 +15,7 @@ wget http://fishros.com/install -O fishros && . fishros
 
 ## IDE设置
 
-### pycharm
+### PyCharm
 
 参考文章：https://zhuanlan.zhihu.com/p/552211633
 
@@ -20,6 +24,6 @@ wget http://fishros.com/install -O fishros && . fishros
 
 
 
-### clion
+### Clion
 
 参考文章：https://www.jetbrains.com/help/clion/ros2-tutorial.html
