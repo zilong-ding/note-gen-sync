@@ -193,4 +193,6 @@ Summary: 0 packages finished [0.41s]
 ```
 
 
-这里主要原因是之前构建py_pubsub的时候实在conda环境下构建的，然后ros2对conda支持还是有些问题，这里`conda deactivate`，然后删除`build/`,`install/`,`log/`目录。同时安装``
+这里主要原因是之前构建py_pubsub的时候实在conda环境下构建的，然后ros2对conda支持还是有些问题，这里`conda deactivate`，然后删除`build/`,`install/`,`log/`目录。同时安装`sudo apt install python3-catkin-pkg python3-lxml python3-pkg-resources`，安装完成后`colcon build`成功。
+
+下面是运行结果
