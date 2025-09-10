@@ -88,3 +88,9 @@ if __name__ == '__main__':
 首先根据网页https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html创建`ament_cmake`类型的功能包
 
 然后使用clion打开src文件夹
+
+下面是cmakelists文件中的内容
+
+```cmake
+
+```
