@@ -52,3 +52,8 @@ scene.build迟迟没有成功类似github上的的[issue](https://github.com/Gen
 ```
 
 或者是
+
+```bash
+sudo prime-select nvidia
+sudo reboot
+```
