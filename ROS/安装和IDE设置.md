@@ -4,6 +4,8 @@ ubuntu24.10
 
 ROS版本 jazzy
 
+python版本 3.12
+
 ## ROS2安装
 
 ```bash
