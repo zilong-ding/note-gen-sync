@@ -31,6 +31,8 @@ for i in range(100):
     scene.step()
 ```
 
+![2025-09-10_15-35.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/700dce0f-5ccd-4449-976a-0df2390c1f34.jpeg)
+
 ### 遇到的问题
 
 scene.build迟迟没有成功类似github上的的[issue](https://github.com/Genesis-Embodied-AI/Genesis/issues/1533)，一直卡在
