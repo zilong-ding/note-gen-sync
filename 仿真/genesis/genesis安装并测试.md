@@ -44,3 +44,11 @@ scene.build迟迟没有成功类似github上的的[issue](https://github.com/Gen
 ### 解决方法
 
 设置英伟达显卡为首选
+
+```python
+# import os
+# os.environ['__NV_PRIME_RENDER_OFFLOAD'] = '1'
+# os.environ['__GLX_VENDOR_LIBRARY_NAME'] = 'nvidia'
+```
+
+或者是
