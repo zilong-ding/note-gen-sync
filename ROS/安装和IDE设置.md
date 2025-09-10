@@ -17,4 +17,9 @@ wget http://fishros.com/install -O fishros && . fishros
 
 
 
+
+
+
 ### clion
+
+参考文章：https://www.jetbrains.com/help/clion/ros2-tutorial.html
