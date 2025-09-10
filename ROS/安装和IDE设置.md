@@ -85,4 +85,6 @@ if __name__ == '__main__':
 以上两篇只是参考，实际这次并没有用到
 
 
-首先根据网页https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html创建`ament_cmake`功能包
+首先根据网页https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html创建`ament_cmake`类型的功能包
+
+然后使用
