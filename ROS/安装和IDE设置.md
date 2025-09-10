@@ -21,6 +21,11 @@ wget http://fishros.com/install -O fishros && . fishros
 
 参考文章：https://zhuanlan.zhihu.com/p/552211633
 
+首先根据网页https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html
+
+创建ros2 python包，然后使用pycharm打开 src文件夹
+
+![2025-09-10_16-20.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/853e1cea-aec5-4fe2-bf47-13e9aeac0953.jpeg)
 
 
 
