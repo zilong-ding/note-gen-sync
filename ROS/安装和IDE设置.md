@@ -13,6 +13,7 @@ wget http://fishros.com/install -O fishros && . fishros
 
 ### pycharm
 
+参考文章：https://zhuanlan.zhihu.com/p/552211633
 
 
 
