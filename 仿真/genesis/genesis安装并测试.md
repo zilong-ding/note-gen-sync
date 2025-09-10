@@ -42,3 +42,5 @@ scene.build迟迟没有成功类似github上的的[issue](https://github.com/Gen
 这一步。
 
 ### 解决方法
+
+设置英伟达显卡为首选
