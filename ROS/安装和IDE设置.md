@@ -159,3 +159,38 @@ int main(int argc, char * argv[])
 
 
 #### 遇到的问题
+
+```bash
+    ~/ros2_ws  colcon build                                                           ✔  at 19:09:26  
+Starting >>> cpp_pubsub
+Starting >>> py_pubsub
+--- stderr: cpp_pubsub                                                    
+Traceback (most recent call last):
+  File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 22, in <module>
+    from catkin_pkg.package import parse_package_string
+ModuleNotFoundError: No module named 'catkin_pkg'
+CMake Error at /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+  execute_process(/home/dzl/anaconda3/bin/python3
+  /opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+  /home/dzl/ros2_ws/src/cpp_pubsub/package.xml
+  /home/dzl/ros2_ws/build/cpp_pubsub/ament_cmake_core/package.cmake) returned
+  error code 1
+Call Stack (most recent call first):
+  /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+  /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package.cmake:63 (ament_package_xml)
+  CMakeLists.txt:24 (ament_package)
+
+
+---
+Failed   <<< cpp_pubsub [0.29s, exited with code 1]
+Aborted  <<< py_pubsub [0.33s]                 
+
+Summary: 0 packages finished [0.41s]
+  1 package failed: cpp_pubsub
+  1 package aborted: py_pubsub
+  1 package had stderr output: cpp_pubsub
+
+```
+
+
+这里主要原因是之前构建py_pubsub的时候实在conda环境下构建的，然后ros2对conda支持还是有些问题，这里`conda deactivate`，然后删除`build/`,`install/`,`log/`目录
