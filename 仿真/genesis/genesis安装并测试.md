@@ -33,4 +33,4 @@ for i in range(100):
 
 ### 遇到的问题
 
-scene.build迟迟没有成功
+scene.build迟迟没有成功类似github上的的[issue](https://github.com/Genesis-Embodied-AI/Genesis/issues/1533)，
