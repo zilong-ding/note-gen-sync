@@ -31,6 +31,8 @@ wget http://fishros.com/install -O fishros && . fishros
 
 ![2025-09-10_16-23.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/134c3c4a-bef0-4896-89f0-bf405b93de42.jpeg)
 
+然后就可以运行了
+
 
 
 
