@@ -33,4 +33,12 @@ for i in range(100):
 
 ### 遇到的问题
 
-scene.build迟迟没有成功类似github上的的[issue](https://github.com/Genesis-Embodied-AI/Genesis/issues/1533)，
+scene.build迟迟没有成功类似github上的的[issue](https://github.com/Genesis-Embodied-AI/Genesis/issues/1533)，一直卡在
+
+```
+[Genesis] [09:36:53] [DEBUG] Trying to create OpenGL Context for PYOPENGL_PLATFORM='native'...
+```
+
+这一步。
+
+### 解决方法
