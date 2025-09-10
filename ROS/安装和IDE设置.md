@@ -33,7 +33,13 @@ wget http://fishros.com/install -O fishros && . fishros
 
 然后就可以运行了
 
+![2025-09-10_16-41.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/704c8fb7-07e2-46a7-89f0-66122896700a.jpeg)
 
+对应python代码如下
+
+```python
+
+```
 
 
 ### Clion
