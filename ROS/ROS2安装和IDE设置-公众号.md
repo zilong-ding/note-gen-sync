@@ -55,17 +55,19 @@ wget https://raw.githubusercontent.com/ros2/examples/jazzy/rclpy/topics/minimal_
   1. 进入 `File > Settings > Project: src > Python Interpreter`。
   2. 点击右上角的齿轮图标，选择 “Add...”。
   3. 选择 “System Interpreter”，然后找到你的系统 Python (通常是 `/usr/bin/python3`)。**关键一步：不要使用 Conda 或 Virtualenv 环境！** ROS2 的系统包与这些环境可能存在兼容性问题。
+
+     ![2025-09-10_16-20.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/853e1cea-aec5-4fe2-bf47-13e9aeac0953.jpeg)
 * **添加 ROS2 库路径**：
   1. 在同一个 “Python Interpreter” 页面，点击右下角的 “Show All...”。
   2. 选中你刚添加的解释器，点击右边的文件夹图标。
   3. 点击 “+” 号，添加 ROS2 的 Python 库路径：`/opt/ros/jazzy/lib/python3.12/site-packages`。
+
+     ![2025-09-10_16-23.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/134c3c4a-bef0-4896-89f0-bf405b93de42.jpeg)
 * **设置环境变量**：
   1. 进入 `Run > Edit Configurations...`。
   2. 点击 “+” 号，选择 “Python”。
   3. 在 “Script path” 中选择你的 `publisher_member_function.py` 或 `subscriber_member_function.py`。
-  4. 在 “Environment variables” 中，点击文件夹图标，添加一个新的环境变量：
-     * **Name**: `AMENT_PREFIX_PATH`
-     * **Value**: `/opt/ros/jazzy`
+  4. 在 “Environment variables” 中，点击文件夹图标，添加一个新的环境变量：![2025-09-11_09-29.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/ce444fba-6fe7-42cc-8944-a13a803cfce7.jpeg)
 
 完成以上配置后，你就可以直接在 PyCharm 里点击运行按钮，像运行普通 Python 脚本一样启动你的 ROS2 节点了！
 
@@ -170,8 +172,12 @@ colcon build --packages-select cpp_pubsub
 * **配置 CLion 项目**：
 
   1. 首次打开，CLion 会提示加载 CMake 项目。在 “Build directory” 中，将其设置为 `build`。
+
+     ![2025-09-11_09-13.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/043a758a-2079-4fd7-a466-ff44f23af457.jpeg)
   2. 进入 `File > Settings > Build, Execution, Deployment > Toolchains`。
   3. 在 “Environment” 选项卡下，勾选 “Load from file”，然后选择你工作空间下的环境配置文件：`~/ros2_ws/install/setup.bash` (或 `.zsh`)。
+
+     ![2025-09-11_09-14.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/5463c0e3-7fb7-4a65-aaec-4f9ea6445c12.jpeg)
   4. **（可选）精细化编译控制**：你可以编辑顶层的 `CMakeLists.txt` 文件，通过设置 `COLCON_PACKAGES` 变量来指定只编译特定的包，效果等同于 `colcon build --packages-select`。
 
 完成配置后，你就可以在 CLion 中享受代码高亮、智能补全、一键编译和图形化调试的畅快体验了！
