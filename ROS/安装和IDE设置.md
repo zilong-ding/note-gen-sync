@@ -196,3 +196,8 @@ Summary: 0 packages finished [0.41s]
 
 
 在终端中编译成功后，参考https://blog.csdn.net/qq_45709806/article/details/149025458这边文章，首先是下载安装colcon 顶层cmake
+
+```bash
+sudo git clone https://github.com/kai-waang/colcon-toplevel-cmake /opt/ros/scripts/cmake
+
+```
