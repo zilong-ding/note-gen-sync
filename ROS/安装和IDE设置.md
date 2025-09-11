@@ -224,3 +224,5 @@ colcon build	# 这一步是为了生成 install/setup.zsh
 clion .
 
 ```
+
+第一次用CLion打开这个工作空间，会弹出下面的窗口，选择对应配置，输出编译路径设置为build
