@@ -31,6 +31,10 @@ wget http://fishros.com/install -O fishros && . fishros
 
 ![2025-09-10_16-23.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/134c3c4a-bef0-4896-89f0-bf405b93de42.jpeg)
 
+然后添加环境变量
+
+![2025-09-11_09-29.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/ce444fba-6fe7-42cc-8944-a13a803cfce7.jpeg)
+
 然后就可以运行了
 
 ![2025-09-10_16-41.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/704c8fb7-07e2-46a7-89f0-66122896700a.jpeg)
