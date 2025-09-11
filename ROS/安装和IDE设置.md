@@ -201,3 +201,5 @@ Summary: 0 packages finished [0.41s]
 sudo git clone https://github.com/kai-waang/colcon-toplevel-cmake /opt/ros/scripts/cmake
 
 ```
+
+然后切换到工作目录下
