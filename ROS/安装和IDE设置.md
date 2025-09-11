@@ -210,3 +210,11 @@ cd ~/ros2_ws # 此处替换为自己的工作空间
 ```
 
 然后拷贝文件到当前目录
+
+```bash
+cp /opt/ros/scripts/cmake/toplevel.cmake ./CMakeLists.txt
+
+```
+
+
+编译工作空间，从命令行启动CLion
