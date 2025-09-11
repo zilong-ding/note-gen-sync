@@ -231,3 +231,10 @@ clion .
 
 
 进入 `Settings > Build, Execution, Deployment > ToolChains`，在Environment file中选择当前工作空间下的`install/setup.zsh`
+
+![2025-09-11_09-14.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/5463c0e3-7fb7-4a65-aaec-4f9ea6445c12.jpeg)
+
+
+
+
+通过修改顶层的`CMakeLists.txt`，可以控制只编译某几个包，类似于`colcon build --packages-select xxx<span> </span>`，我的顶层的`CMakeLists.txt`修改如下：
