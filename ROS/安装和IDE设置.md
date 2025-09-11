@@ -226,3 +226,8 @@ clion .
 ```
 
 第一次用CLion打开这个工作空间，会弹出下面的窗口，选择对应配置，输出编译路径设置为build
+
+![2025-09-11_09-13.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/043a758a-2079-4fd7-a466-ff44f23af457.jpeg)
+
+
+进入 `Settings > Build, Execution, Deployment > ToolChains`，在Environment file中选择当前工作空间下的`install/setup.zsh`
