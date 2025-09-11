@@ -218,3 +218,9 @@ cp /opt/ros/scripts/cmake/toplevel.cmake ./CMakeLists.txt
 
 
 编译工作空间，从命令行启动CLion
+
+```bash
+colcon build	# 这一步是为了生成 install/setup.zsh
+clion .
+
+```
