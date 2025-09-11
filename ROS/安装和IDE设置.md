@@ -203,3 +203,8 @@ sudo git clone https://github.com/kai-waang/colcon-toplevel-cmake /opt/ros/scrip
 ```
 
 然后切换到工作目录下
+
+```bash
+cd ~/ros2_ws # 此处替换为自己的工作空间
+
+```
