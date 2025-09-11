@@ -238,3 +238,8 @@ clion .
 
 
 通过修改顶层的`CMakeLists.txt`，可以控制只编译某几个包，类似于`colcon build --packages-select xxx<span> </span>`，我的顶层的`CMakeLists.txt`修改如下：
+
+![2025-09-11_09-15.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b500daf2-1c12-4df8-90cd-2e7629e1ed3a.jpeg)
+
+
+接下来就可以正常编译、运行和调试了
