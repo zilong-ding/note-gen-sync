@@ -259,4 +259,4 @@ clion .
 curl -SL $(curl -s https://api.github.com/repos/ros-industrial/ros_qtc_plugin/releases/latest | grep -E 'browser_download_url.*qtcreator-plugin-ros-.*-Linux-'$(arch)'.zip' | cut -d'"' -f 4) | bsdtar -xzf - -C ~/Qt/Tools/QtCreator
 ```
 
-然后在git上面查到对应版本的release
+然后在git上面查到对应版本的[release](https://github.com/ros-industrial/ros_qtc_plugin/releases)
