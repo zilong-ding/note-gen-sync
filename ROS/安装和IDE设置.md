@@ -261,7 +261,9 @@ curl -SL $(curl -s https://api.github.com/repos/ros-industrial/ros_qtc_plugin/re
 
 然后在git上面查到对应版本的[release](https://github.com/ros-industrial/ros_qtc_plugin/releases)
 
-![2025-09-12_09-37.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/7eb1e06f-eee3-4933-9cc7-ecaf53675cc7.jpeg)
+![2025-09-12_09-38.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/ae6bfc12-7bd5-4577-888f-b1c03cc7162c.jpeg)
 
 
 这里我是要找17.0的版本
+
+下载之后解压
