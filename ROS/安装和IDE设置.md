@@ -79,7 +79,6 @@ if __name__ == '__main__':
     main()
 ```
 
-
 ### Clion
 
 参考文章：https://www.jetbrains.com/help/clion/ros2-tutorial.html
@@ -118,7 +117,6 @@ install(TARGETS
 
 ament_package()
 ```
-
 
 下面是publisher_lambda_function.cpp中的内容
 
@@ -166,7 +164,7 @@ int main(int argc, char * argv[])
     ~/ros2_ws  colcon build                                                           ✔  at 19:09:26  
 Starting >>> cpp_pubsub
 Starting >>> py_pubsub
---- stderr: cpp_pubsub                                                    
+--- stderr: cpp_pubsub                                                  
 Traceback (most recent call last):
   File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 22, in <module>
     from catkin_pkg.package import parse_package_string
@@ -185,7 +183,7 @@ Call Stack (most recent call first):
 
 ---
 Failed   <<< cpp_pubsub [0.29s, exited with code 1]
-Aborted  <<< py_pubsub [0.33s]                 
+Aborted  <<< py_pubsub [0.33s]               
 
 Summary: 0 packages finished [0.41s]
   1 package failed: cpp_pubsub
@@ -194,10 +192,7 @@ Summary: 0 packages finished [0.41s]
 
 ```
 
-
 这里主要原因是之前构建py_pubsub的时候实在conda环境下构建的，然后ros2对conda支持还是有些问题，这里`conda deactivate`，然后删除`build/`,`install/`,`log/`目录。同时安装`sudo apt install python3-catkin-pkg python3-lxml python3-pkg-resources`，安装完成后`colcon build`成功。
-
-
 
 在终端中编译成功后，参考https://blog.csdn.net/qq_45709806/article/details/149025458这边文章，首先是下载安装colcon 顶层cmake
 
@@ -220,7 +215,6 @@ cp /opt/ros/scripts/cmake/toplevel.cmake ./CMakeLists.txt
 
 ```
 
-
 编译工作空间，从命令行启动CLion
 
 ```bash
@@ -233,17 +227,17 @@ clion .
 
 ![2025-09-11_09-13.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/043a758a-2079-4fd7-a466-ff44f23af457.jpeg)
 
-
 进入 `Settings > Build, Execution, Deployment > ToolChains`，在Environment file中选择当前工作空间下的`install/setup.zsh`
 
 ![2025-09-11_09-14.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/5463c0e3-7fb7-4a65-aaec-4f9ea6445c12.jpeg)
-
-
-
 
 通过修改顶层的`CMakeLists.txt`，可以控制只编译某几个包，类似于`colcon build --packages-select xxx<span> </span>`，我的顶层的`CMakeLists.txt`修改如下：
 
 ![2025-09-11_09-15.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b500daf2-1c12-4df8-90cd-2e7629e1ed3a.jpeg)
 
-
 接下来就可以正常编译、运行和调试了
+
+
+### QT-creator
+
+参考文章：https://blog.csdn.net/qq_44940689/article/details/138165085
