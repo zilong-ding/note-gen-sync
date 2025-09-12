@@ -249,4 +249,6 @@ clion .
 
 这里是使用的qt6.9.0
 
-安装好之后查看qt_creator的版本，点击help->about
+安装好之后查看qt_creator的版本，点击help->about qt
+
+![2025-09-12_09-34.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/7bb0051f-4041-422e-814e-dae619933cd2.jpeg)
