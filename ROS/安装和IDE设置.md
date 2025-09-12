@@ -269,3 +269,9 @@ curl -SL $(curl -s https://api.github.com/repos/ros-industrial/ros_qtc_plugin/re
 下载之后解压，找到plugins下动态库文件，将其拷贝到qt的插件目录下，替换掉最新的版本
 
 ![2025-09-12_09-40.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/df4a6df1-3dc8-4527-9231-0b7cdd0cc2ef.jpeg)
+
+
+![2025-09-12_09-42.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/92ca8dd0-889d-453f-8d95-c195fed58ed6.jpeg)
+
+
+如此ROS插件成功安装
