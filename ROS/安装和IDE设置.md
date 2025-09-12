@@ -249,4 +249,4 @@ clion .
 
 这里是使用的qt6.9.0
 
-安装好之后查看qt_creator的版本
+安装好之后查看qt_creator的版本，点击help->about
