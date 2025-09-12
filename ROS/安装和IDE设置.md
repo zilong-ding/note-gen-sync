@@ -243,6 +243,7 @@ clion .
 
 参考文章：https://blog.csdn.net/qq_40326539/article/details/134578275
 
+参考文章：https://github.com/ros-industrial/ros_qtc_plugin
 
 #### 首先安装qt6.7以上版本
 
