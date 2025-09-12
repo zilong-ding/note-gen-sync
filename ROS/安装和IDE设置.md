@@ -266,4 +266,6 @@ curl -SL $(curl -s https://api.github.com/repos/ros-industrial/ros_qtc_plugin/re
 
 这里我是要找17.0的版本
 
-下载之后解压
+下载之后解压，找到plugins下动态库文件，将其拷贝到qt的插件目录下，替换掉最新的版本
+
+![2025-09-12_09-40.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/df4a6df1-3dc8-4527-9231-0b7cdd0cc2ef.jpeg)
