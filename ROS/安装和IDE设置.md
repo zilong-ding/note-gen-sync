@@ -252,3 +252,11 @@ clion .
 安装好之后查看qt_creator的版本，点击help->about qt
 
 ![2025-09-12_09-34.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/7bb0051f-4041-422e-814e-dae619933cd2.jpeg)
+
+然后安装插件，注意这里是默认[Qt Creator](https://so.csdn.net/so/search?q=Qt%20Creator&spm=1001.2101.3001.7020)的安装路径为`~/Qt/Tools/QtCreator`，如果你的路径不是这里，请将下面语句`-C`后改为你自己的安装路径。
+
+```bash
+curl -SL $(curl -s https://api.github.com/repos/ros-industrial/ros_qtc_plugin/releases/latest | grep -E 'browser_download_url.*qtcreator-plugin-ros-.*-Linux-'$(arch)'.zip' | cut -d'"' -f 4) | bsdtar -xzf - -C ~/Qt/Tools/QtCreator
+```
+
+然后在git上面查到对应版本的release
