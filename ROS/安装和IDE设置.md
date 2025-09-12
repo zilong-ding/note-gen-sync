@@ -164,7 +164,7 @@ int main(int argc, char * argv[])
     ~/ros2_ws  colcon build                                                           ✔  at 19:09:26  
 Starting >>> cpp_pubsub
 Starting >>> py_pubsub
---- stderr: cpp_pubsub                                                  
+--- stderr: cpp_pubsub                                                
 Traceback (most recent call last):
   File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 22, in <module>
     from catkin_pkg.package import parse_package_string
@@ -183,7 +183,7 @@ Call Stack (most recent call first):
 
 ---
 Failed   <<< cpp_pubsub [0.29s, exited with code 1]
-Aborted  <<< py_pubsub [0.33s]               
+Aborted  <<< py_pubsub [0.33s]             
 
 Summary: 0 packages finished [0.41s]
   1 package failed: cpp_pubsub
@@ -237,9 +237,13 @@ clion .
 
 接下来就可以正常编译、运行和调试了
 
-
 ### QT-creator
 
 参考文章：https://blog.csdn.net/qq_44940689/article/details/138165085
 
 参考文章：https://blog.csdn.net/qq_40326539/article/details/134578275
+
+
+#### 首先安装qt6.7以上版本
+
+这里是使用的qt6.9.0
