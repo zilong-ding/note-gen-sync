@@ -263,9 +263,8 @@ if __name__ == "__main__":
 | Python 读取延迟 | **平均 0~2ms**（含轮询） |
 | CPU 占用        | 极低，几乎无压力         |
 
-> ✅ 实测：**从C++写入到Python显示，最快可低于10ms！**
+> ✅ 实测：**从C++写入到Python显示，最快可低于1ms！**
 
-![示意图：C++写入 → 共享内存 → Python读取 → OpenCV显示](https://via.placeholder.com/600x200?text=C%2B%2B+%E5%86%99%E5%85%A5+%E2%86%92+mmap+%E2%86%92+Python+%E8%AF%BB%E5%8F%96+%E2%86%92+OpenCV%E6%98%BE%E7%A4%BA)
 
 ---
 
