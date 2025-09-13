@@ -105,5 +105,40 @@ struct FrameHeader {
 ### 2.解析数据
 
 ```python
+            header = np.frombuffer(mm[:12], dtype=np.int32, count=3)
+            receivetime = np.frombuffer(mm[12:20], dtype=np.int64, count=1)[0]
+            frame_valid = np.frombuffer(mm[20:24], dtype=np.int32, count=1)
+        
+            # 解析其他字段
+            w, h, c = int(header[0]), int(header[1]), int(header[2])
+
+            # 验证分辨率一致性
+            if w != width or h != height or c != channels:
+                print(f"[WARN] Resolution mismatch: expected {width}x{height}, got {w}x{h}")
+                mm.close()
+                os.close(fd)
+                return None
+
+            # 读取图像数据（从第20字节开始）
+            img_data = np.frombuffer(mm[24:], dtype=np.uint8).reshape((h, w, c))
+```
+
+
+## 关键点
+
+要清楚数据结构中每一部分所占多少字节好方便解析
+
+
+
+## 完整代码
+
+### C++
+
+
+
+
+### python
+
+```python
 
 ```
