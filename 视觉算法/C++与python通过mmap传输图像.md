@@ -33,7 +33,24 @@ struct FrameHeader {
 ### 3.创建共享内存对象
 
 ```c++
+    int shm_fd_;
+    std::string shm_name_ = "/mmaptest_shm";
+    // ✅ 关键修复：确保没有残留的旧文件
+    shm_unlink(shm_name_.c_str()); // 删除旧的（即使不存在也不报错）
+    shm_fd_ = shm_open(shm_name_.c_str(), O_CREAT | O_RDWR, 0666);
+    if (shm_fd_ == -1) {
+        std::cerr << "shm_open failed: " << strerror(errno) << "\n";
+        return false;
+    }
+    void* shm_ptr_;
+    ftruncate(shm_fd_, frame_size_);
 
+
+    shm_ptr_ = mmap(nullptr, frame_size_, PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd_, 0);
+    if (shm_ptr_ == MAP_FAILED) {
+        std::cerr << " mmap failed: " << strerror(errno) << "\n";
+        return false;
+    }
 ```
 
 
