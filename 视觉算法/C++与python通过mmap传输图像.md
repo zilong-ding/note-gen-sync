@@ -90,3 +90,16 @@ struct FrameHeader {
 
 
 ## python端代码实现
+
+### 1.创建共享内存对象
+
+```python
+        # 计算总大小：头 + 图像数据
+        header_size = 4 * 4 + 8 # 5 ints = 24 bytes
+        total_size = width * height * channels + header_size # 775704
+
+        fd = os.open(shm_name, os.O_RDONLY)
+        mm = mmap.mmap(fd, total_size, mmap.MAP_SHARED, mmap.PROT_READ)
+```
+
+### 2.
