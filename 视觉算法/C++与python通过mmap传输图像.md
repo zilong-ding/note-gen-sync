@@ -7,7 +7,14 @@
 ### 1.定义数据结构
 
 ```C++
-
+// 帧头结构（固定在共享内存开头）
+struct FrameHeader {
+    int width;
+    int height;
+    int channels;
+    int64_t timestamp_ms;
+    int frame_valid;  // 必须是最后一个字段，用于同步
+} __attribute__((packed)); // 强制无填充，保证结构体大小精确为 24 字节
 ```
 
 ### 2.确定数据大小
