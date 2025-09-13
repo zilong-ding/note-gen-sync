@@ -19,8 +19,25 @@ struct FrameHeader {
 
 ### 2.确定数据大小
 
+```c++
+    auto frame = cv::imread(imagePath);
+    auto width = frame.cols;
+    auto height = frame.rows;
+    std::cout << "width: " << width << std::endl;
+    std::cout << "height: " << height << std::endl;
 
-### 3.传输数据
+    size_t frame_size_ = width * height * 3 + sizeof(FrameHeader);;
+    std::cout << "frame_size_: " << frame_size_ << std::endl;
+```
+
+### 3.创建共享内存对象
+
+```c++
+
+```
+
+
+### 4.传输数据
 
 
 
