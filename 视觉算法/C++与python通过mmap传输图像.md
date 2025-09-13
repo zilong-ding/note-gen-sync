@@ -56,6 +56,37 @@ struct FrameHeader {
 
 ### 4.传输数据
 
+```c++
+    auto* header = static_cast<FrameHeader*>(shm_ptr_);
+    char* data_start = static_cast<char*>(shm_ptr_) + sizeof(FrameHeader);
+    while (1) {
+        // Step 1: 标记为“正在写入” → 防止 Python 读到一半
+        header->frame_valid = 0;
+
+        // Step 2: 更新元信息
+        header->width = frame.cols;
+        header->height = frame.rows;
+        header->channels = frame.channels();
+        // header->timestamp_us = std::chrono::duration_cast<std::chrono::microseconds>(
+        //     std::chrono::system_clock::now().time_since_epoch()).count();
+        auto now = std::chrono::system_clock::now();
+        auto duration = now.time_since_epoch();
+        auto timestamp_ms = std::chrono::duration_cast<std::chrono::milliseconds>(duration).count();
+        std::cout << timestamp_ms << std::endl;
+        header->timestamp_ms = timestamp_ms;
+        std::cout << header->timestamp_ms << " ms" << std::endl;
+
+        // Step 3: 写入图像数据（可能耗时几微秒）
+        memcpy(data_start, frame.data, frame.total() * frame.elemSize());
+
+        // Step 4: 标记为“已完成” → Python 可安全读取
+        __sync_synchronize(); // 内存屏障，防止指令重排序（重要！）
+        header->frame_valid = 1; // ✅ 最后一步！原子性标志
+
+        cv::imshow("Result of Detection", frame);
+        cv::waitKey(1);
+    }
+```
 
 
 ## python端代码实现
