@@ -213,6 +213,8 @@ https://chunkviz.up.railway.app/
 
 ### 查询增强功能
 
+![2025-09-16_10-37.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/c5d7ca37-5ce7-4dae-bb81-112fbbbcc17f.jpeg)
+
 #### Query预处理方法
 
 1. 引导进行二次提问、引导到已知的提问；
