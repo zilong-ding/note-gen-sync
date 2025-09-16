@@ -274,6 +274,7 @@ RAG（Retrieval-Augmented Generation）在处理某些复杂问题时的应变�
 
 我们甚至可以根据所提问题定制提示模板。
 
+![根据用户查询通过不同的提示模板进行路由](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/f56f6788-5ad4-4d0c-ac8a-40a23f4db940.jpeg)
 
 
 
