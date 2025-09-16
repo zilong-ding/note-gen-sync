@@ -88,6 +88,9 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 利用原始文档的结构信息（如HTML标签、Markdown标题、PDF书签、Word段落等）进行切分。比如以章节、小标题、列表项为边界进行分块。
 
+![v2-bc06c016ad0f247e5757bbe1c133356d_b.webp](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/74cc9fba-c350-4b30-9641-4c8294737190.webp)
+
+这种方式在处理格式规范的文档（如手册、报告）时效果尤为突出。
 
 
 
