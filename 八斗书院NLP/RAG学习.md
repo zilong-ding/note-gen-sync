@@ -86,12 +86,15 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 #### 文档结构分块
 
-![2025-09-16_08-50.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/79b08918-afc9-4e22-a7ed-13f45e3aeadd.jpeg)
+利用原始文档的结构信息（如HTML标签、Markdown标题、PDF书签、Word段落等）进行切分。比如以章节、小标题、列表项为边界进行分块。
+
 
 
 
 
 #### 层次递归分块
+
+![2025-09-16_08-50.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/79b08918-afc9-4e22-a7ed-13f45e3aeadd.jpeg)
 
 在保持固定长度的同时，尝试以语义结构（如段落、句子、标点）为边界递归地切分文本。若段落太长无法容纳于块中，则再递归切分为句子，直到满足长度要求。
 
