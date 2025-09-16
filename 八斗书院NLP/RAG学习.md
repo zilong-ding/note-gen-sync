@@ -427,7 +427,7 @@ HyDE不是直接根据原始查询搜索相关文档，而是首先构建一个�
 
 ##### Product Quantization(PQ)
 
-##### 
+##### Hierarchical Navigable Small Worlds(HNSW)
 
 
 
