@@ -429,11 +429,20 @@ LSH使用一组哈希函数将相似向量映射到“桶”中，从而使相�
 
 ##### KD Tree
 
+
+
+
 ##### K-Means
+
+
 
 ##### Product Quantization(PQ)
 
+
+
 ##### Hierarchical Navigable Small Worlds(HNSW)
+
+
 
 
 
