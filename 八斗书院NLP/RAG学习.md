@@ -84,15 +84,9 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 ![2025-09-16_09-00.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/ca3254e6-8192-46a4-8e5a-7369372b3444.jpeg)
 
-
-
 #### 大模型分块
 
 构建提示词，借助大模型输入文本长的特点对长文本进行切分。这里类似是先对长文本进行滑动窗口切块，然后借助大模型进行分块。
-
-
-
-
 
 #### Late chunking
 
