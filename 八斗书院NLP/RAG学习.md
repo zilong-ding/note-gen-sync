@@ -16,7 +16,6 @@ RAG技术结合了大型语言模型的强大生成能力和检索系统的精�
 
 从上述流程中我们可以看到RAG中常见功能部分有文件解析功能、切片划分功能、向量嵌入功能、查询改写功能、路由功能、数据库、多路召回功能、排序功能、大模型回答功能。
 
-
 ## RAG中功能模块
 
 ### 文件解析功能
@@ -75,16 +74,11 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 6. 大模型分块：写一个提示词，让大模型分块；
 7. Late chunking:提取token特征，对chunk tokensi进行pooling;
 
-
 #### 固定大小切分
 
 将文档按照预设的字符数、词数或句子数进行等间隔划分。例如每段包含500个字符或5个句子。该方法实现简单，但容易打断语义边界，可能导致上下文缺失或内容重复。
 
 ![v2-4defad599bbfd1773c082c815aa1c2df_1440w.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/7461faf6-59e8-4cf6-b263-85c791a2b265.jpeg)
-
-
-
-
 
 #### 文档结构分块
 
@@ -96,7 +90,6 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 ![v2-01afd8700d9a93b5c56a878b4f484247_1440w.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/85224810-5181-400d-b5c2-f3497ab03bae.jpeg)
 
-
 #### 层次递归分块
 
 ![2025-09-16_08-50.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/79b08918-afc9-4e22-a7ed-13f45e3aeadd.jpeg)
@@ -106,7 +99,6 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 ![v2-080935082e37fdabb9fee9db9279fba5_b.webp](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0d84a105-9815-4f58-8cf5-a5c4dce10fcd.webp)
 
 ![v2-d7ba9e86e42de2764170cce7ce518e62_1440w.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/72eae67c-873b-4eaf-a02d-628311001069.jpeg)
-
 
 #### 语义分块
 
@@ -144,8 +136,6 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 > 分块利用率衡量每个检索到的分块中有多少文本对模型的响应产生了影响。这个指标的范围是 0到1，其中1表示整个分块影响了响应，而较低的值，如0.5，则表示存在“无关”文本，这部分文本并未对响应产生影响。分块利用率与分块归因紧密相关，归因确定分块是否影响了响应，而利用率衡量分块文本在影响中所占的部分。只有被归为“有影响”的分块才能有大于零的利用率得分。
 
-
-
 #### 分块可视化工具
 
 https://chunkviz.up.railway.app/
@@ -158,7 +148,6 @@ https://chunkviz.up.railway.app/
 
 ![v2-240153b1807c7f36748478856aec8365_1440w.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/97aad5ad-8142-45c9-8553-648d9f0ce662.jpeg)
 
-
 #### 选择嵌入模型
 
 在 RAG 系统中，嵌入模型（Embedding Model）就像是用户与知识库之间的翻译官——它决定了“你在说什么”和“它能不能听懂”。
@@ -166,7 +155,6 @@ https://chunkviz.up.railway.app/
 选择一个合适的嵌入模型，能大幅提升检索质量与上下文匹配度。选得好，模型如虎添翼，问啥答啥；选不好，可能“查到不对题，答得更离谱”。
 
 以下是选型时需要重点考虑的几个维度
-
 
 | 考量维度       | 说明                                                               |
 | -------------- | ------------------------------------------------------------------ |
@@ -177,29 +165,26 @@ https://chunkviz.up.railway.app/
 | 开源/闭源      | 是否可部署本地？是否支持商用？                                     |
 | 社区支持与文档 | 模型活跃度越高，调试与优化越方便                                   |
 
-
 #### 主流嵌入模型
 
 以下是一些主流且表现优秀的嵌入模型，涵盖中英双语、轻量级部署、本地化支持等需求。
 
 **中文 & 多语言方向**
 
-
 | 模型名称       | 简介与特点                                                                                      |
 | -------------- | ----------------------------------------------------------------------------------------------- |
-| BGE (BAAI)     | 北京智源开源的检索导向模型，支持中文/英 文，<br />带bge-base-zh,bge-m3等版本，性能与 速度兼顾。 |
-| E5 系列+       | 多语言嵌入模型（包括e5-base,e5-large)， 适用于检索任务，<br />广泛支持中英文句子匹配。          |
-| GTE系列+       | 百度提出的 GTE 模型（如 gte-base)，表现稳 定、部署友好，<br />适合中文问答和文档检索。          |
-| text2vec 系列+ | 来自 HuggingFace 的中文句向量模型，<br />如 shibing624/text2vec-base-multilingual, 易 用性高。  |
+| BGE (BAAI)     | 北京智源开源的检索导向模型，支持中文/英 文，带bge-base-zh,bge-m3等版本，性能与 速度兼顾。 |
+| E5 系列+       | 多语言嵌入模型（包括e5-base,e5-large)， 适用于检索任务，广泛支持中英文句子匹配。          |
+| GTE系列+       | 百度提出的 GTE 模型（如 gte-base)，表现稳 定、部署友好，适合中文问答和文档检索。          |
+| text2vec 系列+ | 来自 HuggingFace 的中文句向量模型，如 shibing624/text2vec-base-multilingual, 易 用性高。  |
 
 **英文或通用方向**
 
-
 | 模型名称         | 简介与适用场景                                                                      |
 | ---------------- | ----------------------------------------------------------------------------------- |
-| MiniLM+ / MPNet+ | HuggingFace SentenceTransformers 库的经典嵌入模型，<br />轻量快速、适合低资源场景。 |
+| MiniLM+ / MPNet+ | HuggingFace SentenceTransformers 库的经典嵌入模型，轻量快速、适合低资源场景。 |
 | Instructort      | 支持带任务说明的嵌入（如"Representthe query for retrieval: xx")，效果优秀。         |
-| OpenAl Adat      | GPT体系内置嵌入模型（如text- embedding-ada-002)，<br />闭源但商用表现稳定 强劲。    |
+| OpenAl Adat      | GPT体系内置嵌入模型（如text- embedding-ada-002)，闭源但商用表现稳定 强劲。    |
 | Cohere Embed+    | 专注于“可控语义检索”的服务型模型，API 提供简单，商用接口友好。                    |
 
 如果不知道选哪个，建议：
@@ -208,8 +193,6 @@ https://chunkviz.up.railway.app/
 * 大模型更准，适合上线产品（如 `bge-large-zh-v1.5`）
 * 想本地部署？就用 BGE、E5、GTE
 * 要省心云服务？那就试试 OpenAI Ada、Cohere
-
-
 
 ### 查询增强功能
 
@@ -255,7 +238,6 @@ Step-Back Strategy(后退一步策略)是一种通过从更抽象或更基础的
 
 首先，让LLM根据原始问题提出一个更高层次的后退问题，并检索这个后退问题的相关信息。基于高层次概念或原则的事实，LLM可以推理出原始问题的解决方案。
 
-
 #### HYDE
 
 HyDE不是直接根据原始查询搜索相关文档，而是首先构建一个可能回答查询的假设性文档。虽然这个假设性文档在细节上可能不是完全准确的，但它作为一个相关文档的有价值示例，捕捉到了相关性的本质。
@@ -268,19 +250,16 @@ HyDE不是直接根据原始查询搜索相关文档，而是首先构建一个�
 
 这里可以使用文本分类模型或者大模型提示词的方式来进行实现。
 
-
 ### 路由功能
 
 RAG（Retrieval-Augmented Generation）在处理某些复杂问题时的应变能力有限，并不能满足所有用户的查询需求。在实际应用中，RAG更适合作为子流程来运行，因为我们通常需要首先识别用户查询中的意图，然后才根据这个意图，将其导向不同的子流程进行处理。这在实际应用中是非常常见的，识别用户意图然后去做不同的事，这就叫做语义路由，有些地方也称之为意图识别。
 
-
-
 #### 六种不同的路由器
 
-1. **[LLM](https://cloud.baidu.com/product/wenxinworkshop)补全路由器（LLM Completion Routers）**：
+1. **LLM补全路由器（LLM Completion Routers）**：
    LLM补全路由器使用LLM（大型语言模型）的完成调用功能，从用户查询中提取关键信息，并根据这些信息选择最合适的处理路径。这种路由器要求LLM从提供的单词选项列表中返回最能描述查询的单个单词，然后使用该单词作为If/Else条件的一部分来控制应用程序流程。
 2. **LLM函数调用路由器（LLM Function Calling Routers）**：
-   LLM函数调用路由器利用LLM的函数调用能力来选择要遍历的路线。不同的路线被设置为具有适当描述的函数，在LLM函数调用中，根据传递给LLM的查询，它能够返回正确的函数（即路线）供我们使用。这种路由器在[Llama](https://qianfan.cloud.baidu.com/qianfandev/model/36)Index中的Pydantic Router中得到了广泛应用。
+   LLM函数调用路由器利用LLM的函数调用能力来选择要遍历的路线。不同的路线被设置为具有适当描述的函数，在LLM函数调用中，根据传递给LLM的查询，它能够返回正确的函数（即路线）供我们使用。这种路由器在LlamaIndex中的Pydantic Router中得到了广泛应用。
 3. **语义路由器（Semantic Routers）**：
    语义路由器利用嵌入和相似性搜索来选择最佳的路由。每条路由都有一组与之关联的示例查询，这些查询被嵌入并存储为向量。传入的查询也会被嵌入，并与其他示例查询进行相似性搜索，从而选择最匹配的路由。这种路由器能够处理更复杂的查询意图，提高路由的准确性。
 4. **零样本分类路由器（Zero Shot Classification Routers）**：
@@ -290,14 +269,11 @@ RAG（Retrieval-Augmented Generation）在处理某些复杂问题时的应变�
 6. **逻辑路由器（Logical Routers）**：
    逻辑路由器基于离散逻辑工作，例如针对字符串长度、文件名、整数值等的条件。它们不是基于理解自然语言查询的意图，而是基于现有的、离散的变量来做出选择。这种路由器在处理简单的查询意图时非常高效。
 
-
 ### 数据库
-
 
 ### 多路召回功能
 
-
 ### 重排序
 
-
 ### 大模型功能
+
