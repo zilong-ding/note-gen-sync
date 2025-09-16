@@ -209,8 +209,13 @@ https://chunkviz.up.railway.app/
 
 
 
-### 查询改写功能
+### 查询增强功能
 
+引导进行二次提问、引导到已知的提问；
+Query Rewriting(查询重写)：将用户的提问改写一下，转换多个提问；
+Step-Back Strategy(后退一步策略)：让大模型生成一个更加抽象、更加基础的问题
+Hypothetical Document Embeddings(HyDE)
+拒绝回答、特定格式回答；
 
 
 ### 路由功能
