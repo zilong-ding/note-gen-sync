@@ -92,7 +92,7 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 这种方式在处理格式规范的文档（如手册、报告）时效果尤为突出。
 
-
+![v2-01afd8700d9a93b5c56a878b4f484247_1440w.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/85224810-5181-400d-b5c2-f3497ab03bae.jpeg)
 
 
 #### 层次递归分块
@@ -123,6 +123,10 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 #### 大模型分块
 
 构建提示词，借助大模型输入文本长的特点对长文本进行切分。这里类似是先对长文本进行滑动窗口切块，然后借助大模型进行分块。
+
+![v2-de87a53022dbabb18b7598cae91f0c78_b.webp](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/324665ef-e2a1-43b5-9365-9e1dfcbed970.webp)
+
+借助大语言模型来“理解”文档内容并主动划定分块边界。例如，提示模型判断哪些段落构成完整的语义单元，或根据任务需求生成最佳的分块方案。这种方式智能程度高，但计算成本也相对较大，适合高精度应用场景。
 
 #### Late chunking
 
