@@ -591,6 +591,9 @@ for q1, q2 in zip(bge, bm25): # 对于每个提问
 
 ![2025-09-16_16-15.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/4bfdc710-be18-4c40-ab23-b9913fec85ff.jpeg)
 
+Sentence Transformers是把每段文本单独转换成向量，然后通过计算向量之间的距离来判断相似性。而重排序模型则是让两段文本“相互关注”，一起通过网络处理。这种设计让重排序模型在判断文本相关性时更加精准，但代价是计算速度会慢一些。
+
+重排序模型虽然计算速度慢，但它在某些场景下非常有用。比如，当你已经有了一个初步的搜索结果列表（比如通过Sentence Transformers搜索出来的），但这个列表可能包含很多相似的内容，这时候就需要重排序模型来“精挑细选”，找出最相关的结果。
 
 
 
