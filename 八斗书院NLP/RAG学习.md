@@ -423,6 +423,9 @@ HyDE不是直接根据原始查询搜索相关文档，而是首先构建一个�
 
 局部敏感哈希(Locality Sensitive Hashing)是一种使用近似最近邻搜索的索引技术，它的特点是快速，同时仍然提供一个近似、非穷举的结果。
 
+LSH使用一组哈希函数将相似向量映射到“桶”中，从而使相似向量具有相同的哈希值。这样，就可以通过比较哈希值来判断向量之间的相以度。
+
+![2025-09-16_15-39.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0ebe2e5d-6245-4a38-a20b-097e5773ba7a.jpeg)
 
 ##### KD Tree
 
