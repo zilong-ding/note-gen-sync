@@ -272,6 +272,8 @@ RAG（Retrieval-Augmented Generation）在处理某些复杂问题时的应变�
 根据问题的不同，我们可能还想将查询路由到不同的组件类型。例如，我们可能想把查询传递给代理、矢量存储，或者直接传递给 LLM 进行处理，所有这些都是根据问题的性质来决定的。
 ![根据用户的查询路由到不同的组件类型](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/5389e895-8fcc-4859-a404-12339d1ee556.jpeg)
 
+我们甚至可以根据所提问题定制提示模板。
+
 
 
 
