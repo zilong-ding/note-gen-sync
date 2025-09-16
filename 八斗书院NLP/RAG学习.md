@@ -14,4 +14,4 @@ RAG技术结合了大型语言模型的强大生成能力和检索系统的精�
 
 ![个人知识库RAG流程](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/f4cdcab4-499a-465b-8a73-a064d3f94d4a.jpeg)
 
-从上述流程中我们可以看到
+从上述流程中我们可以看到RAG中常见
