@@ -226,6 +226,9 @@ https://chunkviz.up.railway.app/
 
 #### 查询重写
 
+Query Rewriting(查询重写)策路涉及将单个查询改写为多个查询，以便对检索器执行这些查询。这是高级检索技术中的关键步骤。通过查询重写，可以为[ensemble retrieval]和[fusion]生成多个查询，从而提高检索结果的质量。
+
+
 
 #### 后退一步策略
 
@@ -248,6 +251,7 @@ HyDE不是直接根据原始查询搜索相关文档，而是首先构建一个�
 
 检索过程利用对比训练中编码的文档-文档相似性，通过内积识别与假设答案紧密对齐的文档。最相以的真实文档被检索出来，并作为查询的潜在响应呈现，提高了检索的准确性。
 
+![3d8104a5eb91e4bf7970e608dfbbbe55.png](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/e9afc90d-cf4a-4d1e-a515-20dc5b48b09d.png)
 
 #### 拒绝回答
 
