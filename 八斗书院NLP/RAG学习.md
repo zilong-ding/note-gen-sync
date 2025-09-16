@@ -225,12 +225,13 @@ https://chunkviz.up.railway.app/
 
 #### 二次提问
 
+Multi-Query Rewriting策略的核心思想是通过从不同角度生成多个查询来提高检索召回率。这种方法特别适合于以下场景：·用户查询不清晰或含糊；●需要从多个角度理解用户意图；●单一查询无法覆盖完整信息。从用户的原始查询中生成多个不同的查询变体，以覆盖更广泛的信息和视角。这可以通过使用语言模型(LLM)来实现，模型会根据原始查询生成多个相关但不同的查询。
 
 #### 查询重写
 
 Query Rewriting(查询重写)策路涉及将单个查询改写为多个查询，以便对检索器执行这些查询。这是高级检索技术中的关键步骤。通过查询重写，可以为[ensemble retrieval]和[fusion]生成多个查询，从而提高检索结果的质量。
 
-
+![2025-09-16_10-39.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/20d42cd2-1689-40bd-aad5-6cabdc2579fb.jpeg)
 
 #### 后退一步策略
 
