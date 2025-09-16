@@ -157,7 +157,7 @@ https://chunkviz.up.railway.app/
 ![v2-240153b1807c7f36748478856aec8365_1440w.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/97aad5ad-8142-45c9-8553-648d9f0ce662.jpeg)
 
 
-## 选择嵌入模型
+#### 选择嵌入模型
 
 在 RAG 系统中，嵌入模型（Embedding Model）就像是用户与知识库之间的翻译官——它决定了“你在说什么”和“它能不能听懂”。
 
@@ -175,6 +175,10 @@ https://chunkviz.up.railway.app/
 | 开源/闭源      | 是否可部署本地？是否支持商用？                                     |
 | 社区支持与文档 | 模型活跃度越高，调试与优化越方便                                   |
 
+
+#### 主流嵌入模型
+
+以下是一些主流且表现优秀的嵌入模型，涵盖中英双语、轻量级部署、本地化支持等需求。
 
 
 
