@@ -73,7 +73,6 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 6. 大模型分块：写一个提示词，让大模型分块；
 7. Late chunking:提取token特征，对chunk tokensi进行pooling;
 
-
 #### 文档结构层次分块
 
 ![2025-09-16_08-50.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/79b08918-afc9-4e22-a7ed-13f45e3aeadd.jpeg)
@@ -92,10 +91,6 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 ![2025-09-16_08-56.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/d3420337-732c-40aa-a4cd-2b0f6ab0b564.jpeg)
 
-
-
-
-
 #### 评价Chunk划分方法
 
 **分块归因(Chunk Attribution)**
@@ -105,11 +100,6 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 **分块利用率(Chunk Utilization)**
 
 > 分块利用率衡量每个检索到的分块中有多少文本对模型的响应产生了影响。这个指标的范围是 0到1，其中1表示整个分块影响了响应，而较低的值，如0.5，则表示存在“无关”文本，这部分文本并未对响应产生影响。分块利用率与分块归因紧密相关，归因确定分块是否影响了响应，而利用率衡量分块文本在影响中所占的部分。只有被归为“有影响”的分块才能有大于零的利用率得分。
-
-
-
-
-
 
 
 ### 向量嵌入功能
