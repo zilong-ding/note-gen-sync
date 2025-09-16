@@ -26,9 +26,10 @@ RAG技术结合了大型语言模型的强大生成能力和检索系统的精�
 为了解析文件我们可以使用如下技术：
 
 * pdfplumber：pdf文件文本提取和图片提取
-
 * 深度学习的方法：ocr等技术，paddle-ocr，pdf2md
 * 多模态大模型的方法：qwen-vl等
+
+![2025-09-16_08-41.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/347f5f4b-67fd-47ed-8c83-a92cba387a00.jpeg)
 
 ### 切片划分功能
 
