@@ -88,6 +88,12 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 ![2025-09-16_08-50.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/79b08918-afc9-4e22-a7ed-13f45e3aeadd.jpeg)
 
+
+![v2-080935082e37fdabb9fee9db9279fba5_b.webp](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0d84a105-9815-4f58-8cf5-a5c4dce10fcd.webp)
+
+
+
+
 #### 语义分块
 
 通过自然语言处理技术（如句向量相似度、话题建模等）判断文本语义的边界，在语义上自然断句。
@@ -101,7 +107,6 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 ![v2-0c546f112ac1bb72b9ad5a7bf6f0f292_1440w.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/89969f67-e858-4a2d-b2af-5685471d3dde.jpeg)
 
 这种方式能提升分块的语义连贯性，适用于逻辑紧密的文章，但计算代价较高，依赖模型质量。
-
 
 #### 大模型分块
 
