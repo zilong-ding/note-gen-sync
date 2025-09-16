@@ -200,10 +200,16 @@ https://chunkviz.up.railway.app/
 | OpenAl Adat      | GPT体系内置嵌入模型（如text- embedding-ada-002)，<br />闭源但商用表现稳定 强劲。    |
 | Cohere Embed+    | 专注于“可控语义检索”的服务型模型，API 提供简单，商用接口友好。                    |
 
+如果不知道选哪个，建议：
+
+* 小模型部署快，适合原型验证（如 `bge-small-zh`）
+* 大模型更准，适合上线产品（如 `bge-large-zh-v1.5`）
+* 想本地部署？就用 BGE、E5、GTE
+* 要省心云服务？那就试试 OpenAI Ada、Cohere
 
 
 
-查询改写功能
+### 查询改写功能
 
 
 
