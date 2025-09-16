@@ -88,10 +88,11 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 ![2025-09-16_08-50.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/79b08918-afc9-4e22-a7ed-13f45e3aeadd.jpeg)
 
+在保持固定长度的同时，尝试以语义结构（如段落、句子、标点）为边界递归地切分文本。若段落太长无法容纳于块中，则再递归切分为句子，直到满足长度要求。
 
 ![v2-080935082e37fdabb9fee9db9279fba5_b.webp](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/0d84a105-9815-4f58-8cf5-a5c4dce10fcd.webp)
 
-
+![v2-d7ba9e86e42de2764170cce7ce518e62_1440w.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/72eae67c-873b-4eaf-a02d-628311001069.jpeg)
 
 
 #### 语义分块
