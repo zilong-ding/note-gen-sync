@@ -488,45 +488,93 @@ Hierarchical Navigable Small Worlds(HNSW)是一种用于近似最近邻搜索的
 
 在 RAG (Retrieval-Augmented Generation) 模型中，多路召回通常用于增强检索阶段的多样性和精准度。通过结合不同的召回策略，系统能够在多个来源或角度中获取信息，从而改善生成模型的输入质量和最终生成的答案。
 
-**多路召回的原理**
+#### 多路召回的原理
 
-多样化查询路径：
+##### 多样化查询路径：
 
 > 传统的检索方法依赖于单一的查询策略，而多路召回通过同时使用多个查询策略来触及不同的信息源。每条路径可能使用不同的关键词、查询方式或检索模型。
 > 比如，可以通过经典的 TF-IDF 查询策略、基于 BM25 的检索，或者通过 深度学习模型（如 BERT）来生成查询。
 
-多源信息获取：
+###### 多源信息获取：
 
 > 通过多路召回，可以从不同的数据源或索引库中获取信息。例如，除了从文档库中检索外，还可以从 外部数据库、用户行为日志 或 推荐系统 中获取信息。
 
-多层次的排序与融合：
+##### 多层次的排序与融合：
 
 > 在多路召回中，每条路径返回的候选信息会进行合并和排序。通常会根据不同的评分机制（如基于模型的评分、语义匹配度、点击率等）对召回结果进行融合，以确保最终返回的结果是最相关和最准确的。
 
-重排序（ReRanking）：
+##### 重排序（ReRanking）：
 
 > 在多路召回的结果中，进行后续的重排序，以优化最终的结果顺序，确保召回的候选项是最相关的。
 
 
-**多路召回的实现步骤**
+#### 多路召回的实现步骤
 
-构建多个检索通道：
+##### 构建多个检索通道：
 
 > 选择多个检索策略或者模型，如传统的关键词检索、基于语义的检索（如 BERT）、基于用户画像的检索等。
 
-检索并返回候选项：
+##### 检索并返回候选项：
 
 > 使用每个检索通道独立进行检索，并返回一批候选项。
 
-候选项的融合与排序：
+##### 候选项的融合与排序：
 
 > 对不同通道返回的候选项进行融合，使用重排序算法对候选项进行排序，确保最终返回最相关的结果。
 
-生成最终答案：
+##### 生成最终答案：
 
 > 基于融合排序后的结果，生成最终的答案或文档。
 
 
+#### 多路召回代码
+
+```python
+# 进行召回合并
+bge = json.load(open('submit_bge_sgement_retrieval_top10.json'))  # bge 稠密检索的结果
+bm25 = json.load(open('submit_bm25_retrieval_top10.json')) # bm25 稀疏检索的结果
+
+# 多路合并
+fusion_result = []
+k = 60
+for q1, q2 in zip(bge, bm25): # 对于每个提问
+    # q1 是 bge 稠密检索的结果
+    # q2 是 bm25 稀疏检索的结果
+    print(len(fusion_result), len(bge))
+
+    # 多路召回的合并
+    fusion_score = {}
+    for idx, q in enumerate(q1['reference']):
+        if q not in fusion_score:
+            fusion_score[q] = 1 / (idx + k)# 排在后面，得分更低，常数打分，十分通用
+        else:
+            fusion_score[q] += 1 / (idx + k)
+
+    for idx, q in enumerate(q2['reference']):
+        if q not in fusion_score:
+            fusion_score[q] = 1 / (idx + k)
+        else:
+            fusion_score[q] += 1 / (idx + k)
+
+    sorted_dict = sorted(fusion_score.items(), key=lambda item: item[1], reverse=True)
+
+    # 重排序打分
+    pairs = []
+    for sorted_result in sorted_dict[:3]:
+        page_index = int(sorted_result[0].split('_')[1]) - 1
+        pairs.append([q1["question"], pdf_content[page_index]['content']])
+
+
+    inputs = tokenizer(pairs, padding=True, truncation=True, return_tensors='pt', max_length=512)
+    with torch.no_grad():
+        inputs = {key: inputs[key] for key in inputs.keys()}
+        scores = rerank_model(**inputs, return_dict=True).logits.view(-1, ).float()
+  
+    sorted_result = sorted_dict[scores.cpu().numpy().argmax()]
+    q1['reference'] = sorted_result[0]
+  
+    fusion_result.append(q1)
+```
 
 
 
