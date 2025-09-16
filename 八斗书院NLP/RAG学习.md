@@ -152,6 +152,8 @@ https://chunkviz.up.railway.app/
 
 ### 向量嵌入功能
 
+参考文章：https://zhuanlan.zhihu.com/p/1912910452339484544
+
 **Embedding（嵌入向量）** 是将文字、图片、语音等“人类语言”**转换为**“计算机语言”的关键一步。它的作用，是把一句话或者一个词，变成一串可以进行数学运算的数字向量，让模型能“理解”我们在说什么。
 
 ![v2-240153b1807c7f36748478856aec8365_1440w.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/97aad5ad-8142-45c9-8553-648d9f0ce662.jpeg)
@@ -211,7 +213,7 @@ https://chunkviz.up.railway.app/
 
 ### 查询增强功能
 
-#### Queryi预处理方法
+#### Query预处理方法
 
 1. 引导进行二次提问、引导到已知的提问；
 2. Query Rewriting(查询重写)：将用户的提问改写一下，转换多个提问；
