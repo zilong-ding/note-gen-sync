@@ -221,6 +221,22 @@ https://chunkviz.up.railway.app/
 4. Hypothetical Document Embeddings(HyDE)
 5. 拒绝回答、特定格式回答；
 
+#### 二次提问
+
+
+#### 查询重写
+
+
+#### 后退一步策略
+
+
+
+#### HYDE
+
+
+#### 拒绝回答
+
+
 
 ### 路由功能
 
