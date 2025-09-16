@@ -459,9 +459,9 @@ Product Quantization(PQ)是一种用于降低高维向量存储和搜索复杂�
 
 在搜索时，将每个子向量的编码值组合成原始向量的近似编码，通过在子码本中查我得到近以的最近邻。
 
+![2025-09-16_15-43.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/83a3a60c-7759-4203-beea-7c8dbac3bf84.jpeg)
 
-
-
+![2025-09-16_15-44.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/47904c47-51b4-4513-886e-1e9535a3e14f.jpeg)
 
 ##### Hierarchical Navigable Small Worlds(HNSW)
 
