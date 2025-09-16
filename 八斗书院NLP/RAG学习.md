@@ -94,6 +94,11 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 ![2025-09-16_09-00.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/ca3254e6-8192-46a4-8e5a-7369372b3444.jpeg)
 
+![v2-e0f65749b7f6a139182a0c6209b5ead7_b.webp](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/1498a369-3ba9-47e6-a0b9-52841036cd9b.webp)
+
+以向量相似度为例，将句子或段落转换为向量，通过计算相邻句段的余弦相似度，如果判断两个段落语义上属于同一单元，那么就进行合并。
+
+
 
 
 #### 大模型分块
