@@ -63,7 +63,7 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 
 
-**切片划分的策略如下**：
+**常用切片划分的策略如下**：
 
 1. 固定大小：设置100个字符为一个chunk
 2. 滑动窗口：在固定大小的情况下加入overlap
@@ -71,9 +71,9 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 4. 递归分块：先划分章节、再划分段落、句子
 5. 语义分块：将含义相近的句子划分到一个chunk
 6. 大模型分块：写一个提示词，让大模型分块；
-7. Late chunking:提取token特征，对chunk tokensi进行oooling;
+7. Late chunking:提取token特征，对chunk tokensi进行pooling;
 
-
+![2025-09-16_08-50.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/79b08918-afc9-4e22-a7ed-13f45e3aeadd.jpeg)
 
 
 
