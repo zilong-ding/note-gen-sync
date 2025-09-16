@@ -484,6 +484,10 @@ Hierarchical Navigable Small Worlds(HNSW)是一种用于近似最近邻搜索的
 
 参考文章：https://blog.csdn.net/pumpkin84514/article/details/145150498
 
+多路召回（Multi-Route Retrieval） 是指在信息检索系统中，为了提升检索的全面性和准确性，通过多条不同的检索路径或不同的检索策略来获取信息的技术。多路召回的核心思想是，单一的检索路径可能会遗漏一些重要的信息或没有覆盖所有可能相关的内容，因此需要并行或串行地采用多种检索方法来提高最终的召回率和准确性。
+
+在 RAG (Retrieval-Augmented Generation) 模型中，多路召回通常用于增强检索阶段的多样性和精准度。通过结合不同的召回策略，系统能够在多个来源或角度中获取信息，从而改善生成模型的输入质量和最终生成的答案。
+
 
 
 
