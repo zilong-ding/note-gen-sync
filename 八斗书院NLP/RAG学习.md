@@ -259,6 +259,8 @@ HyDE不是直接根据原始查询搜索相关文档，而是首先构建一个�
 
 RAG（Retrieval-Augmented Generation）在处理某些复杂问题时的应变能力有限，并不能满足所有用户的查询需求。在实际应用中，RAG更适合作为子流程来运行，因为我们通常需要首先识别用户查询中的意图，然后才根据这个意图，将其导向不同的子流程进行处理。这在实际应用中是非常常见的，识别用户意图然后去做不同的事，这就叫做语义路由，有些地方也称之为意图识别。
 
+![2025-09-16_10-54.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/02df8fa2-0869-4224-9d0d-74ece59ff429.jpeg)
+
 #### 六种不同的路由器
 
 1. **LLM补全路由器（LLM Completion Routers）**：
