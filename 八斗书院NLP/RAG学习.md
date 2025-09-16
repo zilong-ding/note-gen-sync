@@ -475,11 +475,14 @@ Hierarchical Navigable Small Worlds(HNSW)是一种用于近似最近邻搜索的
 
 4搜索过程：在搜索时，从最高层的图开始，通过快速搜索逐渐降低到低层的图，以保证搜索的效率和准确性。
 
+![2025-09-16_15-45.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/5eba7dae-3f62-484c-ac45-b0a40f547dcd.jpeg)
 
 
 
 
 ### 多路召回功能
+
+参考文章：https://blog.csdn.net/pumpkin84514/article/details/145150498
 
 
 
