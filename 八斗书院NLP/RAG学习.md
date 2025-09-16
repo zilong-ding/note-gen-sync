@@ -263,7 +263,16 @@ RAG（Retrieval-Augmented Generation）在处理某些复杂问题时的应变�
 
 由于数据源的多样性，信息的存储方式以及我们希望与之交互的方式也可能是多种多样的。有些数据可能存储在向量存储中，有些存储在 SQL 数据库中，有些我们可能需要通过 API 调用访问，因为它位于第三方系统中。
 
-![2025-09-16_10-54.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/02df8fa2-0869-4224-9d0d-74ece59ff429.jpeg)
+![基于查询意图的 RAG 系统路由到不同的数据源](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/02df8fa2-0869-4224-9d0d-74ece59ff429.jpeg)
+
+
+
+
+
+
+
+
+
 
 #### 六种不同的路由器
 
