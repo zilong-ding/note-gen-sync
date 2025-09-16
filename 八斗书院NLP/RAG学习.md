@@ -12,4 +12,4 @@ RAG技术结合了大型语言模型的强大生成能力和检索系统的精�
 
 ![政企问答项目RAG流程](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/6caead23-9836-469a-b35b-9f0f42f05802.jpeg)
 
-![2025-09-16_08-21.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/f4cdcab4-499a-465b-8a73-a064d3f94d4a.jpeg)
+![个人知识库RAG流程](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/f4cdcab4-499a-465b-8a73-a064d3f94d4a.jpeg)
