@@ -80,6 +80,9 @@ RAG技术中划分chunk是为了更好地适应大模型的处理能力，提高
 
 #### 语义分块
 
+旨在确保每个块包含一个完整的语义单元。这种方法可以基于不同段落的嵌入差异或使用 LLM辅助进行切分，以达到更“智能"的效果。
+
+![2025-09-16_09-00.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/ca3254e6-8192-46a4-8e5a-7369372b3444.jpeg)
 
 
 
