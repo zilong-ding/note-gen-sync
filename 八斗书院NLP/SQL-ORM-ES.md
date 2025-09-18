@@ -131,8 +131,13 @@ CREATE TABLE table_name (
 #### ALTER TABLE - 变更（改变）数据库表
 
 ```sql
-
+ALTER TABLE table_name
+ADD column_name data_type
 ```
+
+* `table_name`: 要修改的表。
+* `column_name`: 要添加的列。
+* `data_type`: 列的数据类型。
 
 #### DROP TABLE - 删除表
 
