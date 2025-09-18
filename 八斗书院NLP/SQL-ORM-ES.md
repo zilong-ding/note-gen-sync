@@ -120,8 +120,20 @@ CREATE TABLE table_name (
 ```
 
 
+* `table_name`: 要创建的表名。
+* `column1, column2, ...`: 表的列。
+* `data_type`: 列的数据类型（如 `INT`、`VARCHAR` 等）。
+* `constraint`: 列的约束（如 `PRIMARY KEY`、`NOT NULL` 等）。
+
 
 #### ALTER DATABASE - 修改数据库
+
+```sql
+ALTER TABLE table_name
+ADD column_name data_type
+```
+
+
 
 #### CREATE TABLE - 创建新表
 
