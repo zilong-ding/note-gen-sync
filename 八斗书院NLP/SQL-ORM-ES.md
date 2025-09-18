@@ -39,8 +39,18 @@ mysql> SELECT * FROM Websites;
 
 ### SQL 语句
 
+SQL 对大小写不敏感：SELECT 与 select 是相同的
 
+SQL 语句后面的分号？
+某些数据库系统要求在每条 SQL 语句的末端使用分号。
 
+分号是在数据库系统中分隔每条 SQL 语句的标准方法，这样就可以在对服务器的相同请求中执行一条以上的 SQL 语句。
+
+在本教程中，我们将在每条 SQL 语句的末端使用分号。
+
+```sql
+SELECT * FROM Websites;
+```
 
 
 
