@@ -15,7 +15,24 @@ SQL（Structured Query Language）是一种用于管理和操作关系数据库�
 
 我们可以通过以下命令查看 "Websites" 表的数据
 
-```
+```sql
+mysql> use RUNOOB;
+Database changed
+
+mysql> set names utf8;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Websites;
++----+--------------+---------------------------+-------+---------+
+| id | name         | url                       | alexa | country |
++----+--------------+---------------------------+-------+---------+
+| 1  | Google       | https://www.google.cm/    | 1     | USA     |
+| 2  | 淘宝          | https://www.taobao.com/   | 13    | CN      |
+| 3  | 菜鸟教程      | http://www.runoob.com/    | 4689  | CN      |
+| 4  | 微博          | http://weibo.com/         | 20    | CN      |
+| 5  | Facebook     | https://www.facebook.com/ | 3     | USA     |
++----+--------------+---------------------------+-------+---------+
+5 rows in set (0.01 sec)
 
 ```
 
