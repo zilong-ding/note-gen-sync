@@ -72,7 +72,16 @@ ORDER BY column_name [ASC|DESC]
 
 #### UPDATE - 更新数据库中的数据
 
+```sql
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition
+```
 
+
+* `table_name`: 要更新数据的表。
+* `column1 = value1, column2 = value2, ...`: 要更新的列及其新值。
+* `condition`: 更新条件。
 
 
 #### DELETE - 从数据库中删除数据
