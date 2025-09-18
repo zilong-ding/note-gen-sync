@@ -48,9 +48,22 @@ SQL 语句后面的分号？
 
 在本教程中，我们将在每条 SQL 语句的末端使用分号。
 
+下面的 SQL 语句从 "Websites" 表中选取所有记录：
+
 ```sql
 SELECT * FROM Websites;
 ```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
