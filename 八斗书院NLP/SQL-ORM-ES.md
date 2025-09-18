@@ -123,9 +123,16 @@ CREATE TABLE table_name (
 )
 ```
 
-
+* `table_name`: 要创建的表名。
+* `column1, column2, ...`: 表的列。
+* `data_type`: 列的数据类型（如 `INT`、`VARCHAR` 等）。
+* `constraint`: 列的约束（如 `PRIMARY KEY`、`NOT NULL` 等）。
 
 #### ALTER TABLE - 变更（改变）数据库表
+
+```sql
+
+```
 
 #### DROP TABLE - 删除表
 
