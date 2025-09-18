@@ -65,13 +65,30 @@ WHERE condition
 ORDER BY column_name [ASC|DESC]
 ```
 
+* `column_name(s)`: 要查询的列。
+* `table_name`: 要查询的表。
+* `condition`: 查询条件（可选）。
+* `ORDER BY`: 排序方式，`ASC` 表示升序，`DESC` 表示降序（可选）
+
 #### UPDATE - 更新数据库中的数据
+
+
+
 
 #### DELETE - 从数据库中删除数据
 
+
+
+
 #### INSERT INTO - 向数据库中插入新数据
 
+
+
+
 #### CREATE DATABASE - 创建新数据库
+
+
+
 
 #### ALTER DATABASE - 修改数据库
 
