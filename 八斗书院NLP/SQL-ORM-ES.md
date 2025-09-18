@@ -82,7 +82,15 @@ ORDER BY column_name [ASC|DESC]
 
 #### INSERT INTO - 向数据库中插入新数据
 
+```sql
+INSERT INTO table_name (column1, column2, ...)
+VALUES (value1, value2, ...)
+```
 
+
+* `table_name`: 要插入数据的表。
+* `column1, column2, ...`: 要插入数据的列。
+* `value1, value2, ...`: 对应列的值。
 
 
 #### CREATE DATABASE - 创建新数据库
