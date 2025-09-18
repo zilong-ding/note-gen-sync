@@ -111,20 +111,6 @@ VALUES (value1, value2, ...)
 
 #### CREATE DATABASE - 创建新数据库
 
-```sql
-CREATE TABLE table_name (
-    column1 data_type constraint,
-    column2 data_type constraint,
-    ...
-)
-```
-
-
-* `table_name`: 要创建的表名。
-* `column1, column2, ...`: 表的列。
-* `data_type`: 列的数据类型（如 `INT`、`VARCHAR` 等）。
-* `constraint`: 列的约束（如 `PRIMARY KEY`、`NOT NULL` 等）。
-
 
 #### ALTER DATABASE - 修改数据库
 
@@ -134,8 +120,13 @@ ADD column_name data_type
 ```
 
 
+* `table_name`: 要修改的表。
+* `column_name`: 要添加的列。
+* `data_type`: 列的数据类型。
+
 
 #### CREATE TABLE - 创建新表
+
 
 #### ALTER TABLE - 变更（改变）数据库表
 
