@@ -141,6 +141,12 @@ ADD column_name data_type
 
 #### DROP TABLE - 删除表
 
+```sql
+DROP TABLE table_name
+```
+
+
+
 #### CREATE INDEX - 创建索引（搜索键）
 
 #### DROP INDEX - 删除索引
