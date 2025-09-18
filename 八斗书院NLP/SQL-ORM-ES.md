@@ -413,7 +413,109 @@ ORM（Object-Relational Mapping，对象关系映射）是一种编程技术，�
 
 
 
+### 连接数据库
 
+以下是一个连接 SQLite 数据库的示例：
+
+<pre id="__code_1"><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_1 > code"></button><code class="language-python">from sqlalchemy import create_engine
+
+# 创建数据库引擎
+engine = create_engine('sqlite:///test.db', echo=True)
+</code></pre>
+
+### 定义模型
+
+在 SQLAlchemy 中，模型是一个 Python 类，它继承自 `declarative_base` 类。以下是一个定义用户模型的示例：
+
+<pre id="__code_2"><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_2 > code"></button><code class="language-python">from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+
+# 创建基类
+Base = declarative_base()
+
+# 定义用户模型
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    age = Column(Integer)
+
+    def __repr__(self):
+        return f"<User(name='{self.name}', age={self.age})>"
+</code></pre>
+
+### 创建表
+
+使用 `Base.metadata.create_all()` 方法可以创建数据库表：
+
+<pre id="__code_3"><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_3 > code"></button><code class="language-python"># 创建表
+Base.metadata.create_all(engine)
+</code></pre>
+
+### 插入数据
+
+以下是一个插入数据的示例：
+
+<pre id="__code_4"><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_4 > code"></button><code class="language-python">from sqlalchemy.orm import sessionmaker
+
+# 创建会话工厂
+Session = sessionmaker(bind=engine)
+
+# 创建会话
+session = Session()
+
+# 创建用户对象
+user = User(name='John', age=25)
+
+# 添加用户到会话
+session.add(user)
+
+# 提交会话
+session.commit()
+</code></pre>
+
+### 查询数据
+
+以下是一个查询数据的示例：
+
+<pre id="__code_5"><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_5 > code"></button><code class="language-python"># 查询所有用户
+users = session.query(User).all()
+for user in users:
+    print(user)
+
+# 根据条件查询用户
+user = session.query(User).filter_by(name='John').first()
+print(user)
+</code></pre>
+
+### 更新数据
+
+以下是一个更新数据的示例：
+
+<pre id="__code_6"><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_6 > code"></button><code class="language-python"># 查询用户
+user = session.query(User).filter_by(name='John').first()
+
+# 更新用户信息
+user.age = 26
+
+# 提交会话
+session.commit()
+</code></pre>
+
+### 删除数据
+
+以下是一个删除数据的示例：
+
+<pre id="__code_7"><button class="md-clipboard md-icon" title="复制" data-clipboard-target="#__code_7 > code"></button><code class="language-python"># 查询用户
+user = session.query(User).filter_by(name='John').first()
+
+# 删除用户
+session.delete(user)
+
+# 提交会话
+session.commit()
+</code></pre>
 
 
 
