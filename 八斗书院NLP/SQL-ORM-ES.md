@@ -163,8 +163,14 @@ ON table_name (column_name)
 #### DROP INDEX - 删除索引
 
 ```sql
-
+DROP INDEX index_name
+ON table_name
 ```
+
+* `index_name`: 要删除的索引名称。
+* `table_name`: 索引所在的表。
+
+#### WHERE
 
 ## ORM
 
