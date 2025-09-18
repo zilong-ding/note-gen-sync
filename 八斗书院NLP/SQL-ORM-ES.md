@@ -154,14 +154,17 @@ CREATE INDEX index_name
 ON table_name (column_name)
 ```
 
+* `index_name`: 索引的名称。
+* `column_name`: 要索引的列。
+
 
 
 
 #### DROP INDEX - 删除索引
 
+```sql
 
-
-
+```
 
 ## ORM
 
