@@ -170,7 +170,69 @@ ON table_name
 * `index_name`: 要删除的索引名称。
 * `table_name`: 索引所在的表。
 
-#### WHERE
+#### **WHERE**：用于指定筛选条件。
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+```
+
+* `condition`: 筛选条件。
+
+#### **ORDER BY**：用于对结果集进行排序。
+
+```sql
+SELECT column_name(s)
+FROM table_name
+ORDER BY column_name [ASC|DESC]
+```
+
+* `column_name`: 用于排序的列。
+* `ASC`: 升序（默认）。
+* `DESC`: 降序。
+
+#### **GROUP BY**：用于将结果集按一列或多列进行分组。
+
+```sql
+SELECT column_name(s), aggregate_function(column_name)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+```
+
+* `aggregate_function`: 聚合函数（如 COUNT、SUM、AVG 等）。
+
+#### **HAVING**：用于对分组后的结果集进行筛选。
+
+```sql
+SELECT column_name(s), aggregate_function(column_name)
+FROM table_name
+GROUP BY column_name(s)
+HAVING condition
+```
+
+* `condition`: 筛选条件。
+
+#### **JOIN**：用于将两个或多个表的记录结合起来。
+
+```sql
+SELECT column_name(s)
+FROM table_name1
+JOIN table_name2
+ON table_name1.column_name = table_name2.column_name
+```
+
+* `JOIN`: 可以是 INNER JOIN、LEFT JOIN、RIGHT JOIN 或 FULL JOIN。
+
+#### **DISTINCT**：用于返回唯一不同的值。
+
+```sql
+SELECT DISTINCT column_name(s)
+FROM table_name
+```
+
+* `column_name(s)`: 要查询的列。
 
 ## ORM
 
