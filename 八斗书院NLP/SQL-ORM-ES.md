@@ -145,11 +145,23 @@ ADD column_name data_type
 DROP TABLE table_name
 ```
 
+* `table_name`: 要删除的表。
+
+#### CREATE INDEX - 创建索引（搜索键）用于创建索引，以加快查询速度。
+
+```sql
+CREATE INDEX index_name
+ON table_name (column_name)
+```
 
 
-#### CREATE INDEX - 创建索引（搜索键）
+
 
 #### DROP INDEX - 删除索引
+
+
+
+
 
 ## ORM
 
