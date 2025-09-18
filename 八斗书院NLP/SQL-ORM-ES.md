@@ -86,6 +86,10 @@ WHERE condition
 
 #### DELETE - 从数据库中删除数据
 
+```sql
+DELETE FROM table_name
+WHERE condition
+```
 
 
 
