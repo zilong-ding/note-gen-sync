@@ -92,6 +92,9 @@ WHERE condition
 ```
 
 
+* `table_name`: 要删除数据的表。
+* `condition`: 删除条件。
+
 
 #### INSERT INTO - 向数据库中插入新数据
 
@@ -108,6 +111,13 @@ VALUES (value1, value2, ...)
 
 #### CREATE DATABASE - 创建新数据库
 
+```sql
+CREATE TABLE table_name (
+    column1 data_type constraint,
+    column2 data_type constraint,
+    ...
+)
+```
 
 
 
