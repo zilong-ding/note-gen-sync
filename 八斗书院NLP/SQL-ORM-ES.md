@@ -6,7 +6,6 @@ SQL（Structured Query Language）是一种用于管理和操作关系数据库�
 
 ![](https://www.runoob.com/wp-content/uploads/2013/09/SQL.png)
 
-
 ### 数据库表
 
 一个数据库通常包含一个或多个表，每个表有一个名字标识（例如:"Websites"），表包含带有数据的记录（行）。
@@ -33,9 +32,7 @@ mysql> SELECT * FROM Websites;
 | 5  | Facebook     | https://www.facebook.com/ | 3     | USA     |
 +----+--------------+---------------------------+-------+---------+
 5 rows in set (0.01 sec)
-
 ```
-
 
 ### SQL 语句
 
@@ -78,11 +75,9 @@ SET column1 = value1, column2 = value2, ...
 WHERE condition
 ```
 
-
 * `table_name`: 要更新数据的表。
 * `column1 = value1, column2 = value2, ...`: 要更新的列及其新值。
 * `condition`: 更新条件。
-
 
 #### DELETE - 从数据库中删除数据
 
@@ -91,10 +86,8 @@ DELETE FROM table_name
 WHERE condition
 ```
 
-
 * `table_name`: 要删除数据的表。
 * `condition`: 删除条件。
-
 
 #### INSERT INTO - 向数据库中插入新数据
 
@@ -103,14 +96,11 @@ INSERT INTO table_name (column1, column2, ...)
 VALUES (value1, value2, ...)
 ```
 
-
 * `table_name`: 要插入数据的表。
 * `column1, column2, ...`: 要插入数据的列。
 * `value1, value2, ...`: 对应列的值。
 
-
 #### CREATE DATABASE - 创建新数据库
-
 
 #### ALTER DATABASE - 修改数据库
 
@@ -119,13 +109,20 @@ ALTER TABLE table_name
 ADD column_name data_type
 ```
 
-
 * `table_name`: 要修改的表。
 * `column_name`: 要添加的列。
 * `data_type`: 列的数据类型。
 
-
 #### CREATE TABLE - 创建新表
+
+```sql
+CREATE TABLE table_name (
+    column1 data_type constraint,
+    column2 data_type constraint,
+    ...
+)
+```
+
 
 
 #### ALTER TABLE - 变更（改变）数据库表
@@ -136,21 +133,7 @@ ADD column_name data_type
 
 #### DROP INDEX - 删除索引
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## ORM
 
-
-
 ## ES
+
