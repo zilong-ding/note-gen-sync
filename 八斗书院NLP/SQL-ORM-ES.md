@@ -701,6 +701,16 @@ else:
 
 ### 分页查询
 
+```python
+  # 分页查询
+    query = {
+        "query": {"match_all": {}},
+        "from": 0,  # 从第几条开始
+        "size": 10  # 返回多少条
+    }
+    result = es.search(index="my_index", body=query)
+```
+
 ### 聚合查询
 
 ### 向量检索
