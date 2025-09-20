@@ -669,6 +669,19 @@ else:
 
 ### 简单搜索
 
+```python
+# 简单搜索
+    query = {
+        "query": {
+            "match": {
+                "title": "测试"
+            }
+        }
+    }
+    result = es.search(index="my_index", body=query)
+```
+
+
 ### 布尔查询
 
 ### 分页查询
