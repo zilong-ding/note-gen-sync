@@ -307,7 +307,6 @@ conn.close()
 
 上述程序执行时，它会在 COMPANY 表中创建给定记录
 
-
 ### SELECT 操作
 
 下面的 Python 程序显示了如何从前面创建的 COMPANY 表中获取并显示记录：
@@ -329,7 +328,6 @@ for row in cursor:
 print ("数据操作成功")
 conn.close()
 ```
-
 
 ### UPDATE 操作
 
@@ -359,7 +357,6 @@ print ("数据操作成功")
 conn.close()
 ```
 
-
 ### DELETE 操作
 
 下面的 Python 代码显示了如何使用 DELETE 语句删除任何记录，然后从 COMPANY 表中获取并显示剩余的记录：
@@ -388,15 +385,7 @@ print ("数据操作成功")
 conn.close()
 ```
 
-
-
-
-
-
-
-
 ## ORM
-
 
 ### ORM 基础概念
 
@@ -410,8 +399,6 @@ ORM（Object-Relational Mapping，对象关系映射）是一种编程技术，�
 安全性：自动防止 SQL 注入攻击
 
 面向对象：使用熟悉的面向对象范式操作数据库
-
-
 
 ### 连接数据库
 
@@ -517,44 +504,30 @@ session.delete(user)
 session.commit()
 </code></pre>
 
-
-
 ## ES
 
 ### 测试连接
 
-
-
+```python
+def test_connection():
+    """测试 Elasticsearch 连接和 Ping"""
+    print("--- 正在测试 Elasticsearch 连接 ---")
+    response = make_request('GET', '')
+    if response:
+        print("连接成功！")
+        print(json.dumps(response, indent=2, ensure_ascii=False))
+```
 
 ### 分词器
 
-
-
-
 ### 简单搜索
-
-
-
 
 ### 布尔查询
 
-
-
-
-
 ### 分页查询
-
-
-
 
 ### 聚合查询
 
-
-
-
 ### 向量检索
-
-
-
 
 ### 混合检索
