@@ -756,6 +756,30 @@ response = es.search(
 
 ### 混合检索
 
+```python
+# 也可以将 knn 查询与其他过滤器结合使用
+# 比如，只在包含特定关键词的文档中进行向量搜索
+print("\n--- 结合 knn 和 filter 查询 ---")
+response_combined = es.search(
+    index=index_name,
+    body={
+        "knn": {
+            "field": "text_vector",
+            "query_vector": query_vector,
+            "k": 3,
+            "num_candidates": 10
+        },
+        "query": {
+            "match": {
+                "text": "技术"
+            }
+        },
+        "fields": ["text"],
+        "_source": False
+    }
+)
+```
+
 ### 批量操作
 
 ```python
