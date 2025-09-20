@@ -731,3 +731,15 @@ result = es.search(index="my_index", body=query)
 ### 向量检索
 
 ### 混合检索
+
+### 批量操作
+
+```python
+# 批量插入  
+actions = [  
+    {"_index": "my_index", "_source": {"title": "文档1"}},  
+    {"_index": "my_index", "_source": {"title": "文档2"}},  
+]  
+from elasticsearch.helpers import bulk  
+bulk(es, actions)
+```
