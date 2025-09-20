@@ -544,6 +544,25 @@ def test_ik_analyzers():
 
 #### 英文分词器
 
+```python
+def test_common_analyzers():
+    """测试常见的 Elasticsearch 内置分词器"""
+    print("\n--- 正在测试常见的 Elasticsearch 内置分词器 ---")
+    test_text = "Hello, world! This is a test."
+    analyzers = ["standard", "simple", "whitespace", "english"]
+
+    for analyzer in analyzers:
+        print(f"\n使用分词器：{analyzer}")
+        data = {
+            "analyzer": analyzer,
+            "text": test_text
+        }
+        response = make_request('POST', '_analyze', data=data)
+        if response and 'tokens' in response:
+            tokens = [token['token'] for token in response['tokens']]
+            print(f"原始文本: '{test_text}'")
+            print(f"分词结果: {tokens}")
+```
 
 ### 简单搜索
 
