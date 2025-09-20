@@ -713,6 +713,21 @@ else:
 
 ### 聚合查询
 
+```python
+# 聚合查询示例  
+query = {  
+    "aggs": {  
+        "popular_titles": {  
+            "terms": {  
+                "field": "title.keyword",  
+                "size": 10  
+            }  
+        }  
+    }  
+}  
+result = es.search(index="my_index", body=query)
+```
+
 ### 向量检索
 
 ### 混合检索
