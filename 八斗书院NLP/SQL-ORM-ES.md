@@ -520,6 +520,31 @@ def test_connection():
 
 ### 分词器
 
+#### 中文分词器
+
+```python
+def test_ik_analyzers():
+    """测试 IK 分词器"""
+    print("\n--- 正在测试 IK 分词器 ---")
+    test_text_zh = "我在使用Elasticsearch，这是我的测试。"
+    ik_analyzers = ["ik_smart", "ik_max_word"]
+
+    for analyzer in ik_analyzers:
+        print(f"\n使用 IK 分词器：{analyzer}")
+        data = {
+            "analyzer": analyzer,
+            "text": test_text_zh
+        }
+        response = make_request('POST', '_analyze', data=data)
+        if response and 'tokens' in response:
+            tokens = [token['token'] for token in response['tokens']]
+            print(f"原始文本: '{test_text_zh}'")
+            print(f"分词结果: {tokens}")
+```
+
+#### 英文分词器
+
+
 ### 简单搜索
 
 ### 布尔查询
