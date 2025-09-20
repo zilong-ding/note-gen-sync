@@ -684,6 +684,21 @@ else:
 
 ### 布尔查询
 
+```python
+    # 复杂搜索（bool查询）
+    query = {
+        "query": {
+            "bool": {
+                "must": [
+                    {"match": {"title": "测试"}},
+                    {"range": {"timestamp": {"gte": "2024-01-01"}}}
+                ]
+            }
+        }
+    }
+    result = es.search(index="my_index", body=query)
+```
+
 ### 分页查询
 
 ### 聚合查询
