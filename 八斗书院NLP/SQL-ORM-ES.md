@@ -730,6 +730,30 @@ result = es.search(index="my_index", body=query)
 
 ### 向量检索
 
+```python
+# --- 4. 执行向量检索 ---
+print("\n--- 执行向量检索 ---")
+query_text = "关于AI和未来的技术"
+
+# 将查询文本转换为向量
+query_vector = model.encode(query_text).tolist()
+
+# 使用 knn 查询进行向量检索
+response = es.search(
+    index=index_name,
+    body={
+        "knn": {
+            "field": "text_vector",
+            "query_vector": query_vector,
+            "k": 3,
+            "num_candidates": 10
+        },
+        "fields": ["text"],  # 返回 text 字段
+        "_source": False  # 不返回整个文档源
+    }
+)
+```
+
 ### 混合检索
 
 ### 批量操作
