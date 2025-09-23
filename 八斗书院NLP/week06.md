@@ -13,10 +13,10 @@ sqlite3
 ```mermaid
 mindmap
 root
-  b1
-  11
-2
-  b2
-  13
-14
+b1
+  l1
+  l2
+b2
+  l3
+  l4
 ```
