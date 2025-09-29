@@ -33,3 +33,5 @@ SELECT * FROM bus_schedule WHERE src = '许昌' AND dest = '中山';
 ## 项目构建方案
 
 ![2025-09-27_10-03.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/f88f016d-2215-4b43-a90f-9a28878703cc.jpeg)
+
+该方案是早期的一个方案，这里槽位识别与意图识别分别使用两个bert模型
