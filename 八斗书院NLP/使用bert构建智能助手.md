@@ -455,3 +455,24 @@ def load_data(
 
 
 ### pandas数据集--> huggingface数据集
+
+```python
+    train_dataset,test_dataset = load_data()
+
+    model = Bert4TextAndTokenClassification.from_pretrained("../../bert-base-chinese", seq_num_labels=len(intents),
+                                                            token_num_labels=len(slots))
+
+    train_dataset = Dataset.from_pandas(train_dataset)
+    train_dataset = train_dataset.map(
+        tokenize_and_align_labels,
+        batched=True,
+        remove_columns=train_dataset.column_names  # 删除原始列
+    )
+
+    test_dataset = Dataset.from_pandas(test_dataset)
+    test_dataset = test_dataset.map(
+        tokenize_and_align_labels,
+        batched=True,
+        remove_columns=test_dataset.column_names
+    )
+```
