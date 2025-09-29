@@ -523,5 +523,44 @@ def tokenize_and_align_labels(examples):
 ### 设置训练参数
 
 ```python
+    training_args = TrainingArguments(
+        output_dir='./Results',
+        num_train_epochs=8,
+        per_device_train_batch_size=16,
+        per_device_eval_batch_size=16,
+        warmup_steps=500,
+        learning_rate=2e-5,
+        weight_decay=0.01,
+        logging_dir='./logs',
+        logging_steps=20,
+        eval_strategy="epoch",  # 修正
+        save_strategy="epoch",
+        save_total_limit=2,
+        load_best_model_at_end=True,
+        metric_for_best_model="f1_macro",
+        greater_is_better=True,
+        report_to="wandb",
+        run_name="my-Results-run",
+        logging_strategy="steps",
+        remove_unused_columns=False,  # 👈 关键！保留自定义列
+    )
 
+
+    # 实例化 Trainer
+    trainer = Trainer(
+        model=model,                         # 要训练的模型
+        args=training_args,                  # 训练参数
+        train_dataset=train_dataset,         # 训练数据集
+        eval_dataset=test_dataset,           # 评估数据集
+        compute_metrics=compute_metrics,     # 用于计算评估指标的函数
+    )
+
+    # 开始训练模型
+    trainer.train()
+    # 在测试集上进行最终评估
+    trainer.evaluate()
+    trainer.save_model("best")
+    print("Done")
 ```
+
+这里主要是需要注意
