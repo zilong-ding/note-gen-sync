@@ -243,6 +243,11 @@ if __name__ == "__main__":
         print(samples[i])
 ```
 
+生成的数据集如下：
+
+```python
+
+```
 
 ### bert模型构建
 
