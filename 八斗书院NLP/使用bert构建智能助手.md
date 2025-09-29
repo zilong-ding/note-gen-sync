@@ -245,3 +245,99 @@ if __name__ == "__main__":
 
 
 ### bert模型构建
+
+这里主要是模仿官方huggingface中bert不同下游任务模型的实现
+
+```python
+from dataclasses import dataclass
+from typing import Optional,Union,Tuple,Dict
+import torch
+import torch.nn as nn
+from transformers.modeling_outputs import ModelOutput
+from transformers import (
+    BertPreTrainedModel,
+    BertModel
+)
+@dataclass
+class SequenceAndTokenClassifierOutput(ModelOutput):
+    loss: Optional[torch.FloatTensor] = None
+    intent_logits: Optional[torch.FloatTensor] = None
+    slot_logits: Optional[torch.FloatTensor] = None
+    hidden_states: Optional[Tuple[torch.FloatTensor, ...]] = None
+    attentions: Optional[Tuple[torch.FloatTensor, ...]] = None
+
+
+class Bert4TextAndTokenClassification(BertPreTrainedModel):
+    def __init__(self, config, seq_num_labels, token_num_labels):
+        super().__init__(config)
+        self.seq_num_labels = seq_num_labels
+        self.token_num_labels = token_num_labels
+        self.config = config
+
+        self.bert = BertModel(config)
+        self.sequence_classification = nn.Sequential(
+            nn.Dropout(config.hidden_dropout_prob),
+            nn.Linear(config.hidden_size, seq_num_labels),
+        )
+        self.token_classification = nn.Sequential(
+            nn.Dropout(config.hidden_dropout_prob),
+            nn.Linear(config.hidden_size, token_num_labels),
+        )
+        self.post_init()
+
+    def forward(
+            self,
+            input_ids: Optional[torch.Tensor] = None,
+            attention_mask: Optional[torch.Tensor] = None,
+            token_type_ids: Optional[torch.Tensor] = None,
+            position_ids: Optional[torch.Tensor] = None,
+            head_mask: Optional[torch.Tensor] = None,
+            inputs_embeds: Optional[torch.Tensor] = None,
+            intent_labels: Optional[torch.Tensor] = None,
+            slot_labels: Optional[torch.Tensor] = None,
+            output_attentions: Optional[bool] = None,
+            output_hidden_states: Optional[bool] = None,
+            return_dict: Optional[bool] = None,
+    ) -> Union[Tuple[torch.Tensor], SequenceAndTokenClassifierOutput]:
+        return_dict = return_dict if return_dict is not None else self.config.use_return_dict
+
+        outputs = self.bert(
+            input_ids,
+            attention_mask=attention_mask,
+            token_type_ids=token_type_ids,
+            position_ids=position_ids,
+            head_mask=head_mask,
+            inputs_embeds=inputs_embeds,
+            output_attentions=output_attentions,
+            output_hidden_states=output_hidden_states,
+            return_dict=return_dict,
+        )
+
+        pooled_output = outputs[1]  # [CLS]
+        sequence_output = outputs[0]  # [batch, seq_len, hidden]
+
+        intent_logits = self.sequence_classification(pooled_output)
+        slot_logits = self.token_classification(sequence_output)
+
+        loss = None
+        if intent_labels is not None and slot_labels is not None:
+            # 意图：单标签分类 → CrossEntropyLoss
+            intent_loss = nn.CrossEntropyLoss()(intent_logits, intent_labels)
+            # 槽位：序列标注 → CrossEntropyLoss (ignore_index=-100)
+            slot_loss = nn.CrossEntropyLoss(ignore_index=-100)(
+                slot_logits.view(-1, self.token_num_labels), slot_labels.view(-1)
+            )
+            loss = intent_loss + 10*slot_loss
+
+        if not return_dict:
+            output = (intent_logits, slot_logits) + outputs[2:]
+            return ((loss,) + output) if loss is not None else output
+
+        return SequenceAndTokenClassifierOutput(
+            loss=loss,
+            intent_logits=intent_logits,
+            slot_logits=slot_logits,
+            hidden_states=outputs.hidden_states,
+            attentions=outputs.attentions,
+        )
+```
