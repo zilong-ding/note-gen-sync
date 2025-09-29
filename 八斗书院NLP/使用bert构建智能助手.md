@@ -563,4 +563,4 @@ def tokenize_and_align_labels(examples):
     print("Done")
 ```
 
-这里主要是需要注意
+这里主要是需要注意`training_args`的最后一个参数，
