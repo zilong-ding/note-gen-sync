@@ -476,3 +476,44 @@ def load_data(
         remove_columns=test_dataset.column_names
     )
 ```
+
+这里运用到了对齐函数，主要是槽位识别这里需要将token和label进行对齐
+
+```python
+def tokenize_and_align_labels(examples):
+    # 告诉 tokenizer 输入已是字符列表
+    tokenized_inputs = tokenizer(
+        [list(text) for text in examples["text"]],  # 按字切分
+        is_split_into_words=True,
+        padding=True,
+        truncation=True,
+        max_length=128
+    )
+
+    intent_labels = [intents2id[intent] for intent in examples["intent"]]
+
+    slot_labels = []
+    for i, label in enumerate(examples["slots_bio"]):
+        word_ids = tokenized_inputs.word_ids(batch_index=i)
+        previous_word_idx = None
+        label_ids = []
+        for word_idx in word_ids:
+            if word_idx is None:
+                # [CLS], [SEP], padding → -100
+                label_ids.append(-100)
+            elif word_idx != previous_word_idx:
+                # 首次出现的 token → 使用原始标签
+                label_ids.append(slots2id[label[word_idx]])
+            else:
+                # subword → -100（忽略）
+                label_ids.append(-100)
+            previous_word_idx = word_idx
+        slot_labels.append(label_ids)
+
+    return {
+        "input_ids": tokenized_inputs["input_ids"],
+        "attention_mask": tokenized_inputs["attention_mask"],
+        "intent_labels": intent_labels,
+        "slot_labels": slot_labels,
+    }
+```
