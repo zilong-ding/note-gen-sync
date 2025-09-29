@@ -730,3 +730,378 @@ def test():
 
 
 ## 完整训练和测试代码
+
+```python
+# 导入必要的库
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from typing import Optional,Union,Tuple,Dict,Set,List
+import torch
+import torch.nn as nn
+from model import Bert4TextAndTokenClassification
+from transformers import (
+    BertPreTrainedModel,
+    BertModel,
+    BertTokenizerFast,
+    BertForTokenClassification,
+    BertTokenizer,
+    BertForSequenceClassification,
+    Trainer,
+    DataCollatorForTokenClassification,
+
+    TrainingArguments)
+from datasets import Dataset
+import json
+from sklearn.metrics import accuracy_score, classification_report
+import numpy as np
+
+def tokenize_and_align_labels(examples):
+    # 告诉 tokenizer 输入已是字符列表
+    tokenized_inputs = tokenizer(
+        [list(text) for text in examples["text"]],  # 按字切分
+        is_split_into_words=True,
+        padding=True,
+        truncation=True,
+        max_length=128
+    )
+
+    intent_labels = [intents2id[intent] for intent in examples["intent"]]
+
+    slot_labels = []
+    for i, label in enumerate(examples["slots_bio"]):
+        word_ids = tokenized_inputs.word_ids(batch_index=i)
+        previous_word_idx = None
+        label_ids = []
+        for word_idx in word_ids:
+            if word_idx is None:
+                # [CLS], [SEP], padding → -100
+                label_ids.append(-100)
+            elif word_idx != previous_word_idx:
+                # 首次出现的 token → 使用原始标签
+                label_ids.append(slots2id[label[word_idx]])
+            else:
+                # subword → -100（忽略）
+                label_ids.append(-100)
+            previous_word_idx = word_idx
+        slot_labels.append(label_ids)
+
+    return {
+        "input_ids": tokenized_inputs["input_ids"],
+        "attention_mask": tokenized_inputs["attention_mask"],
+        "intent_labels": intent_labels,
+        "slot_labels": slot_labels,
+    }
+
+intents = ['QUERY', 'BOOK', 'COMPARE', 'CANCEL']
+intents2id = {intent: id for id, intent in enumerate(intents)}
+id2intents = {id: intent for intent, id in intents2id.items()}
+slots = ['O','B-Time','I-Time', 'B-SeatType','I-SeatType', 'B-VehicleTypes','I-VehicleTypes', 'B-Dest','I-Dest',
+         'B-booking_id','I-booking_id', 'B-VehicleType','I-VehicleType',
+         'B-Date','I-Date', 'B-PassengerCount', 'B-Src','I-Src',
+            ]
+slots2id = {slot: id for id, slot in enumerate(slots)}
+id2slots = {id: slot for slot, id in slots2id.items()}
+tokenizer = BertTokenizerFast.from_pretrained("../../bert-base-chinese")
+def load_data(
+    file_path: str = "train_data.jsonl",
+    test_size: float = 0.2,
+    random_state: int = 42
+) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    从 JSONL 文件加载数据，划分为训练集和测试集，并进行数据校验。
+
+    Args:
+        file_path: JSONL 文件路径
+        test_size: 测试集比例
+        random_state: 随机种子，确保可复现
+
+    Returns:
+        (train_df, test_df): 划分后的训练集和测试集 DataFrame
+
+    Raises:
+        AssertionError: 如果数据中的意图或槽位标签与预定义不一致
+        FileNotFoundError: 如果文件不存在
+        json.JSONDecodeError: 如果 JSON 格式错误
+    """
+    # 1. 加载数据
+    samples = []
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line_num, line in enumerate(f, 1):
+                line = line.strip()
+                if not line:
+                    continue  # 跳过空行
+                try:
+                    sample = json.loads(line)
+                    # 可选：校验必要字段
+                    if not all(k in sample for k in ["text", "intent", "slots_bio"]):
+                        raise ValueError(f"Missing keys in line {line_num}")
+                    samples.append(sample)
+                except json.JSONDecodeError as e:
+                    raise ValueError(f"Invalid JSON at line {line_num}: {e}")
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Data file not found: {file_path}")
+
+    if not samples:
+        raise ValueError("No valid samples loaded from the file.")
+
+    # 2. 转为 DataFrame 并校验标签
+    df = pd.DataFrame(samples)
+
+    # 校验意图标签
+    data_intents: Set[str] = set(df["intent"].unique())
+    expected_intents: Set[str] = set(intents)
+    if data_intents != expected_intents:
+        missing = expected_intents - data_intents
+        extra = data_intents - expected_intents
+        msg = []
+        if missing:
+            msg.append(f"Missing intents in data: {missing}")
+        if extra:
+            msg.append(f"Unexpected intents in data: {extra}")
+        raise AssertionError("Intent label mismatch!\n" + "\n".join(msg))
+
+    # 校验槽位标签
+    all_slot_tags: List[str] = [tag for tags in df["slots_bio"] for tag in tags]
+    data_slots: Set[str] = set(all_slot_tags)
+    expected_slots: Set[str] = set(slots)
+    if data_slots != expected_slots:
+        missing = expected_slots - data_slots
+        extra = data_slots - expected_slots
+        msg = []
+        if missing:
+            msg.append(f"Missing slot tags in data: {missing}")
+        if extra:
+            msg.append(f"Unexpected slot tags in data: {extra}")
+        raise AssertionError("Slot label mismatch!\n" + "\n".join(msg))
+
+    # 3. 划分数据集
+    train_df, test_df = train_test_split(
+        df,
+        test_size=test_size,
+        random_state=random_state,
+        stratify=df["intent"]  # 按意图分层抽样，保证分布一致
+    )
+
+    print(f"Total samples: {len(df)}")
+    print(f"Train samples: {len(train_df)}, Test samples: {len(test_df)}")
+
+    return train_df, test_df
+
+def compute_metrics(eval_pred):
+    intent_preds, slot_preds = eval_pred.predictions
+    intent_labels, slot_labels = eval_pred.label_ids
+    # 意图准确率
+    intent_preds = np.argmax(intent_preds, axis=1)
+    intent_acc = accuracy_score(intent_labels, intent_preds)
+    # 槽位 F1（需过滤 -100）
+    slot_preds = np.argmax(slot_preds, axis=2)
+    slot_preds_flat = []
+    slot_labels_flat = []
+    for p, l in zip(slot_preds, slot_labels):
+        for pi, li in zip(p, l):
+            if li != -100:
+                slot_preds_flat.append(pi)
+                slot_labels_flat.append(li)
+
+    slot_f1 = classification_report(
+        slot_labels_flat, slot_preds_flat,
+        output_dict=True, zero_division=0
+    )["macro avg"]["f1-score"]
+    return {
+        "intent_accuracy": intent_acc,
+        "slot_f1_macro": slot_f1,
+        "f1_macro": slot_f1
+    }
+
+def train():
+    train_dataset,test_dataset = load_data()
+
+    model = Bert4TextAndTokenClassification.from_pretrained("../../bert-base-chinese", seq_num_labels=len(intents),
+                                                            token_num_labels=len(slots))
+
+    train_dataset = Dataset.from_pandas(train_dataset)
+    train_dataset = train_dataset.map(
+        tokenize_and_align_labels,
+        batched=True,
+        remove_columns=train_dataset.column_names  # 删除原始列
+    )
+
+    test_dataset = Dataset.from_pandas(test_dataset)
+    test_dataset = test_dataset.map(
+        tokenize_and_align_labels,
+        batched=True,
+        remove_columns=test_dataset.column_names
+    )
+
+    training_args = TrainingArguments(
+        output_dir='./Results',
+        num_train_epochs=8,
+        per_device_train_batch_size=16,
+        per_device_eval_batch_size=16,
+        warmup_steps=500,
+        learning_rate=2e-5,
+        weight_decay=0.01,
+        logging_dir='./logs',
+        logging_steps=20,
+        eval_strategy="epoch",  # 修正
+        save_strategy="epoch",
+        save_total_limit=2,
+        load_best_model_at_end=True,
+        metric_for_best_model="f1_macro",
+        greater_is_better=True,
+        report_to="wandb",
+        run_name="my-Results-run",
+        logging_strategy="steps",
+        remove_unused_columns=False,  # 👈 关键！保留自定义列
+    )
+
+
+    # 实例化 Trainer
+    trainer = Trainer(
+        model=model,                         # 要训练的模型
+        args=training_args,                  # 训练参数
+        train_dataset=train_dataset,         # 训练数据集
+        eval_dataset=test_dataset,           # 评估数据集
+        compute_metrics=compute_metrics,     # 用于计算评估指标的函数
+    )
+
+    # 开始训练模型
+    trainer.train()
+    # 在测试集上进行最终评估
+    trainer.evaluate()
+    trainer.save_model("best")
+    print("Done")
+
+# # ======================
+# # 测试/推理函数
+# # ======================
+def predict_single(
+        text: str,
+        model: Bert4TextAndTokenClassification,
+        tokenizer: BertTokenizerFast,
+        id2intent: Dict[int, str],
+        id2slot: Dict[int, str],
+        max_length: int = 128
+) -> Dict[str, Union[str, Dict[str, str]]]:
+    inputs = tokenizer(
+        list(text),
+        is_split_into_words=True,
+        padding=True,
+        truncation=True,
+        max_length=max_length,
+        return_tensors="pt"
+    )
+    word_ids = inputs.word_ids(batch_index=0)
+
+    device = next(model.parameters()).device
+    inputs = {k: v.to(device) for k, v in inputs.items()}
+
+    with torch.no_grad():
+        outputs = model(**inputs)
+        intent_id = outputs.intent_logits.argmax(dim=1).item()
+        slot_ids = outputs.slot_logits.argmax(dim=2).squeeze().cpu().numpy()
+
+    intent = id2intent.get(intent_id, "UNKNOWN")
+
+    slots = {}
+    current_slot = None
+    current_value = []
+
+    for i, word_idx in enumerate(word_ids):
+        if word_idx is None:
+            continue
+        # 关键修复：转为 Python int
+        slot_id = int(slot_ids[i])
+        if slot_id not in id2slot:
+            continue
+
+        slot_label = id2slot[slot_id]
+        if slot_label == "O":
+            if current_slot is not None and current_value:
+                slots[current_slot] = "".join(current_value)
+            current_slot = None
+            current_value = []
+        elif slot_label.startswith("B-"):
+            if current_slot is not None and current_value:
+                slots[current_slot] = "".join(current_value)
+            current_slot = slot_label[2:]
+            current_value = [text[word_idx]]
+        elif slot_label.startswith("I-") and current_slot == slot_label[2:]:
+            current_value.append(text[word_idx])
+        else:
+            # 非法转移，结束当前槽
+            if current_slot is not None and current_value:
+                slots[current_slot] = "".join(current_value)
+            current_slot = None
+            current_value = []
+
+    if current_slot is not None and current_value:
+        slots[current_slot] = "".join(current_value)
+
+    return {
+        "text": text,
+        "intent": intent,
+        "slots": slots
+    }
+
+
+def test():
+    test_dataset, _ = load_data()
+    test_texts = test_dataset["text"]
+    test_dataset = Dataset.from_pandas(test_dataset)
+    test_dataset = test_dataset.map(
+        tokenize_and_align_labels,
+        batched=True,
+        remove_columns=test_dataset.column_names
+    )
+
+    model = Bert4TextAndTokenClassification.from_pretrained("best",
+                                                            seq_num_labels=len(intents),
+                                                            token_num_labels=len(slots))
+    model.eval()
+
+    print("🔄 Evaluating on test set...")
+    training_args = TrainingArguments(
+            output_dir="./tmp_eval",
+            per_device_eval_batch_size=16,
+            report_to="none",
+        )
+    trainer = Trainer(
+            model=model,
+            args=training_args,
+            eval_dataset=test_dataset,
+            compute_metrics=compute_metrics,
+            data_collator=DataCollatorForTokenClassification(tokenizer),
+        )
+
+    metrics = trainer.evaluate()
+    print("📊 Test Metrics:")
+    for key, value in metrics.items():
+        print(f"  {key}: {value:.4f}")
+
+        # 6. 单样本预测示例
+    print("\n🔍 Single prediction examples:")
+    # test_texts = [
+    #         "查询许昌到中山的飞机",
+    #         "我想订一张明天从北京到上海的高铁",
+    #         "比较广州到深圳坐飞机和火车哪个快",
+    #         "我要买周三从宁波到天津的火车票，3个人。"
+    #     ]
+
+    for text in test_texts:
+        result = predict_single(
+                text, model, tokenizer, id2intents, id2slots, 128
+            )
+        print(f"\n输入: {result['text']}")
+        print(f"意图: {result['intent']}")
+        print(f"槽位: {result['slots']}")
+
+if __name__ == "__main__":
+    # train()
+    test()
+
+```
