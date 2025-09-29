@@ -245,7 +245,10 @@ if __name__ == "__main__":
 
 生成的数据集如下：
 
-```python
+```json
+{"text": "武汉到肇庆的汽车什么时候发车？", "intent": "QUERY", "slots_bio": ["B-Src", "I-Src", "O", "B-Dest", "I-Dest", "O", "B-VehicleType", "I-VehicleType", "O", "O", "O", "O", "O", "O", "O"]}
+{"text": "从肇庆到上海的高铁有哪些？", "intent": "QUERY", "slots_bio": ["O", "B-Src", "I-Src", "O", "B-Dest", "I-Dest", "O", "B-VehicleType", "I-VehicleType", "O", "O", "O", "O"]}
+{"text": "查宁波到大连的动车班次。", "intent": "QUERY", "slots_bio": ["O", "B-Src", "I-Src", "O", "B-Dest", "I-Dest", "O", "B-VehicleType", "I-VehicleType", "O", "O", "O"]}
 
 ```
 
