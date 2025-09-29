@@ -353,6 +353,100 @@ class Bert4TextAndTokenClassification(BertPreTrainedModel):
 
 ### 加载数据集
 
-```json
+```python
+intents = ['QUERY', 'BOOK', 'COMPARE', 'CANCEL']
+intents2id = {intent: id for id, intent in enumerate(intents)}
+id2intents = {id: intent for intent, id in intents2id.items()}
+slots = ['O','B-Time','I-Time', 'B-SeatType','I-SeatType', 'B-VehicleTypes','I-VehicleTypes', 'B-Dest','I-Dest',
+         'B-booking_id','I-booking_id', 'B-VehicleType','I-VehicleType',
+         'B-Date','I-Date', 'B-PassengerCount', 'B-Src','I-Src',
+            ]
+slots2id = {slot: id for id, slot in enumerate(slots)}
+id2slots = {id: slot for slot, id in slots2id.items()}
+tokenizer = BertTokenizerFast.from_pretrained("../../bert-base-chinese")
+def load_data(
+    file_path: str = "train_data.jsonl",
+    test_size: float = 0.2,
+    random_state: int = 42
+) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    从 JSONL 文件加载数据，划分为训练集和测试集，并进行数据校验。
 
+    Args:
+        file_path: JSONL 文件路径
+        test_size: 测试集比例
+        random_state: 随机种子，确保可复现
+
+    Returns:
+        (train_df, test_df): 划分后的训练集和测试集 DataFrame
+
+    Raises:
+        AssertionError: 如果数据中的意图或槽位标签与预定义不一致
+        FileNotFoundError: 如果文件不存在
+        json.JSONDecodeError: 如果 JSON 格式错误
+    """
+    # 1. 加载数据
+    samples = []
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line_num, line in enumerate(f, 1):
+                line = line.strip()
+                if not line:
+                    continue  # 跳过空行
+                try:
+                    sample = json.loads(line)
+                    # 可选：校验必要字段
+                    if not all(k in sample for k in ["text", "intent", "slots_bio"]):
+                        raise ValueError(f"Missing keys in line {line_num}")
+                    samples.append(sample)
+                except json.JSONDecodeError as e:
+                    raise ValueError(f"Invalid JSON at line {line_num}: {e}")
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Data file not found: {file_path}")
+
+    if not samples:
+        raise ValueError("No valid samples loaded from the file.")
+
+    # 2. 转为 DataFrame 并校验标签
+    df = pd.DataFrame(samples)
+
+    # 校验意图标签
+    data_intents: Set[str] = set(df["intent"].unique())
+    expected_intents: Set[str] = set(intents)
+    if data_intents != expected_intents:
+        missing = expected_intents - data_intents
+        extra = data_intents - expected_intents
+        msg = []
+        if missing:
+            msg.append(f"Missing intents in data: {missing}")
+        if extra:
+            msg.append(f"Unexpected intents in data: {extra}")
+        raise AssertionError("Intent label mismatch!\n" + "\n".join(msg))
+
+    # 校验槽位标签
+    all_slot_tags: List[str] = [tag for tags in df["slots_bio"] for tag in tags]
+    data_slots: Set[str] = set(all_slot_tags)
+    expected_slots: Set[str] = set(slots)
+    if data_slots != expected_slots:
+        missing = expected_slots - data_slots
+        extra = data_slots - expected_slots
+        msg = []
+        if missing:
+            msg.append(f"Missing slot tags in data: {missing}")
+        if extra:
+            msg.append(f"Unexpected slot tags in data: {extra}")
+        raise AssertionError("Slot label mismatch!\n" + "\n".join(msg))
+
+    # 3. 划分数据集
+    train_df, test_df = train_test_split(
+        df,
+        test_size=test_size,
+        random_state=random_state,
+        stratify=df["intent"]  # 按意图分层抽样，保证分布一致
+    )
+
+    print(f"Total samples: {len(df)}")
+    print(f"Train samples: {len(train_df)}, Test samples: {len(test_df)}")
+
+    return train_df, test_df
 ```
