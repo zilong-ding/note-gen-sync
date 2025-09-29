@@ -565,7 +565,7 @@ def tokenize_and_align_labels(examples):
 
 这里主要是需要注意`training_args`的最后一个参数，必须设置为False，不然huggingface会默认删除掉不认识的列。
 
-然后这里在训练过程中有评估函数
+然后这里在训练过程中有评估函数，评估函数如下
 
 ```python
 def compute_metrics(eval_pred):
@@ -596,6 +596,8 @@ def compute_metrics(eval_pred):
 ```
 
 主要是评估意图识别的准确率和槽位识别的f1-macro。
+
+这里使用的wandb进行训练可视化，可视化结果如下
 
 
 ### 测试函数
