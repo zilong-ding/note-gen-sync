@@ -7,3 +7,25 @@
 不是闲聊助手，理解查询意图，并将其转化为计算机可以精确处理和执行的结构化数据。
 
 这里构建导航助手
+
+## 输入和输出
+
+原始输入（text）: “查询许昌到中山的汽车。”
+
+语义解析输出（Structured Data）:
+
+```python
+intent： 意图 （用户提问的类型）
+QUERY（查询）、BOOK（预订）、CANCEL（取消）、COMPARE（对比）
+domain： 领域
+slots：槽位（实体）
+{ “Dest”: “中山”, “Src”: “许昌” }
+```
+
+结构化查询
+
+```sql
+SELECT * FROM bus_schedule WHERE src = '许昌' AND dest = '中山';
+```
+
+组织为自然语言 -》 输出
