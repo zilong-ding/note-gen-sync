@@ -450,3 +450,5 @@ def load_data(
 
     return train_df, test_df
 ```
+
+这里是从json文件中读取并转为了pandas的格式
