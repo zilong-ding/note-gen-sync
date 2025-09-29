@@ -563,4 +563,10 @@ def tokenize_and_align_labels(examples):
     print("Done")
 ```
 
-这里主要是需要注意`training_args`的最后一个参数，
+这里主要是需要注意`training_args`的最后一个参数，必须设置为False，不然huggingface会默认删除掉不认识的列。
+
+然后这里在训练过程中有评估函数
+
+```python
+
+```
