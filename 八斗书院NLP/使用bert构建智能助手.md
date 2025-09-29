@@ -603,5 +603,78 @@ def compute_metrics(eval_pred):
 #### 单文本测试
 
 ```python
+def predict_single(
+        text: str,
+        model: Bert4TextAndTokenClassification,
+        tokenizer: BertTokenizerFast,
+        id2intent: Dict[int, str],
+        id2slot: Dict[int, str],
+        max_length: int = 128
+) -> Dict[str, Union[str, Dict[str, str]]]:
+    inputs = tokenizer(
+        list(text),
+        is_split_into_words=True,
+        padding=True,
+        truncation=True,
+        max_length=max_length,
+        return_tensors="pt"
+    )
+    word_ids = inputs.word_ids(batch_index=0)
+
+    device = next(model.parameters()).device
+    inputs = {k: v.to(device) for k, v in inputs.items()}
+
+    with torch.no_grad():
+        outputs = model(**inputs)
+        intent_id = outputs.intent_logits.argmax(dim=1).item()
+        slot_ids = outputs.slot_logits.argmax(dim=2).squeeze().cpu().numpy()
+
+    intent = id2intent.get(intent_id, "UNKNOWN")
+
+    slots = {}
+    current_slot = None
+    current_value = []
+
+    for i, word_idx in enumerate(word_ids):
+        if word_idx is None:
+            continue
+        # 关键修复：转为 Python int
+        slot_id = int(slot_ids[i])
+        if slot_id not in id2slot:
+            continue
+
+        slot_label = id2slot[slot_id]
+        if slot_label == "O":
+            if current_slot is not None and current_value:
+                slots[current_slot] = "".join(current_value)
+            current_slot = None
+            current_value = []
+        elif slot_label.startswith("B-"):
+            if current_slot is not None and current_value:
+                slots[current_slot] = "".join(current_value)
+            current_slot = slot_label[2:]
+            current_value = [text[word_idx]]
+        elif slot_label.startswith("I-") and current_slot == slot_label[2:]:
+            current_value.append(text[word_idx])
+        else:
+            # 非法转移，结束当前槽
+            if current_slot is not None and current_value:
+                slots[current_slot] = "".join(current_value)
+            current_slot = None
+            current_value = []
+
+    if current_slot is not None and current_value:
+        slots[current_slot] = "".join(current_value)
+
+    return {
+        "text": text,
+        "intent": intent,
+        "slots": slots
+    }
+```
+
+#### 批量测试
+
+```python
 
 ```
