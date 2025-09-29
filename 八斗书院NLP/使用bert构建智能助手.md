@@ -460,7 +460,7 @@ def load_data(
     train_dataset,test_dataset = load_data()
 
     model = Bert4TextAndTokenClassification.from_pretrained("../../bert-base-chinese", seq_num_labels=len(intents),
-                                                            token_num_labels=len(slots))
+                                              token_num_labels=len(slots))
 
     train_dataset = Dataset.from_pandas(train_dataset)
     train_dataset = train_dataset.map(
