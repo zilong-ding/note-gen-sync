@@ -29,3 +29,6 @@ SELECT * FROM bus_schedule WHERE src = '许昌' AND dest = '中山';
 ```
 
 组织为自然语言 -》 输出
+
+
+## 项目构建方案
