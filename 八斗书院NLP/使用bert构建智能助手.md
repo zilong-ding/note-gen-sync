@@ -568,5 +568,31 @@ def tokenize_and_align_labels(examples):
 然后这里在训练过程中有评估函数
 
 ```python
+def compute_metrics(eval_pred):
+    intent_preds, slot_preds = eval_pred.predictions
+    intent_labels, slot_labels = eval_pred.label_ids
+    # 意图准确率
+    intent_preds = np.argmax(intent_preds, axis=1)
+    intent_acc = accuracy_score(intent_labels, intent_preds)
+    # 槽位 F1（需过滤 -100）
+    slot_preds = np.argmax(slot_preds, axis=2)
+    slot_preds_flat = []
+    slot_labels_flat = []
+    for p, l in zip(slot_preds, slot_labels):
+        for pi, li in zip(p, l):
+            if li != -100:
+                slot_preds_flat.append(pi)
+                slot_labels_flat.append(li)
 
+    slot_f1 = classification_report(
+        slot_labels_flat, slot_preds_flat,
+        output_dict=True, zero_division=0
+    )["macro avg"]["f1-score"]
+    return {
+        "intent_accuracy": intent_acc,
+        "slot_f1_macro": slot_f1,
+        "f1_macro": slot_f1
+    }
 ```
+
+主要是评估意图识别的准确率和
