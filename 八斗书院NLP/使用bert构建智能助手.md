@@ -596,3 +596,12 @@ def compute_metrics(eval_pred):
 ```
 
 主要是评估意图识别的准确率和槽位识别的f1-macro。
+
+
+### 测试函数
+
+#### 单文本测试
+
+```python
+
+```
