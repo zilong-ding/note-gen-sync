@@ -599,6 +599,7 @@ def compute_metrics(eval_pred):
 
 这里使用的wandb进行训练可视化，可视化结果如下
 
+![2025-09-29_09-30.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b4a668c2-46ff-42eb-bc3b-975671c79b3b.jpeg)
 
 ### 测试函数
 
@@ -729,6 +730,8 @@ def test():
         print(f"意图: {result['intent']}")
         print(f"槽位: {result['slots']}")
 ```
+
+部分测试结果如下：
 
 
 ## 完整训练和测试代码
