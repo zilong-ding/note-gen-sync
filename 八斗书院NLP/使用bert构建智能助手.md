@@ -451,4 +451,4 @@ def load_data(
     return train_df, test_df
 ```
 
-这里是从json文件中读取并转为了pandas的格式
+这里是从json文件中读取并转为了pandas的格式，一个是pandas在pycharm中调试观察很方便，在再一个是pandas转其他格式也很方便。
