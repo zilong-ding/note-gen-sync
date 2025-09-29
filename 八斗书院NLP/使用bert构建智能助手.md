@@ -676,5 +676,57 @@ def predict_single(
 #### 批量测试
 
 ```python
+def test():
+    test_dataset, _ = load_data()
+    test_texts = test_dataset["text"]
+    test_dataset = Dataset.from_pandas(test_dataset)
+    test_dataset = test_dataset.map(
+        tokenize_and_align_labels,
+        batched=True,
+        remove_columns=test_dataset.column_names
+    )
 
+    model = Bert4TextAndTokenClassification.from_pretrained("best",
+                                                            seq_num_labels=len(intents),
+                                                            token_num_labels=len(slots))
+    model.eval()
+
+    print("🔄 Evaluating on test set...")
+    training_args = TrainingArguments(
+            output_dir="./tmp_eval",
+            per_device_eval_batch_size=16,
+            report_to="none",
+        )
+    trainer = Trainer(
+            model=model,
+            args=training_args,
+            eval_dataset=test_dataset,
+            compute_metrics=compute_metrics,
+            data_collator=DataCollatorForTokenClassification(tokenizer),
+        )
+
+    metrics = trainer.evaluate()
+    print("📊 Test Metrics:")
+    for key, value in metrics.items():
+        print(f"  {key}: {value:.4f}")
+
+        # 6. 单样本预测示例
+    print("\n🔍 Single prediction examples:")
+    # test_texts = [
+    #         "查询许昌到中山的飞机",
+    #         "我想订一张明天从北京到上海的高铁",
+    #         "比较广州到深圳坐飞机和火车哪个快",
+    #         "我要买周三从宁波到天津的火车票，3个人。"
+    #     ]
+
+    for text in test_texts:
+        result = predict_single(
+                text, model, tokenizer, id2intents, id2slots, 128
+            )
+        print(f"\n输入: {result['text']}")
+        print(f"意图: {result['intent']}")
+        print(f"槽位: {result['slots']}")
 ```
+
+
+## 完整训练和测试代码
