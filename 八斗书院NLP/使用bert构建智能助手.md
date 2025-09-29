@@ -517,3 +517,11 @@ def tokenize_and_align_labels(examples):
         "slot_labels": slot_labels,
     }
 ```
+
+这里我们已经成功将数据集转为huggingface中trainer可以用来训练的格式
+
+### 设置训练参数
+
+```python
+
+```
