@@ -119,3 +119,7 @@ Integrations：第三方服务集成（Wikipedia, Google Search, SQL, Zapier 等
 | Reflexion                        | Multimodal CoT                | Graph Prompting                |
 
 ## AI agents
+
+A!Agent(或简称为Agent)是建立在大语言模型之上的智能应用，是将人工智能与特定场景深度结合的重要方式。Agent模仿人类“思考-行动-观察”的规划模式，具备自主思考和自主决策的能力，能够适应环境的变化，自主学习和改进，完成用户设定的目标。
+
+与大语言模型的对话应用不同，Agent的突出特点是主动性，在行为上表现为多步操作、多角色会话、多轮迭代、反复修正答案以及调用外部资源的能力。
