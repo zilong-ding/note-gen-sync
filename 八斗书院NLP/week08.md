@@ -105,11 +105,9 @@ Callbacks：用于日志、监控、流式输出、调试（如 LangSmith 集成
 Tools：Agent 调用的具体函数（如搜索、计算、数据库查询）。
 Integrations：第三方服务集成（Wikipedia, Google Search, SQL, Zapier 等）。
 
+## 提示词工程
 
-
-
-提示词工程
-
+![2025-10-13_11-03.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/9615c922-0382-4026-8153-c11d7da6648f.jpeg)
 
 
 | Zero-shot Prompting              | Few-shot Prompting            | Chain-of-Thought L Prompting   |
