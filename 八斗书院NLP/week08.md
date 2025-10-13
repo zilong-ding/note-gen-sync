@@ -108,11 +108,16 @@ Integrations：第三方服务集成（Wikipedia, Google Search, SQL, Zapier 等
 
 
 
+提示词工程
 
 
 
-
-
-
+| Zero-shot Prompting              | Few-shot Prompting            | Chain-of-Thought L Prompting   |
+| -------------------------------- | ----------------------------- | ------------------------------ |
+| Meta Prompting                   | Self-Consistency              | Generate Knowledge Prompting   |
+| Prompt Chaining                  | Tree of Thoughts              | Retrieval Augmented Generation |
+| Automatic Reasoning and Tool-use | Automatic Prompt Engineer     | Active-Prompt                  |
+| Directional Stimulus Prompting   | Program-Aided Language Models | ReAct                          |
+| Reflexion                        | Multimodal CoT                | Graph Prompting                |
 
 ## AI agents
