@@ -140,3 +140,105 @@ Tracing（追踪）：记录应用程序从输入到输出所执行步骤的过�
 Evaluation（评估）：评估 AI 应用性能和有效性的过程。包括根据一组预定义标准或基准测试模型响应，以确保其达到所需质量标准并实现预期目标。该过程对构建可靠应用至关重要。
 
 Testing（测试）：验证集成或应用程序的某个组件是否按预期工作的过程。测试对于确保应用行为正确、以及确保代码变更不会引入新 bug 至关重要。
+
+
+
+## 术语表
+
+AIMessageChunk：AI 消息的部分响应。用于在从聊天模型流式输出响应时使用。
+
+AIMessage：表示来自 AI 模型的完整响应。
+
+astream_events：从 LCEL 链中流式输出细粒度信息。
+
+BaseTool：LangChain 中所有工具的基类。
+
+batch：用于以批处理输入方式执行一个 Runnable。
+
+bind_tools：允许模型与工具进行交互。
+
+Caching（缓存）：存储结果以避免对聊天模型进行冗余调用。
+
+Chat models（聊天模型）：支持多种数据模态的聊天模型。
+
+Configurable runnables（可配置的 Runnable）：创建可配置的 Runnable。
+
+Context window（上下文窗口）：聊天模型可处理的最大输入长度。
+
+Conversation patterns（对话模式）：聊天交互中的常见模式。
+
+Document（文档）：LangChain 对文档的表示形式。
+
+Embedding models（嵌入模型）：为各种数据类型生成向量嵌入的模型。
+
+HumanMessage：表示来自人类用户的消息。
+
+InjectedState：注入到工具函数中的状态。
+
+InjectedStore：可注入到工具中用于数据持久化的存储。
+
+InjectedToolArg：向工具函数注入参数的机制。
+
+input and output types（输入和输出类型）：Runnable 中使用的输入和输出类型。
+
+Integration packages（集成包）：与 LangChain 集成的第三方包。
+
+Integration tests（集成测试）：验证组件间交互正确性的测试，通常在可访问底层 API（驱动该集成）的环境下运行。
+
+invoke：调用 Runnable 的标准方法。
+
+JSON mode（JSON 模式）：以 JSON 格式返回响应。
+
+langchain-community：LangChain 的社区驱动组件。
+
+langchain-core：LangChain 的核心包，包含基础接口和内存中的实现。
+
+langchain：提供高层组件的包（例如一些预构建的链）。
+
+langgraph：LangChain 的强大编排层，用于构建复杂的流水线和工作流。
+
+langserve：用于将 LangChain Runnable 部署为 REST 端点，基于 FastAPI。主要适用于 LangChain Runnable，目前尚未与 LangGraph 集成。
+
+LLMs (legacy)（传统 LLM）：较旧的语言模型，接受字符串输入并返回字符串输出。
+
+Managing chat history（管理聊天历史）：维护和管理聊天历史的技术。
+
+OpenAI format（OpenAI 格式）：OpenAI 聊天模型所采用的消息格式。
+
+Propagation of RunnableConfig（RunnableConfig 的传播）：在 Runnable 之间传递配置信息。若使用 Python 3.9、3.10 或异步编程，请阅读相关内容。
+
+rate-limiting（速率限制）：针对聊天模型的客户端限流机制。
+
+RemoveMessage：用于从聊天历史中移除一条消息的抽象，主要在 LangGraph 中使用。
+
+role（角色）：表示聊天消息的角色（例如 user、assistant）。
+
+RunnableConfig：用于向 Runnable 传递运行时信息（例如 run_name、run_id、tags、metadata、max_concurrency、recursion_limit、configurable）。
+
+Standard parameters for chat models（聊天模型的标准参数）：如 API key、temperature、max_tokens 等参数。
+
+Standard tests（标准测试）：所有集成必须通过的一组定义好的单元测试和集成测试。
+
+stream：用于从 Runnable 或图（graph）中流式输出结果。
+
+Tokenization（分词）：将数据转换为 token（以及反向转换）的过程。
+
+Tokens（Token）：语言模型在底层读取、处理和生成的基本单位。
+
+Tool artifacts（工具产物）：向工具输出中添加不会发送给模型、但可供下游处理使用的产物（artifacts）。
+
+Tool binding（工具绑定）：将工具绑定到模型上。
+
+@tool：用于在 LangChain 中创建工具的装饰器。
+
+Toolkits（工具包）：一组可协同使用的工具集合。
+
+ToolMessage：表示包含工具执行结果的消息。
+
+Unit tests（单元测试）：验证单个组件正确性的测试，在隔离环境中运行，无需访问互联网。
+
+Vector stores（向量存储）：专用于存储和高效搜索向量嵌入的数据存储。
+
+with_structured_output：一个辅助方法，适用于原生支持工具调用的聊天模型，用于获取符合指定 schema（通过 Pydantic、JSON schema 或函数定义）的结构化输出。
+
+with_types：用于覆盖 Runnable 的输入和输出类型的方法。在处理复杂的 LCEL 链或使用 LangServe 部署时非常有用。
