@@ -8,6 +8,8 @@ Neo4j使用一种名为Cypher的声明性查询语言，这种语专门设计用
 
 Neo4j提供ACID(原子性、一致性、隔离性和持久性)务支持，确保数据的完整性和一致性。
 
+![2025-10-13_09-55.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/1b98a6c2-5418-4af0-9856-2f12f77fba0c.jpeg)
+
 ## NebulaGraph
 
 NebulaGraph:是一个分布式、可扩展、高性能的图数据库，旨在有效地存储和检索庞大的图网络中的信息。图数据库，如NebulaGraph,专注于通过在标记的属性图中将数据表示为顶点（节点）和边缘（关系）来管理实体之间的关系。顶点和边缘都可以附有属性，并且顶点可以带有一个或多个标签。
