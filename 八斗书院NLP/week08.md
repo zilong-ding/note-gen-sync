@@ -123,3 +123,26 @@ Integrations：第三方服务集成（Wikipedia, Google Search, SQL, Zapier 等
 A!Agent(或简称为Agent)是建立在大语言模型之上的智能应用，是将人工智能与特定场景深度结合的重要方式。Agent模仿人类“思考-行动-观察”的规划模式，具备自主思考和自主决策的能力，能够适应环境的变化，自主学习和改进，完成用户设定的目标。
 
 与大语言模型的对话应用不同，Agent的突出特点是主动性，在行为上表现为多步操作、多角色会话、多轮迭代、反复修正答案以及调用外部资源的能力。
+
+![2025-10-13_11-09.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/28da65f8-9b1b-45f0-8122-e124acc7d45a.jpeg)
+
+LLM 智能体系统划分为三大核心组件：
+
+1. 规划（Planning）
+   任务分解：通过 Chain of Thought（CoT）、Tree of Thoughts（ToT）等方法，将复杂任务拆解为可管理的子目标。
+   外部规划器集成：如 LLM+P 方法，利用经典规划语言（PDDL）将长期规划任务外包给外部规划器。
+   自我反思（Self-Reflection）：
+   ReAct：结合推理（Thought）与行动（Action），通过与环境交互（如调用 API）提升决策质量。
+   Reflexion：引入动态记忆与反思机制，在失败后生成改进策略并重试。
+   Chain of Hindsight（CoH） 与 Algorithm Distillation（AD）：利用历史反馈或强化学习轨迹训练模型，使其具备从过去经验中学习并持续改进的能力。
+2. 记忆（Memory）
+   短时记忆：对应 Transformer 的上下文窗口，用于 in-context learning。
+   长时记忆：通过外部向量数据库（如 FAISS、HNSW）实现无限容量的信息存储与快速检索。
+   检索机制：采用最大内积搜索（MIPS）和近似最近邻（ANN）算法（如 LSH、ANNOY、ScaNN）高效访问相关记忆。
+3. 工具使用（Tool Use）
+   LLM 可调用外部工具（如计算器、搜索引擎、代码执行环境、API）以弥补其知识或能力局限。
+   典型框架包括：
+   MRKL：模块化架构，LLM 作为路由器调用专家模块。
+   Toolformer / TALM：通过微调让模型学会插入 API 调用。
+   HuggingGPT：利用 ChatGPT 规划任务，并调度 HuggingFace 上的专用模型执行。
+   API-Bank：提供包含 53 个 API 的评测基准，评估智能体在“是否调用”“如何检索”“如何规划多步调用”三个层级的能力。
