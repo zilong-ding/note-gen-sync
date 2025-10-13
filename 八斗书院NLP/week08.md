@@ -32,4 +32,80 @@ LangChain是一个用于开发由语言模型区动的应用程序的框架。�
 
 ![2025-10-13_10-01.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b8e6951b-cec3-4d84-bda7-c3ec6932aaac.jpeg)
 
+1️⃣ Models（模型层） —— 黄色区域
+这是所有 LLM 应用的基础，负责与语言模型交互。
+
+LLMs：基础大语言模型接口（如 OpenAI, HuggingFaceHub），输入文本 → 输出文本。
+Chat Models：专为对话设计的模型接口（如 ChatOpenAI），支持角色消息（system/user/assistant）。
+Embeddings：用于文本向量化，是检索系统（RAG）的核心，如 OpenAIEmbeddings, HuggingFaceEmbeddings。
+✅ 注意：虽然 Embeddings 不是“生成模型”，但它是 LangChain 中与模型紧密关联的重要组件，常用于检索增强。
+
+2️⃣ Prompts（提示工程） —— 粉红色区域
+用于构造、管理和优化发送给模型的提示词。
+
+templates：PromptTemplate，支持变量插值（如 "Hello {name}"）。
+few-shot examples：少样本学习示例，提高模型表现。
+example selector：动态选择最相关的 few-shot 示例（如基于语义相似度）。
+（省略号表示还有其他提示相关组件，如 ChatPromptTemplate、OutputParser 等）
+💡 Prompt 是控制 LLM 行为的关键，好的 prompt 能显著提升输出质量。
+
+3️⃣ Indexes（索引与检索） —— 蓝色区域
+用于构建和管理外部知识库，支撑 RAG（Retrieval-Augmented Generation）应用。
+
+document loaders：加载各种格式文档（PDF、网页、CSV 等）。
+text splitters：切分长文本为 chunk（如 RecursiveCharacterTextSplitter）。
+vectorstores：存储向量的数据库（FAISS, Chroma, Pinecone, Weaviate）。
+retrievers：封装检索逻辑，根据 query 返回最相关的文档块。
+（省略号表示更多检索策略或工具）
+🔍 这部分是 LangChain 实现“知识增强”的核心，让 LLM 可以引用外部信息回答问题。
+
+4️⃣ Memory（记忆） —— 紫色区域
+用于在链或代理执行过程中保存状态（如对话历史、中间结果）。
+
+ConversationBufferMemory：缓存全部对话历史。
+ConversationBufferWindowMemory：只保留最近 N 条对话。
+ConversationTokenBufferMemory：按 token 数限制历史长度。
+ConversationSummaryMemory：用 LLM 总结历史，节省上下文。
+VectorStoreBackedMemory：结合向量数据库实现长期记忆检索。
+（其他如 EntityMemory 等未列出）
+🧠 Memory 让应用具备“上下文感知”能力，是构建多轮对话系统的必备组件。
+
+5️⃣ Chains（链） —— 灰色区域
+将多个组件串联成可复用的工作流。
+
+LLMChain：最基础链，组合 Prompt + LLM。
+RouterChain：根据输入路由到不同子链。
+SimpleSequentialChain / SequentialChain：按顺序执行多个链。
+TransformChain：对输入/输出做转换处理。
+（省略号表示更多高级链类型，如 RetrievalQAChain、ConversationalRetrievalChain 等）
+🔄 Chain 是 LangChain 的“粘合剂”，让开发者可以像搭积木一样组合功能。
+
+6️⃣ Agents（智能体） —— 绿色虚线框区域
+让 LLM 具备“自主决策 + 工具调用”能力，实现复杂任务自动化。
+
+主要 Agent 类型：
+Conversational Agents：支持多轮对话 + 工具调用。
+OpenAI Functions：调用 OpenAI 的 function calling 功能。
+Self Ask with Search：先自我提问，再搜索答案。
+Action Agents：通用术语，指能执行动作的 agent（如 ReAct）。
+Plan-and-execute agents：先规划步骤，再逐步执行（适合复杂任务）。
+🤖 Agent = LLM + Tools + Reasoning Loop。它让模型从“被动响应”变成“主动解决问题”。
+
+7️⃣ 隐含组件：Callbacks & Utilities（未在图中显式列出）
+虽然图中没有单独列出，但在实际开发中非常重要：
+
+Callbacks：用于日志、监控、流式输出、调试（如 LangSmith 集成）。
+Tools：Agent 调用的具体函数（如搜索、计算、数据库查询）。
+Integrations：第三方服务集成（Wikipedia, Google Search, SQL, Zapier 等）。
+
+
+
+
+
+
+
+
+
+
+
 ## AI agents
