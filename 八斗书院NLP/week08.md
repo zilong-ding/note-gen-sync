@@ -16,6 +16,8 @@ NebulaGraph支持流行的编程语言，如Java、Python、 C++和G0,旨在为�
 
 NebulaGraph查询语言(nGQL)是一种声明性的、兼容 OpenCypher的文本查询语言，易于理解和使用，用于查询图数据。
 
+![2025-10-13_09-54.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/821c8c71-56d0-42a5-af46-402ec9a7afa6.jpeg)
+
 ## langchain
 
 ## AI agents
