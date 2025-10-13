@@ -22,4 +22,12 @@ NebulaGraph查询语言(nGQL)是一种声明性的、兼容 OpenCypher的文本�
 
 ## langchain
 
+LangChain是一个用于开发由语言模型区动的应用程序的框架。我们相信，最强大和不同的应用程序不仅将通过API调用语言模型：
+
+组件：LangChain为处理语言模型所需的组件提供模块化的抽象。LangChain还为所有这些抽象提供了实现的集合。这些组件旨在易于使用，无论您是否使用LangChain框架的其余部分。
+
+用例特定链：链可以被看作是以特定方式组装这些组件，以便最好地完成特定用例。这旨在成为一个更高级别的接口，使人们可以轻松地开始特定的用例。这些链也旨在可定制化。
+
+![2025-10-13_10-01.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b8e6951b-cec3-4d84-bda7-c3ec6932aaac.jpeg)
+
 ## AI agents
