@@ -28,6 +28,8 @@ LangChain是一个用于开发由语言模型区动的应用程序的框架。�
 
 用例特定链：链可以被看作是以特定方式组装这些组件，以便最好地完成特定用例。这旨在成为一个更高级别的接口，使人们可以轻松地开始特定的用例。这些链也旨在可定制化。
 
+### langchain中的组件结构
+
 ![2025-10-13_10-01.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b8e6951b-cec3-4d84-bda7-c3ec6932aaac.jpeg)
 
 ## AI agents
