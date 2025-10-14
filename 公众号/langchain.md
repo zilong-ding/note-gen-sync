@@ -23,6 +23,8 @@ LangChain 提供了两大核心能力：
 
 LangChain 的架构如同一套“智能乐高”，由七大模块构成，各司其职又紧密协作。
 
+![2025-10-13_10-01.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/b8e6951b-cec3-4d84-bda7-c3ec6932aaac.jpeg)
+
 ### 1️⃣ 模型层（Models）—— 黄色区域
 
 **与语言模型交互的入口**
