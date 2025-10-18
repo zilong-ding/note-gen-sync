@@ -18,6 +18,9 @@ $$
 z_{n}=(2n-1)/N-1\text{(1)}\\x_{n}=\sqrt{1-z_{n}^{2}}\cdot\cos(2\pi n\phi)\quad(2)\\y_{n}=\sqrt{1-z_{n}^{2}}\cdot\sin(2\pi n\phi)\quad(3)
 $$
 
+$$
+\text{其中常数}\phi=(\sqrt5-1)/2\approx0.618\text{正是黄金分割比}^+。
+$$
 
 
 ## 第三步：标定相机内参
