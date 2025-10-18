@@ -14,6 +14,9 @@
 
 ## 第二步：使用斐波那契网格采样的方法生成标定板位姿
 
+$$
+z_{n}=(2n-1)/N-1\text{(1)}\\x_{n}=\sqrt{1-z_{n}^{2}}\cdot\cos(2\pi n\phi)\quad(2)\\y_{n}=\sqrt{1-z_{n}^{2}}\cdot\sin(2\pi n\phi)\quad(3)
+$$
 
 
 
