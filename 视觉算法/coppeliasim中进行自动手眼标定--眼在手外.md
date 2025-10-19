@@ -11,6 +11,12 @@
 
 ### 设置机器人和相机
 
+这里选择的是ABB4600的机器人，导入后删除其自带的示例脚本
+
+![2025-10-19_08-41.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/e678e9ec-ec34-4e8f-a7d2-b6d8c71f9afd.jpeg)
+
+相机设置了两个一个专门负责彩色图，另一个专门负责深度图，当然这里我们只使用彩色图
+
 
 ### 设置标定板
 
