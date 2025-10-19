@@ -17,6 +17,10 @@
 
 相机设置了两个一个专门负责彩色图，另一个专门负责深度图，当然这里我们只使用彩色图
 
+![2025-10-19_08-46.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/d772614a-b747-4fb5-bf80-770f04d07aab.jpeg)
+
+彩色相机设置
+
 
 ### 设置标定板
 
