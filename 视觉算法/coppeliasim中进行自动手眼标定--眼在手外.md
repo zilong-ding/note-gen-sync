@@ -9,6 +9,10 @@
 
 ## 第一步：搭建仿真环境
 
+### 设置机器人和相机
+
+
+### 设置标定板
 
 
 
@@ -22,6 +26,7 @@ $$
 \text{其中常数}\phi=(\sqrt5-1)/2\approx0.618\text{正是黄金分割比}^+。
 $$
 
+![2025-10-19_08-39.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/853c6e52-212b-4b02-965a-ae5411c8cb40.jpeg)
 
 ## 第三步：标定相机内参
 
