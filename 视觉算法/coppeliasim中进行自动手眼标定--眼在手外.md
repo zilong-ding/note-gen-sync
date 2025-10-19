@@ -21,6 +21,10 @@
 
 彩色相机设置
 
+![2025-10-19_08-46_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/dd31d755-bd30-44d0-8e22-5476f8e5aa23.jpeg)
+
+深度相机设置
+
 
 ### 设置标定板
 
