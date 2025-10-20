@@ -25,9 +25,13 @@
 
 深度相机设置
 
+![2025-10-19_08-47.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/8050d62d-06eb-422e-9732-1efe2b4f9805.jpeg)
 
 ### 设置标定板
 
+先进入标定板生成网站生成标定板
+
+![2025-10-20_08-50.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/d01042bd-47fd-4191-be8e-57bc31ee70f4.jpeg)
 
 
 ## 第二步：使用斐波那契网格采样的方法生成标定板位姿
