@@ -33,7 +33,9 @@
 
 ![2025-10-20_08-50.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/d01042bd-47fd-4191-be8e-57bc31ee70f4.jpeg)
 
-下载之后转为图片格式
+下载之后转为图片格式。在coppeliasim中设置一个长方体，设置纹理
+
+![2025-10-20_08-52.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/3f6e8626-b865-4b89-a5a0-49f0b56fa7a0.jpeg)
 
 
 ## 第二步：使用斐波那契网格采样的方法生成标定板位姿
