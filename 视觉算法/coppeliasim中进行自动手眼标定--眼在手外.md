@@ -99,12 +99,39 @@ def fibonacci_sphere(n: int, randomize: bool = False) -> np.ndarray:
 
 
 
+相机标定部分代码
+
+```python
+        # 第一步：检测角点
+        for i,image in enumerate(self.images):
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            ret, corners = cv2.findChessboardCorners(gray, self.board.pattern_size, None)
+            if ret:
+                corners2 = cv2.cornerSubPix(gray, corners, (15, 15), (-1, -1), self.criteria)
+                self.valid_images.append(1)
+                self.imgpoints.append(corners2)
+                self.objpoints.append(self.objp)
+            else:
+                self.valid_images.append(0)
+                print(f"Warning: Chessboard not found in an image {i}.")
+
+        if len(self.imgpoints) == 0:
+            print("No valid chessboard images found!")
+            return
+
+        gray_shape = self.images[0].shape[:2][::-1]  # (width, height)
+        ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(
+            self.objpoints, self.imgpoints, gray_shape, None, None
+        )
+```
 
 
 
 ## 第四步：手眼标定
 
 ![2025-10-20_09-02.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/2dd7c9e0-3f25-47a3-976c-2ef97c717e74.jpeg)
+
+手眼标定部分代码
 
 
 
@@ -115,3 +142,5 @@ def fibonacci_sphere(n: int, randomize: bool = False) -> np.ndarray:
 ![2025-10-20_09-03_1.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/6d7e1c54-a9ad-49d8-9227-1826f8b7181a.jpeg)
 
 ![2025-10-20_09-03_2.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/2c08965c-6166-459d-ac1c-0c7169e241df.jpeg)
+
+![2025-10-20_09-09.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/5aab4905-0994-409d-857e-3f7531a21daf.jpeg)
