@@ -53,6 +53,38 @@ $$
 
 ![2025-10-19_08-39.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/853c6e52-212b-4b02-965a-ae5411c8cb40.jpeg)
 
+```python
+# ===== 工具函数：Fibonacci 球面采样 =====
+def fibonacci_sphere(n: int, randomize: bool = False) -> np.ndarray:
+    """
+    在单位球面上生成 n 个近似均匀分布的点。
+
+    Parameters:
+        n: 点的数量
+        randomize: 是否加入小扰动以打破确定性（可选）
+
+    Returns:
+        points: (n, 3) 数组，每行为单位向量
+    """
+    if n <= 0:
+        return np.empty((0, 3))
+    if n == 1:
+        return np.array([[0, 0, 1.0]])
+
+    indices = np.arange(0, n, dtype=float) + 0.5
+    phi = np.arccos(1 - 2 * indices / n)  # 极角 ∈ [0, π]
+    theta = np.pi * (1 + np.sqrt(5)) * indices  # 方位角，使用黄金角
+
+    if randomize:
+        # 加入小扰动避免完全对称（对某些应用有用）
+        theta += np.random.uniform(-0.1, 0.1, n)
+
+    x = np.cos(theta) * np.sin(phi)
+    y = np.sin(theta) * np.sin(phi)
+    z = np.cos(phi)
+    return np.column_stack((x, y, z))
+```
+
 ## 第三步：标定相机内参
 
 
