@@ -93,6 +93,11 @@ def fibonacci_sphere(n: int, randomize: bool = False) -> np.ndarray:
 4. 加载彩色图像
 5. 开始标定
 
+![2025-10-20_08-59.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/097b7526-516d-4bd9-b271-141c68d82ee1.jpeg)
+
+注意这里获取图像时coppeliasim可能给的和相机坐标系不一致，需要自己自行翻转
+
+
 
 
 ## 第四步：手眼标定
