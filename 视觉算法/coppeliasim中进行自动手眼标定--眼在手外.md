@@ -88,7 +88,8 @@ def fibonacci_sphere(n: int, randomize: bool = False) -> np.ndarray:
 ## 第三步：标定相机内参
 
 1. 生成棋盘格位姿
-2. 控制
+2. 控制机器人到对应位姿
+3. 保存当前彩色图像和
 
 
 
