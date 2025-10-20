@@ -90,7 +90,8 @@ def fibonacci_sphere(n: int, randomize: bool = False) -> np.ndarray:
 1. 生成棋盘格位姿
 2. 控制机器人到对应位姿
 3. 保存当前彩色图像和机器人位姿
-4.
+4. 加载彩色图像
+5. 开始标定
 
 
 
