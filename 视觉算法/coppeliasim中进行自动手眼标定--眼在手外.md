@@ -133,7 +133,47 @@ def fibonacci_sphere(n: int, randomize: bool = False) -> np.ndarray:
 
 手眼标定部分代码
 
+```python
+        boardInCameraPoses = []
+        for rvec, tvec in zip(self.rvecs, self.tvecs):
+            R, _ = cv2.Rodrigues(rvec)  # 3x3 旋转矩阵
+            T = np.eye(4)
+            T[:3, :3] = R
+            T[:3, 3] = tvec.ravel()
+            boardInCameraPoses.append(T)
 
+        R_boardInCameras = [pose[:3, :3] for pose in boardInCameraPoses]
+        T_boardInCameras = [pose[:3, 3] for pose in boardInCameraPoses]
+        R_RobotInTip = [np.linalg.inv(pose)[:3, :3] for pose in detection_poses]
+        T_RobotInTip = [np.linalg.inv(pose)[:3, 3] for pose in detection_poses]
+
+        R_cameraInRobot, T_cameraInRobot = cv2.calibrateHandEye(R_RobotInTip, T_RobotInTip,
+                                                                R_boardInCameras, T_boardInCameras,
+                                                                method=cv2.CALIB_HAND_EYE_DANIILIDIS)
+        cameraInRobot = np.vstack([
+            np.hstack([R_cameraInRobot, T_cameraInRobot.reshape(-1,1)])
+            , np.array([0,0,0,1])
+        ])
+        print("opencv result: \n",cameraInRobot)
+
+        rvec = np.array(cv2.Rodrigues(R_cameraInRobot)[0]).reshape(1, -1)
+        # print("rvec", rvec)
+        pose_init = np.hstack([rvec, T_cameraInRobot.reshape(1, -1)]).reshape(6)
+        # pose_init = np.array([0,0,0,0,0,0])
+        print("pose_init", pose_init)
+        if np.any(np.isnan(pose_init)):
+            pose_init = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+        x_init = np.hstack([pose_init, np.array([0, 0, 0, 0, 0, 0])])
+        res = least_squares(reprojection_residual, x_init,
+                            args=(self.objpoints, self.imgpoints, detection_poses, self.mtx, self.dist),
+                            f_scale=1.0, verbose=2)
+        cameraInRobot = vec_to_se3(res.x[0:6])
+        boardInTip = vec_to_se3(res.x[6:12])
+        print("12 D cameraInRobot\n", cameraInRobot)
+        print("12 D boardInTip\n", boardInTip)
+```
+
+这里首先是利用opencv自带函数进行求解，然后使用最小二乘的方法，最小化重投影误差进行优化
 
 ## 运行过程
 
