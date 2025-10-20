@@ -37,6 +37,9 @@
 
 ![2025-10-20_08-52.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/3f6e8626-b865-4b89-a5a0-49f0b56fa7a0.jpeg)
 
+![2025-10-20_08-53.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/abfa8cb5-b191-4ab3-9804-cc2ea6a004fd.jpeg)
+
+这里选择导入纹理，导入后设置AlongU,AlongV为棋盘格整体的长宽
 
 ## 第二步：使用斐波那契网格采样的方法生成标定板位姿
 
