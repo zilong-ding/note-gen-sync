@@ -97,7 +97,16 @@ def fibonacci_sphere(n: int, randomize: bool = False) -> np.ndarray:
 
 注意这里获取图像时coppeliasim可能给的和相机坐标系不一致，需要自己自行翻转
 
+![2025-10-20_09-02.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/2dd7c9e0-3f25-47a3-976c-2ef97c717e74.jpeg)
+
 
 
 
 ## 第四步：手眼标定
+
+
+
+
+## 运行过程
+
+![2025-10-20_09-03.jpg](https://cdn.jsdelivr.net/gh/zilong-ding/note-gen-image-sync@main/64355082-f12f-4500-a84b-d6ac4154f491.jpeg)
